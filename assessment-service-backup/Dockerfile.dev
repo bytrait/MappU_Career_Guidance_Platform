@@ -1,0 +1,19 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+RUN npm install -g nodemon
+
+COPY prisma ./prisma
+RUN npx prisma generate
+
+COPY . .
+
+COPY wait-for.sh ./wait-for.sh
+RUN chmod +x wait-for.sh
+
+EXPOSE 4002
+
+CMD ["sh", "-c", "./wait-for.sh db:5432 -- nodemon --legacy-watch src/server.js"]

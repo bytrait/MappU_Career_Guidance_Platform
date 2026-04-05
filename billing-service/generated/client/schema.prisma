@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("BILLING_DATABASE_URL")
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  CANCELLED
+}
+
+enum CreditTransactionType {
+  PURCHASE
+  CONSUME
+  REFUND
+  SIGNUP_BONUS
+}
+
+model PaymentOrder {
+  id              String        @id @default(uuid())
+  counsellorId    String
+  razorpayOrderId String        @unique
+  studentCount    Int
+  pricePerStudent Int
+  totalAmount     Int
+  status          PaymentStatus @default(PENDING)
+
+  razorpayPaymentId String?
+  failureReason     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([counsellorId])
+  @@index([status])
+}
+
+model CounsellorCredit {
+  id           String @id @default(uuid())
+  counsellorId String @unique
+  totalCredits Int    @default(0)
+  usedCredits  Int    @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([counsellorId])
+}
+
+model PaymentWebhookLog {
+  id        String   @id @default(uuid())
+  eventType String
+  payload   Json
+  createdAt DateTime @default(now())
+
+  @@index([eventType])
+}
+
+model CreditTransaction {
+  id           String                @id @default(uuid())
+  counsellorId String
+  type         CreditTransactionType
+  amount       Int // + for purchase/refund, - for consume
+  referenceId  String? // PaymentOrder.id or studentId
+  description  String?
+
+  createdAt DateTime @default(now())
+
+  @@index([counsellorId])
+  @@index([type])
+  @@index([createdAt])
+}

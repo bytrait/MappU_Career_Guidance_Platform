@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  assessment-service:
+    build:
+      context: ./assessment-service
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4002:4002"
+    volumes:
+      - /app/node_modules                       
+      - ./assessment-service:/app               
+    env_file:
+      - ./assessment-service/.env.development
+    depends_on:
+      - db
+    develop:
+      watch:
+        - action: sync
+          path: ./assessment-service
+          target: /app
+        - action: rebuild
+          path: ./assessment-service/prisma/schema.prisma
+
+  db:
+    image: postgres:15
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: career_guidance_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

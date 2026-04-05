@@ -1,0 +1,63 @@
+services:
+  ai-career-service:
+    build:
+      context: ./ai-career-service
+      dockerfile: Dockerfile
+    container_name: ai-career-service
+    restart: always
+    environment:
+      DATABASE_URL: postgresql+psycopg2://postgres:Sanket0506@host.docker.internal:5432/career_db
+    ports:
+      - "9000:9000" 
+    volumes:
+      - ./ai-career-service:/app
+
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    container_name: api-gateway
+    restart: always
+    environment:
+      PORT: 4000
+      AI_CAREER_SERVICE_URL: http://ai-career-service:9000
+      ASSESSMENT_SERVICE_URL: http://assessment-service:8200
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./api-gateway:/app
+    depends_on:
+      - ai-career-service
+      - assessment-service
+
+  assessment-service:
+    build:
+      context: ./assessment-service
+      dockerfile: Dockerfile
+    container_name: assessment-service
+    restart: always
+    environment:
+      PORT: 8200
+      DATABASE_URL: postgresql://postgres:Sanket0506@host.docker.internal:5432/assesment_db
+      JWT_SECRET: supersecuresecretkey123
+    ports:
+      - "8200:8200"
+    volumes:
+      - ./assessment-service:/app
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: http://api-gateway:8080/api
+        VITE_AUTH_BASE_URL: https://login.bytrait.com/api/v2
+    container_name: frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - api-gateway
+

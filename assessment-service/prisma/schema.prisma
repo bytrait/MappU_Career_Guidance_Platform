@@ -1,0 +1,114 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/client"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("ASSESSMENT_DATABASE_URL")
+}
+
+enum AssessmentType {
+  OCEAN
+  RIASEC
+  APTITUDE
+}
+
+model AssessmentTrait {
+  id             String           @id @default(uuid())
+  code           String           // e.g., "O", "C", "E", "A", "N", "R", "I", "Q", etc.
+  name           String           // e.g., "Openness", "Realistic", "Quantitative"
+  assessmentType AssessmentType
+
+  questions      Question[]
+
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+
+  @@unique([code, assessmentType]) // Ensure uniqueness per type
+}
+
+model Question {
+  id               String                 @id @default(uuid())
+  traitId          String
+  trait            AssessmentTrait        @relation(fields: [traitId], references: [id])
+  order            Int
+  reverse          Boolean                @default(false)
+  timeLimitSeconds Int?                    // ⏳ NEW: Only used for APTITUDE MCQs
+  translations     QuestionTranslation[]
+  options          QuestionOption[]        // Used for APTITUDE MCQs (and can be empty for OCEAN/RIASEC)
+  createdAt        DateTime               @default(now())
+  updatedAt        DateTime               @updatedAt
+}
+
+model QuestionTranslation {
+  id           String     @id @default(uuid())
+  questionId   String
+  question     Question   @relation(fields: [questionId], references: [id])
+  language     String     // ISO code like "en", "hi", "mr", "fr", etc.
+  text         String
+
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  @@unique([questionId, language]) // prevent duplicate language for same question
+}
+
+model QuestionOption {
+  id           String           @id @default(uuid())
+  questionId   String
+  question     Question         @relation(fields: [questionId], references: [id])
+  order        Int
+  isCorrect    Boolean          @default(false) // Only one correct per question (for Aptitude)
+  translations OptionTranslation[]
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+}
+
+model OptionTranslation {
+  id        String         @id @default(uuid())
+  optionId  String
+  option    QuestionOption @relation(fields: [optionId], references: [id])
+  language  String
+  text      String
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+
+  @@unique([optionId, language])
+}
+
+model AssessmentScore {
+  id                   String          @id @default(uuid())
+  userId               String          @db.Uuid
+  assessmentType       AssessmentType
+  traitOrCategoryCode  String          // e.g., 'O', 'C', 'R', 'I', 'Q', etc.
+  score                Int
+  createdAt            DateTime        @default(now())
+
+  @@index([userId, assessmentType, traitOrCategoryCode])
+}
+
+model UserAssessmentProgress {
+  id             String          @id @default(uuid())
+  userId         String          @db.Uuid
+  currentStage   AssessmentType? // null means all completed
+  startedAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  @@unique([userId])
+}
+
+model UserAssessmentPreference {
+  id               String   @id @default(uuid())
+  userId           String   @db.Uuid
+  preferredLanguage String
+  economicStatus    String
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@unique([userId]) // ensure one preference per user
+}
