@@ -1,0 +1,50 @@
+{
+  "name": "career-guidance-platform",
+  "version": "1.0.0",
+  "description": "Backend service for Career Guidance Platform",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bytrait/career-guidance-platform.git"
+  },
+  "keywords": [
+    "career",
+    "guidance",
+    "nodejs",
+    "express",
+    "prisma"
+  ],
+  "author": "ByTrait",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bytrait/career-guidance-platform/issues"
+  },
+  "homepage": "https://github.com/bytrait/career-guidance-platform#readme",
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "axios": "^1.13.5",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0",
+    "http-proxy-middleware": "^3.0.5",
+    "jsonwebtoken": "^9.0.3",
+    "morgan": "^1.10.1",
+    "prisma": "^5.22.0",
+    "razorpay": "^2.9.6",
+    "winston": "^3.19.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14",
+    "eslint": "^9.0.0"
+  }
+}
