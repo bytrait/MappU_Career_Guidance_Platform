@@ -17,7 +17,7 @@ app.set("trust proxy", 1);
    CORS CONFIG (MUST BE FIRST)
 ======================================================= */
 const corsOrigins = [
-  "https://career.bytrait.com",
+  "https://career-psychometric-assesement.mappmyuniversity.com",
   "http://127.0.0.1:5174",
 ];
 
