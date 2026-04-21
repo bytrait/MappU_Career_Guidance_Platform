@@ -33,6 +33,21 @@ export type PaymentWebhookLog = $Result.DefaultSelection<Prisma.$PaymentWebhookL
  * 
  */
 export type CreditTransaction = $Result.DefaultSelection<Prisma.$CreditTransactionPayload>
+/**
+ * Model CounsellorPricingConfig
+ * 
+ */
+export type CounsellorPricingConfig = $Result.DefaultSelection<Prisma.$CounsellorPricingConfigPayload>
+/**
+ * Model SchoolPricing
+ * 
+ */
+export type SchoolPricing = $Result.DefaultSelection<Prisma.$SchoolPricingPayload>
+/**
+ * Model StudentPayment
+ * 
+ */
+export type StudentPayment = $Result.DefaultSelection<Prisma.$StudentPaymentPayload>
 
 /**
  * Enums
@@ -57,6 +72,26 @@ export const CreditTransactionType: {
 
 export type CreditTransactionType = (typeof CreditTransactionType)[keyof typeof CreditTransactionType]
 
+
+export const RegistrationPricingType: {
+  INDIVIDUAL: 'INDIVIDUAL',
+  SCHOOL: 'SCHOOL'
+};
+
+export type RegistrationPricingType = (typeof RegistrationPricingType)[keyof typeof RegistrationPricingType]
+
+
+export const StudentPaymentStatus: {
+  PENDING: 'PENDING',
+  PAID: 'PAID',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED',
+  FREE: 'FREE',
+  WAIVED: 'WAIVED'
+};
+
+export type StudentPaymentStatus = (typeof StudentPaymentStatus)[keyof typeof StudentPaymentStatus]
+
 }
 
 export type PaymentStatus = $Enums.PaymentStatus
@@ -66,6 +101,14 @@ export const PaymentStatus: typeof $Enums.PaymentStatus
 export type CreditTransactionType = $Enums.CreditTransactionType
 
 export const CreditTransactionType: typeof $Enums.CreditTransactionType
+
+export type RegistrationPricingType = $Enums.RegistrationPricingType
+
+export const RegistrationPricingType: typeof $Enums.RegistrationPricingType
+
+export type StudentPaymentStatus = $Enums.StudentPaymentStatus
+
+export const StudentPaymentStatus: typeof $Enums.StudentPaymentStatus
 
 /**
  * ##  Prisma Client ʲˢ
@@ -229,6 +272,36 @@ export class PrismaClient<
     * ```
     */
   get creditTransaction(): Prisma.CreditTransactionDelegate<ExtArgs>;
+
+  /**
+   * `prisma.counsellorPricingConfig`: Exposes CRUD operations for the **CounsellorPricingConfig** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CounsellorPricingConfigs
+    * const counsellorPricingConfigs = await prisma.counsellorPricingConfig.findMany()
+    * ```
+    */
+  get counsellorPricingConfig(): Prisma.CounsellorPricingConfigDelegate<ExtArgs>;
+
+  /**
+   * `prisma.schoolPricing`: Exposes CRUD operations for the **SchoolPricing** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SchoolPricings
+    * const schoolPricings = await prisma.schoolPricing.findMany()
+    * ```
+    */
+  get schoolPricing(): Prisma.SchoolPricingDelegate<ExtArgs>;
+
+  /**
+   * `prisma.studentPayment`: Exposes CRUD operations for the **StudentPayment** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more StudentPayments
+    * const studentPayments = await prisma.studentPayment.findMany()
+    * ```
+    */
+  get studentPayment(): Prisma.StudentPaymentDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -673,7 +746,10 @@ export namespace Prisma {
     PaymentOrder: 'PaymentOrder',
     CounsellorCredit: 'CounsellorCredit',
     PaymentWebhookLog: 'PaymentWebhookLog',
-    CreditTransaction: 'CreditTransaction'
+    CreditTransaction: 'CreditTransaction',
+    CounsellorPricingConfig: 'CounsellorPricingConfig',
+    SchoolPricing: 'SchoolPricing',
+    StudentPayment: 'StudentPayment'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -689,7 +765,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "paymentOrder" | "counsellorCredit" | "paymentWebhookLog" | "creditTransaction"
+      modelProps: "paymentOrder" | "counsellorCredit" | "paymentWebhookLog" | "creditTransaction" | "counsellorPricingConfig" | "schoolPricing" | "studentPayment"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -973,6 +1049,216 @@ export namespace Prisma {
           }
         }
       }
+      CounsellorPricingConfig: {
+        payload: Prisma.$CounsellorPricingConfigPayload<ExtArgs>
+        fields: Prisma.CounsellorPricingConfigFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CounsellorPricingConfigFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CounsellorPricingConfigPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CounsellorPricingConfigFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CounsellorPricingConfigPayload>
+          }
+          findFirst: {
+            args: Prisma.CounsellorPricingConfigFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CounsellorPricingConfigPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CounsellorPricingConfigFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CounsellorPricingConfigPayload>
+          }
+          findMany: {
+            args: Prisma.CounsellorPricingConfigFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CounsellorPricingConfigPayload>[]
+          }
+          create: {
+            args: Prisma.CounsellorPricingConfigCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CounsellorPricingConfigPayload>
+          }
+          createMany: {
+            args: Prisma.CounsellorPricingConfigCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CounsellorPricingConfigCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CounsellorPricingConfigPayload>[]
+          }
+          delete: {
+            args: Prisma.CounsellorPricingConfigDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CounsellorPricingConfigPayload>
+          }
+          update: {
+            args: Prisma.CounsellorPricingConfigUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CounsellorPricingConfigPayload>
+          }
+          deleteMany: {
+            args: Prisma.CounsellorPricingConfigDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CounsellorPricingConfigUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.CounsellorPricingConfigUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CounsellorPricingConfigPayload>
+          }
+          aggregate: {
+            args: Prisma.CounsellorPricingConfigAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCounsellorPricingConfig>
+          }
+          groupBy: {
+            args: Prisma.CounsellorPricingConfigGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CounsellorPricingConfigGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CounsellorPricingConfigCountArgs<ExtArgs>
+            result: $Utils.Optional<CounsellorPricingConfigCountAggregateOutputType> | number
+          }
+        }
+      }
+      SchoolPricing: {
+        payload: Prisma.$SchoolPricingPayload<ExtArgs>
+        fields: Prisma.SchoolPricingFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SchoolPricingFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SchoolPricingPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SchoolPricingFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SchoolPricingPayload>
+          }
+          findFirst: {
+            args: Prisma.SchoolPricingFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SchoolPricingPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SchoolPricingFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SchoolPricingPayload>
+          }
+          findMany: {
+            args: Prisma.SchoolPricingFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SchoolPricingPayload>[]
+          }
+          create: {
+            args: Prisma.SchoolPricingCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SchoolPricingPayload>
+          }
+          createMany: {
+            args: Prisma.SchoolPricingCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SchoolPricingCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SchoolPricingPayload>[]
+          }
+          delete: {
+            args: Prisma.SchoolPricingDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SchoolPricingPayload>
+          }
+          update: {
+            args: Prisma.SchoolPricingUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SchoolPricingPayload>
+          }
+          deleteMany: {
+            args: Prisma.SchoolPricingDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SchoolPricingUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.SchoolPricingUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SchoolPricingPayload>
+          }
+          aggregate: {
+            args: Prisma.SchoolPricingAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSchoolPricing>
+          }
+          groupBy: {
+            args: Prisma.SchoolPricingGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SchoolPricingGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SchoolPricingCountArgs<ExtArgs>
+            result: $Utils.Optional<SchoolPricingCountAggregateOutputType> | number
+          }
+        }
+      }
+      StudentPayment: {
+        payload: Prisma.$StudentPaymentPayload<ExtArgs>
+        fields: Prisma.StudentPaymentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.StudentPaymentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudentPaymentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.StudentPaymentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudentPaymentPayload>
+          }
+          findFirst: {
+            args: Prisma.StudentPaymentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudentPaymentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.StudentPaymentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudentPaymentPayload>
+          }
+          findMany: {
+            args: Prisma.StudentPaymentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudentPaymentPayload>[]
+          }
+          create: {
+            args: Prisma.StudentPaymentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudentPaymentPayload>
+          }
+          createMany: {
+            args: Prisma.StudentPaymentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.StudentPaymentCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudentPaymentPayload>[]
+          }
+          delete: {
+            args: Prisma.StudentPaymentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudentPaymentPayload>
+          }
+          update: {
+            args: Prisma.StudentPaymentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudentPaymentPayload>
+          }
+          deleteMany: {
+            args: Prisma.StudentPaymentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.StudentPaymentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.StudentPaymentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudentPaymentPayload>
+          }
+          aggregate: {
+            args: Prisma.StudentPaymentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateStudentPayment>
+          }
+          groupBy: {
+            args: Prisma.StudentPaymentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<StudentPaymentGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.StudentPaymentCountArgs<ExtArgs>
+            result: $Utils.Optional<StudentPaymentCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1128,6 +1414,36 @@ export namespace Prisma {
    * Count Types
    */
 
+
+  /**
+   * Count Type CounsellorPricingConfigCountOutputType
+   */
+
+  export type CounsellorPricingConfigCountOutputType = {
+    schoolPrices: number
+  }
+
+  export type CounsellorPricingConfigCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    schoolPrices?: boolean | CounsellorPricingConfigCountOutputTypeCountSchoolPricesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CounsellorPricingConfigCountOutputType without action
+   */
+  export type CounsellorPricingConfigCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CounsellorPricingConfigCountOutputType
+     */
+    select?: CounsellorPricingConfigCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CounsellorPricingConfigCountOutputType without action
+   */
+  export type CounsellorPricingConfigCountOutputTypeCountSchoolPricesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SchoolPricingWhereInput
+  }
 
 
   /**
@@ -4853,6 +5169,3107 @@ export namespace Prisma {
 
 
   /**
+   * Model CounsellorPricingConfig
+   */
+
+  export type AggregateCounsellorPricingConfig = {
+    _count: CounsellorPricingConfigCountAggregateOutputType | null
+    _avg: CounsellorPricingConfigAvgAggregateOutputType | null
+    _sum: CounsellorPricingConfigSumAggregateOutputType | null
+    _min: CounsellorPricingConfigMinAggregateOutputType | null
+    _max: CounsellorPricingConfigMaxAggregateOutputType | null
+  }
+
+  export type CounsellorPricingConfigAvgAggregateOutputType = {
+    individualPrice: number | null
+  }
+
+  export type CounsellorPricingConfigSumAggregateOutputType = {
+    individualPrice: number | null
+  }
+
+  export type CounsellorPricingConfigMinAggregateOutputType = {
+    id: string | null
+    counsellorId: string | null
+    paymentEnabled: boolean | null
+    individualPrice: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type CounsellorPricingConfigMaxAggregateOutputType = {
+    id: string | null
+    counsellorId: string | null
+    paymentEnabled: boolean | null
+    individualPrice: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type CounsellorPricingConfigCountAggregateOutputType = {
+    id: number
+    counsellorId: number
+    paymentEnabled: number
+    individualPrice: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type CounsellorPricingConfigAvgAggregateInputType = {
+    individualPrice?: true
+  }
+
+  export type CounsellorPricingConfigSumAggregateInputType = {
+    individualPrice?: true
+  }
+
+  export type CounsellorPricingConfigMinAggregateInputType = {
+    id?: true
+    counsellorId?: true
+    paymentEnabled?: true
+    individualPrice?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type CounsellorPricingConfigMaxAggregateInputType = {
+    id?: true
+    counsellorId?: true
+    paymentEnabled?: true
+    individualPrice?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type CounsellorPricingConfigCountAggregateInputType = {
+    id?: true
+    counsellorId?: true
+    paymentEnabled?: true
+    individualPrice?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type CounsellorPricingConfigAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CounsellorPricingConfig to aggregate.
+     */
+    where?: CounsellorPricingConfigWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CounsellorPricingConfigs to fetch.
+     */
+    orderBy?: CounsellorPricingConfigOrderByWithRelationInput | CounsellorPricingConfigOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CounsellorPricingConfigWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CounsellorPricingConfigs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CounsellorPricingConfigs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CounsellorPricingConfigs
+    **/
+    _count?: true | CounsellorPricingConfigCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CounsellorPricingConfigAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CounsellorPricingConfigSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CounsellorPricingConfigMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CounsellorPricingConfigMaxAggregateInputType
+  }
+
+  export type GetCounsellorPricingConfigAggregateType<T extends CounsellorPricingConfigAggregateArgs> = {
+        [P in keyof T & keyof AggregateCounsellorPricingConfig]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCounsellorPricingConfig[P]>
+      : GetScalarType<T[P], AggregateCounsellorPricingConfig[P]>
+  }
+
+
+
+
+  export type CounsellorPricingConfigGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CounsellorPricingConfigWhereInput
+    orderBy?: CounsellorPricingConfigOrderByWithAggregationInput | CounsellorPricingConfigOrderByWithAggregationInput[]
+    by: CounsellorPricingConfigScalarFieldEnum[] | CounsellorPricingConfigScalarFieldEnum
+    having?: CounsellorPricingConfigScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CounsellorPricingConfigCountAggregateInputType | true
+    _avg?: CounsellorPricingConfigAvgAggregateInputType
+    _sum?: CounsellorPricingConfigSumAggregateInputType
+    _min?: CounsellorPricingConfigMinAggregateInputType
+    _max?: CounsellorPricingConfigMaxAggregateInputType
+  }
+
+  export type CounsellorPricingConfigGroupByOutputType = {
+    id: string
+    counsellorId: string
+    paymentEnabled: boolean
+    individualPrice: number | null
+    createdAt: Date
+    updatedAt: Date
+    _count: CounsellorPricingConfigCountAggregateOutputType | null
+    _avg: CounsellorPricingConfigAvgAggregateOutputType | null
+    _sum: CounsellorPricingConfigSumAggregateOutputType | null
+    _min: CounsellorPricingConfigMinAggregateOutputType | null
+    _max: CounsellorPricingConfigMaxAggregateOutputType | null
+  }
+
+  type GetCounsellorPricingConfigGroupByPayload<T extends CounsellorPricingConfigGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CounsellorPricingConfigGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CounsellorPricingConfigGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CounsellorPricingConfigGroupByOutputType[P]>
+            : GetScalarType<T[P], CounsellorPricingConfigGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CounsellorPricingConfigSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    counsellorId?: boolean
+    paymentEnabled?: boolean
+    individualPrice?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    schoolPrices?: boolean | CounsellorPricingConfig$schoolPricesArgs<ExtArgs>
+    _count?: boolean | CounsellorPricingConfigCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["counsellorPricingConfig"]>
+
+  export type CounsellorPricingConfigSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    counsellorId?: boolean
+    paymentEnabled?: boolean
+    individualPrice?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["counsellorPricingConfig"]>
+
+  export type CounsellorPricingConfigSelectScalar = {
+    id?: boolean
+    counsellorId?: boolean
+    paymentEnabled?: boolean
+    individualPrice?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type CounsellorPricingConfigInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    schoolPrices?: boolean | CounsellorPricingConfig$schoolPricesArgs<ExtArgs>
+    _count?: boolean | CounsellorPricingConfigCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type CounsellorPricingConfigIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $CounsellorPricingConfigPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CounsellorPricingConfig"
+    objects: {
+      schoolPrices: Prisma.$SchoolPricingPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      counsellorId: string
+      paymentEnabled: boolean
+      individualPrice: number | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["counsellorPricingConfig"]>
+    composites: {}
+  }
+
+  type CounsellorPricingConfigGetPayload<S extends boolean | null | undefined | CounsellorPricingConfigDefaultArgs> = $Result.GetResult<Prisma.$CounsellorPricingConfigPayload, S>
+
+  type CounsellorPricingConfigCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<CounsellorPricingConfigFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: CounsellorPricingConfigCountAggregateInputType | true
+    }
+
+  export interface CounsellorPricingConfigDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CounsellorPricingConfig'], meta: { name: 'CounsellorPricingConfig' } }
+    /**
+     * Find zero or one CounsellorPricingConfig that matches the filter.
+     * @param {CounsellorPricingConfigFindUniqueArgs} args - Arguments to find a CounsellorPricingConfig
+     * @example
+     * // Get one CounsellorPricingConfig
+     * const counsellorPricingConfig = await prisma.counsellorPricingConfig.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CounsellorPricingConfigFindUniqueArgs>(args: SelectSubset<T, CounsellorPricingConfigFindUniqueArgs<ExtArgs>>): Prisma__CounsellorPricingConfigClient<$Result.GetResult<Prisma.$CounsellorPricingConfigPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one CounsellorPricingConfig that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {CounsellorPricingConfigFindUniqueOrThrowArgs} args - Arguments to find a CounsellorPricingConfig
+     * @example
+     * // Get one CounsellorPricingConfig
+     * const counsellorPricingConfig = await prisma.counsellorPricingConfig.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CounsellorPricingConfigFindUniqueOrThrowArgs>(args: SelectSubset<T, CounsellorPricingConfigFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CounsellorPricingConfigClient<$Result.GetResult<Prisma.$CounsellorPricingConfigPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first CounsellorPricingConfig that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CounsellorPricingConfigFindFirstArgs} args - Arguments to find a CounsellorPricingConfig
+     * @example
+     * // Get one CounsellorPricingConfig
+     * const counsellorPricingConfig = await prisma.counsellorPricingConfig.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CounsellorPricingConfigFindFirstArgs>(args?: SelectSubset<T, CounsellorPricingConfigFindFirstArgs<ExtArgs>>): Prisma__CounsellorPricingConfigClient<$Result.GetResult<Prisma.$CounsellorPricingConfigPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first CounsellorPricingConfig that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CounsellorPricingConfigFindFirstOrThrowArgs} args - Arguments to find a CounsellorPricingConfig
+     * @example
+     * // Get one CounsellorPricingConfig
+     * const counsellorPricingConfig = await prisma.counsellorPricingConfig.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CounsellorPricingConfigFindFirstOrThrowArgs>(args?: SelectSubset<T, CounsellorPricingConfigFindFirstOrThrowArgs<ExtArgs>>): Prisma__CounsellorPricingConfigClient<$Result.GetResult<Prisma.$CounsellorPricingConfigPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more CounsellorPricingConfigs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CounsellorPricingConfigFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CounsellorPricingConfigs
+     * const counsellorPricingConfigs = await prisma.counsellorPricingConfig.findMany()
+     * 
+     * // Get first 10 CounsellorPricingConfigs
+     * const counsellorPricingConfigs = await prisma.counsellorPricingConfig.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const counsellorPricingConfigWithIdOnly = await prisma.counsellorPricingConfig.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CounsellorPricingConfigFindManyArgs>(args?: SelectSubset<T, CounsellorPricingConfigFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CounsellorPricingConfigPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a CounsellorPricingConfig.
+     * @param {CounsellorPricingConfigCreateArgs} args - Arguments to create a CounsellorPricingConfig.
+     * @example
+     * // Create one CounsellorPricingConfig
+     * const CounsellorPricingConfig = await prisma.counsellorPricingConfig.create({
+     *   data: {
+     *     // ... data to create a CounsellorPricingConfig
+     *   }
+     * })
+     * 
+     */
+    create<T extends CounsellorPricingConfigCreateArgs>(args: SelectSubset<T, CounsellorPricingConfigCreateArgs<ExtArgs>>): Prisma__CounsellorPricingConfigClient<$Result.GetResult<Prisma.$CounsellorPricingConfigPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many CounsellorPricingConfigs.
+     * @param {CounsellorPricingConfigCreateManyArgs} args - Arguments to create many CounsellorPricingConfigs.
+     * @example
+     * // Create many CounsellorPricingConfigs
+     * const counsellorPricingConfig = await prisma.counsellorPricingConfig.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CounsellorPricingConfigCreateManyArgs>(args?: SelectSubset<T, CounsellorPricingConfigCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CounsellorPricingConfigs and returns the data saved in the database.
+     * @param {CounsellorPricingConfigCreateManyAndReturnArgs} args - Arguments to create many CounsellorPricingConfigs.
+     * @example
+     * // Create many CounsellorPricingConfigs
+     * const counsellorPricingConfig = await prisma.counsellorPricingConfig.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CounsellorPricingConfigs and only return the `id`
+     * const counsellorPricingConfigWithIdOnly = await prisma.counsellorPricingConfig.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CounsellorPricingConfigCreateManyAndReturnArgs>(args?: SelectSubset<T, CounsellorPricingConfigCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CounsellorPricingConfigPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a CounsellorPricingConfig.
+     * @param {CounsellorPricingConfigDeleteArgs} args - Arguments to delete one CounsellorPricingConfig.
+     * @example
+     * // Delete one CounsellorPricingConfig
+     * const CounsellorPricingConfig = await prisma.counsellorPricingConfig.delete({
+     *   where: {
+     *     // ... filter to delete one CounsellorPricingConfig
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CounsellorPricingConfigDeleteArgs>(args: SelectSubset<T, CounsellorPricingConfigDeleteArgs<ExtArgs>>): Prisma__CounsellorPricingConfigClient<$Result.GetResult<Prisma.$CounsellorPricingConfigPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one CounsellorPricingConfig.
+     * @param {CounsellorPricingConfigUpdateArgs} args - Arguments to update one CounsellorPricingConfig.
+     * @example
+     * // Update one CounsellorPricingConfig
+     * const counsellorPricingConfig = await prisma.counsellorPricingConfig.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CounsellorPricingConfigUpdateArgs>(args: SelectSubset<T, CounsellorPricingConfigUpdateArgs<ExtArgs>>): Prisma__CounsellorPricingConfigClient<$Result.GetResult<Prisma.$CounsellorPricingConfigPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more CounsellorPricingConfigs.
+     * @param {CounsellorPricingConfigDeleteManyArgs} args - Arguments to filter CounsellorPricingConfigs to delete.
+     * @example
+     * // Delete a few CounsellorPricingConfigs
+     * const { count } = await prisma.counsellorPricingConfig.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CounsellorPricingConfigDeleteManyArgs>(args?: SelectSubset<T, CounsellorPricingConfigDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CounsellorPricingConfigs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CounsellorPricingConfigUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CounsellorPricingConfigs
+     * const counsellorPricingConfig = await prisma.counsellorPricingConfig.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CounsellorPricingConfigUpdateManyArgs>(args: SelectSubset<T, CounsellorPricingConfigUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one CounsellorPricingConfig.
+     * @param {CounsellorPricingConfigUpsertArgs} args - Arguments to update or create a CounsellorPricingConfig.
+     * @example
+     * // Update or create a CounsellorPricingConfig
+     * const counsellorPricingConfig = await prisma.counsellorPricingConfig.upsert({
+     *   create: {
+     *     // ... data to create a CounsellorPricingConfig
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CounsellorPricingConfig we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CounsellorPricingConfigUpsertArgs>(args: SelectSubset<T, CounsellorPricingConfigUpsertArgs<ExtArgs>>): Prisma__CounsellorPricingConfigClient<$Result.GetResult<Prisma.$CounsellorPricingConfigPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of CounsellorPricingConfigs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CounsellorPricingConfigCountArgs} args - Arguments to filter CounsellorPricingConfigs to count.
+     * @example
+     * // Count the number of CounsellorPricingConfigs
+     * const count = await prisma.counsellorPricingConfig.count({
+     *   where: {
+     *     // ... the filter for the CounsellorPricingConfigs we want to count
+     *   }
+     * })
+    **/
+    count<T extends CounsellorPricingConfigCountArgs>(
+      args?: Subset<T, CounsellorPricingConfigCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CounsellorPricingConfigCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CounsellorPricingConfig.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CounsellorPricingConfigAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CounsellorPricingConfigAggregateArgs>(args: Subset<T, CounsellorPricingConfigAggregateArgs>): Prisma.PrismaPromise<GetCounsellorPricingConfigAggregateType<T>>
+
+    /**
+     * Group by CounsellorPricingConfig.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CounsellorPricingConfigGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CounsellorPricingConfigGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CounsellorPricingConfigGroupByArgs['orderBy'] }
+        : { orderBy?: CounsellorPricingConfigGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CounsellorPricingConfigGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCounsellorPricingConfigGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CounsellorPricingConfig model
+   */
+  readonly fields: CounsellorPricingConfigFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CounsellorPricingConfig.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CounsellorPricingConfigClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    schoolPrices<T extends CounsellorPricingConfig$schoolPricesArgs<ExtArgs> = {}>(args?: Subset<T, CounsellorPricingConfig$schoolPricesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SchoolPricingPayload<ExtArgs>, T, "findMany"> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CounsellorPricingConfig model
+   */ 
+  interface CounsellorPricingConfigFieldRefs {
+    readonly id: FieldRef<"CounsellorPricingConfig", 'String'>
+    readonly counsellorId: FieldRef<"CounsellorPricingConfig", 'String'>
+    readonly paymentEnabled: FieldRef<"CounsellorPricingConfig", 'Boolean'>
+    readonly individualPrice: FieldRef<"CounsellorPricingConfig", 'Int'>
+    readonly createdAt: FieldRef<"CounsellorPricingConfig", 'DateTime'>
+    readonly updatedAt: FieldRef<"CounsellorPricingConfig", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CounsellorPricingConfig findUnique
+   */
+  export type CounsellorPricingConfigFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CounsellorPricingConfig
+     */
+    select?: CounsellorPricingConfigSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CounsellorPricingConfigInclude<ExtArgs> | null
+    /**
+     * Filter, which CounsellorPricingConfig to fetch.
+     */
+    where: CounsellorPricingConfigWhereUniqueInput
+  }
+
+  /**
+   * CounsellorPricingConfig findUniqueOrThrow
+   */
+  export type CounsellorPricingConfigFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CounsellorPricingConfig
+     */
+    select?: CounsellorPricingConfigSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CounsellorPricingConfigInclude<ExtArgs> | null
+    /**
+     * Filter, which CounsellorPricingConfig to fetch.
+     */
+    where: CounsellorPricingConfigWhereUniqueInput
+  }
+
+  /**
+   * CounsellorPricingConfig findFirst
+   */
+  export type CounsellorPricingConfigFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CounsellorPricingConfig
+     */
+    select?: CounsellorPricingConfigSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CounsellorPricingConfigInclude<ExtArgs> | null
+    /**
+     * Filter, which CounsellorPricingConfig to fetch.
+     */
+    where?: CounsellorPricingConfigWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CounsellorPricingConfigs to fetch.
+     */
+    orderBy?: CounsellorPricingConfigOrderByWithRelationInput | CounsellorPricingConfigOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CounsellorPricingConfigs.
+     */
+    cursor?: CounsellorPricingConfigWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CounsellorPricingConfigs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CounsellorPricingConfigs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CounsellorPricingConfigs.
+     */
+    distinct?: CounsellorPricingConfigScalarFieldEnum | CounsellorPricingConfigScalarFieldEnum[]
+  }
+
+  /**
+   * CounsellorPricingConfig findFirstOrThrow
+   */
+  export type CounsellorPricingConfigFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CounsellorPricingConfig
+     */
+    select?: CounsellorPricingConfigSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CounsellorPricingConfigInclude<ExtArgs> | null
+    /**
+     * Filter, which CounsellorPricingConfig to fetch.
+     */
+    where?: CounsellorPricingConfigWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CounsellorPricingConfigs to fetch.
+     */
+    orderBy?: CounsellorPricingConfigOrderByWithRelationInput | CounsellorPricingConfigOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CounsellorPricingConfigs.
+     */
+    cursor?: CounsellorPricingConfigWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CounsellorPricingConfigs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CounsellorPricingConfigs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CounsellorPricingConfigs.
+     */
+    distinct?: CounsellorPricingConfigScalarFieldEnum | CounsellorPricingConfigScalarFieldEnum[]
+  }
+
+  /**
+   * CounsellorPricingConfig findMany
+   */
+  export type CounsellorPricingConfigFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CounsellorPricingConfig
+     */
+    select?: CounsellorPricingConfigSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CounsellorPricingConfigInclude<ExtArgs> | null
+    /**
+     * Filter, which CounsellorPricingConfigs to fetch.
+     */
+    where?: CounsellorPricingConfigWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CounsellorPricingConfigs to fetch.
+     */
+    orderBy?: CounsellorPricingConfigOrderByWithRelationInput | CounsellorPricingConfigOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CounsellorPricingConfigs.
+     */
+    cursor?: CounsellorPricingConfigWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CounsellorPricingConfigs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CounsellorPricingConfigs.
+     */
+    skip?: number
+    distinct?: CounsellorPricingConfigScalarFieldEnum | CounsellorPricingConfigScalarFieldEnum[]
+  }
+
+  /**
+   * CounsellorPricingConfig create
+   */
+  export type CounsellorPricingConfigCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CounsellorPricingConfig
+     */
+    select?: CounsellorPricingConfigSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CounsellorPricingConfigInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CounsellorPricingConfig.
+     */
+    data: XOR<CounsellorPricingConfigCreateInput, CounsellorPricingConfigUncheckedCreateInput>
+  }
+
+  /**
+   * CounsellorPricingConfig createMany
+   */
+  export type CounsellorPricingConfigCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CounsellorPricingConfigs.
+     */
+    data: CounsellorPricingConfigCreateManyInput | CounsellorPricingConfigCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CounsellorPricingConfig createManyAndReturn
+   */
+  export type CounsellorPricingConfigCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CounsellorPricingConfig
+     */
+    select?: CounsellorPricingConfigSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many CounsellorPricingConfigs.
+     */
+    data: CounsellorPricingConfigCreateManyInput | CounsellorPricingConfigCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CounsellorPricingConfig update
+   */
+  export type CounsellorPricingConfigUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CounsellorPricingConfig
+     */
+    select?: CounsellorPricingConfigSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CounsellorPricingConfigInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CounsellorPricingConfig.
+     */
+    data: XOR<CounsellorPricingConfigUpdateInput, CounsellorPricingConfigUncheckedUpdateInput>
+    /**
+     * Choose, which CounsellorPricingConfig to update.
+     */
+    where: CounsellorPricingConfigWhereUniqueInput
+  }
+
+  /**
+   * CounsellorPricingConfig updateMany
+   */
+  export type CounsellorPricingConfigUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CounsellorPricingConfigs.
+     */
+    data: XOR<CounsellorPricingConfigUpdateManyMutationInput, CounsellorPricingConfigUncheckedUpdateManyInput>
+    /**
+     * Filter which CounsellorPricingConfigs to update
+     */
+    where?: CounsellorPricingConfigWhereInput
+  }
+
+  /**
+   * CounsellorPricingConfig upsert
+   */
+  export type CounsellorPricingConfigUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CounsellorPricingConfig
+     */
+    select?: CounsellorPricingConfigSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CounsellorPricingConfigInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CounsellorPricingConfig to update in case it exists.
+     */
+    where: CounsellorPricingConfigWhereUniqueInput
+    /**
+     * In case the CounsellorPricingConfig found by the `where` argument doesn't exist, create a new CounsellorPricingConfig with this data.
+     */
+    create: XOR<CounsellorPricingConfigCreateInput, CounsellorPricingConfigUncheckedCreateInput>
+    /**
+     * In case the CounsellorPricingConfig was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CounsellorPricingConfigUpdateInput, CounsellorPricingConfigUncheckedUpdateInput>
+  }
+
+  /**
+   * CounsellorPricingConfig delete
+   */
+  export type CounsellorPricingConfigDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CounsellorPricingConfig
+     */
+    select?: CounsellorPricingConfigSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CounsellorPricingConfigInclude<ExtArgs> | null
+    /**
+     * Filter which CounsellorPricingConfig to delete.
+     */
+    where: CounsellorPricingConfigWhereUniqueInput
+  }
+
+  /**
+   * CounsellorPricingConfig deleteMany
+   */
+  export type CounsellorPricingConfigDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CounsellorPricingConfigs to delete
+     */
+    where?: CounsellorPricingConfigWhereInput
+  }
+
+  /**
+   * CounsellorPricingConfig.schoolPrices
+   */
+  export type CounsellorPricingConfig$schoolPricesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SchoolPricing
+     */
+    select?: SchoolPricingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SchoolPricingInclude<ExtArgs> | null
+    where?: SchoolPricingWhereInput
+    orderBy?: SchoolPricingOrderByWithRelationInput | SchoolPricingOrderByWithRelationInput[]
+    cursor?: SchoolPricingWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SchoolPricingScalarFieldEnum | SchoolPricingScalarFieldEnum[]
+  }
+
+  /**
+   * CounsellorPricingConfig without action
+   */
+  export type CounsellorPricingConfigDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CounsellorPricingConfig
+     */
+    select?: CounsellorPricingConfigSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CounsellorPricingConfigInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SchoolPricing
+   */
+
+  export type AggregateSchoolPricing = {
+    _count: SchoolPricingCountAggregateOutputType | null
+    _avg: SchoolPricingAvgAggregateOutputType | null
+    _sum: SchoolPricingSumAggregateOutputType | null
+    _min: SchoolPricingMinAggregateOutputType | null
+    _max: SchoolPricingMaxAggregateOutputType | null
+  }
+
+  export type SchoolPricingAvgAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type SchoolPricingSumAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type SchoolPricingMinAggregateOutputType = {
+    id: string | null
+    pricingConfigId: string | null
+    counsellorId: string | null
+    schoolId: string | null
+    schoolName: string | null
+    amount: number | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SchoolPricingMaxAggregateOutputType = {
+    id: string | null
+    pricingConfigId: string | null
+    counsellorId: string | null
+    schoolId: string | null
+    schoolName: string | null
+    amount: number | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SchoolPricingCountAggregateOutputType = {
+    id: number
+    pricingConfigId: number
+    counsellorId: number
+    schoolId: number
+    schoolName: number
+    amount: number
+    isActive: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type SchoolPricingAvgAggregateInputType = {
+    amount?: true
+  }
+
+  export type SchoolPricingSumAggregateInputType = {
+    amount?: true
+  }
+
+  export type SchoolPricingMinAggregateInputType = {
+    id?: true
+    pricingConfigId?: true
+    counsellorId?: true
+    schoolId?: true
+    schoolName?: true
+    amount?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SchoolPricingMaxAggregateInputType = {
+    id?: true
+    pricingConfigId?: true
+    counsellorId?: true
+    schoolId?: true
+    schoolName?: true
+    amount?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SchoolPricingCountAggregateInputType = {
+    id?: true
+    pricingConfigId?: true
+    counsellorId?: true
+    schoolId?: true
+    schoolName?: true
+    amount?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type SchoolPricingAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SchoolPricing to aggregate.
+     */
+    where?: SchoolPricingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SchoolPricings to fetch.
+     */
+    orderBy?: SchoolPricingOrderByWithRelationInput | SchoolPricingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SchoolPricingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SchoolPricings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SchoolPricings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SchoolPricings
+    **/
+    _count?: true | SchoolPricingCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SchoolPricingAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SchoolPricingSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SchoolPricingMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SchoolPricingMaxAggregateInputType
+  }
+
+  export type GetSchoolPricingAggregateType<T extends SchoolPricingAggregateArgs> = {
+        [P in keyof T & keyof AggregateSchoolPricing]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSchoolPricing[P]>
+      : GetScalarType<T[P], AggregateSchoolPricing[P]>
+  }
+
+
+
+
+  export type SchoolPricingGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SchoolPricingWhereInput
+    orderBy?: SchoolPricingOrderByWithAggregationInput | SchoolPricingOrderByWithAggregationInput[]
+    by: SchoolPricingScalarFieldEnum[] | SchoolPricingScalarFieldEnum
+    having?: SchoolPricingScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SchoolPricingCountAggregateInputType | true
+    _avg?: SchoolPricingAvgAggregateInputType
+    _sum?: SchoolPricingSumAggregateInputType
+    _min?: SchoolPricingMinAggregateInputType
+    _max?: SchoolPricingMaxAggregateInputType
+  }
+
+  export type SchoolPricingGroupByOutputType = {
+    id: string
+    pricingConfigId: string
+    counsellorId: string
+    schoolId: string
+    schoolName: string
+    amount: number
+    isActive: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: SchoolPricingCountAggregateOutputType | null
+    _avg: SchoolPricingAvgAggregateOutputType | null
+    _sum: SchoolPricingSumAggregateOutputType | null
+    _min: SchoolPricingMinAggregateOutputType | null
+    _max: SchoolPricingMaxAggregateOutputType | null
+  }
+
+  type GetSchoolPricingGroupByPayload<T extends SchoolPricingGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SchoolPricingGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SchoolPricingGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SchoolPricingGroupByOutputType[P]>
+            : GetScalarType<T[P], SchoolPricingGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SchoolPricingSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    pricingConfigId?: boolean
+    counsellorId?: boolean
+    schoolId?: boolean
+    schoolName?: boolean
+    amount?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    pricingConfig?: boolean | CounsellorPricingConfigDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["schoolPricing"]>
+
+  export type SchoolPricingSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    pricingConfigId?: boolean
+    counsellorId?: boolean
+    schoolId?: boolean
+    schoolName?: boolean
+    amount?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    pricingConfig?: boolean | CounsellorPricingConfigDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["schoolPricing"]>
+
+  export type SchoolPricingSelectScalar = {
+    id?: boolean
+    pricingConfigId?: boolean
+    counsellorId?: boolean
+    schoolId?: boolean
+    schoolName?: boolean
+    amount?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type SchoolPricingInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    pricingConfig?: boolean | CounsellorPricingConfigDefaultArgs<ExtArgs>
+  }
+  export type SchoolPricingIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    pricingConfig?: boolean | CounsellorPricingConfigDefaultArgs<ExtArgs>
+  }
+
+  export type $SchoolPricingPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SchoolPricing"
+    objects: {
+      pricingConfig: Prisma.$CounsellorPricingConfigPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      pricingConfigId: string
+      counsellorId: string
+      schoolId: string
+      schoolName: string
+      amount: number
+      isActive: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["schoolPricing"]>
+    composites: {}
+  }
+
+  type SchoolPricingGetPayload<S extends boolean | null | undefined | SchoolPricingDefaultArgs> = $Result.GetResult<Prisma.$SchoolPricingPayload, S>
+
+  type SchoolPricingCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<SchoolPricingFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: SchoolPricingCountAggregateInputType | true
+    }
+
+  export interface SchoolPricingDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SchoolPricing'], meta: { name: 'SchoolPricing' } }
+    /**
+     * Find zero or one SchoolPricing that matches the filter.
+     * @param {SchoolPricingFindUniqueArgs} args - Arguments to find a SchoolPricing
+     * @example
+     * // Get one SchoolPricing
+     * const schoolPricing = await prisma.schoolPricing.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SchoolPricingFindUniqueArgs>(args: SelectSubset<T, SchoolPricingFindUniqueArgs<ExtArgs>>): Prisma__SchoolPricingClient<$Result.GetResult<Prisma.$SchoolPricingPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one SchoolPricing that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {SchoolPricingFindUniqueOrThrowArgs} args - Arguments to find a SchoolPricing
+     * @example
+     * // Get one SchoolPricing
+     * const schoolPricing = await prisma.schoolPricing.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SchoolPricingFindUniqueOrThrowArgs>(args: SelectSubset<T, SchoolPricingFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SchoolPricingClient<$Result.GetResult<Prisma.$SchoolPricingPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first SchoolPricing that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SchoolPricingFindFirstArgs} args - Arguments to find a SchoolPricing
+     * @example
+     * // Get one SchoolPricing
+     * const schoolPricing = await prisma.schoolPricing.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SchoolPricingFindFirstArgs>(args?: SelectSubset<T, SchoolPricingFindFirstArgs<ExtArgs>>): Prisma__SchoolPricingClient<$Result.GetResult<Prisma.$SchoolPricingPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first SchoolPricing that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SchoolPricingFindFirstOrThrowArgs} args - Arguments to find a SchoolPricing
+     * @example
+     * // Get one SchoolPricing
+     * const schoolPricing = await prisma.schoolPricing.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SchoolPricingFindFirstOrThrowArgs>(args?: SelectSubset<T, SchoolPricingFindFirstOrThrowArgs<ExtArgs>>): Prisma__SchoolPricingClient<$Result.GetResult<Prisma.$SchoolPricingPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more SchoolPricings that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SchoolPricingFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SchoolPricings
+     * const schoolPricings = await prisma.schoolPricing.findMany()
+     * 
+     * // Get first 10 SchoolPricings
+     * const schoolPricings = await prisma.schoolPricing.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const schoolPricingWithIdOnly = await prisma.schoolPricing.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SchoolPricingFindManyArgs>(args?: SelectSubset<T, SchoolPricingFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SchoolPricingPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a SchoolPricing.
+     * @param {SchoolPricingCreateArgs} args - Arguments to create a SchoolPricing.
+     * @example
+     * // Create one SchoolPricing
+     * const SchoolPricing = await prisma.schoolPricing.create({
+     *   data: {
+     *     // ... data to create a SchoolPricing
+     *   }
+     * })
+     * 
+     */
+    create<T extends SchoolPricingCreateArgs>(args: SelectSubset<T, SchoolPricingCreateArgs<ExtArgs>>): Prisma__SchoolPricingClient<$Result.GetResult<Prisma.$SchoolPricingPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many SchoolPricings.
+     * @param {SchoolPricingCreateManyArgs} args - Arguments to create many SchoolPricings.
+     * @example
+     * // Create many SchoolPricings
+     * const schoolPricing = await prisma.schoolPricing.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SchoolPricingCreateManyArgs>(args?: SelectSubset<T, SchoolPricingCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SchoolPricings and returns the data saved in the database.
+     * @param {SchoolPricingCreateManyAndReturnArgs} args - Arguments to create many SchoolPricings.
+     * @example
+     * // Create many SchoolPricings
+     * const schoolPricing = await prisma.schoolPricing.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many SchoolPricings and only return the `id`
+     * const schoolPricingWithIdOnly = await prisma.schoolPricing.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SchoolPricingCreateManyAndReturnArgs>(args?: SelectSubset<T, SchoolPricingCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SchoolPricingPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a SchoolPricing.
+     * @param {SchoolPricingDeleteArgs} args - Arguments to delete one SchoolPricing.
+     * @example
+     * // Delete one SchoolPricing
+     * const SchoolPricing = await prisma.schoolPricing.delete({
+     *   where: {
+     *     // ... filter to delete one SchoolPricing
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SchoolPricingDeleteArgs>(args: SelectSubset<T, SchoolPricingDeleteArgs<ExtArgs>>): Prisma__SchoolPricingClient<$Result.GetResult<Prisma.$SchoolPricingPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one SchoolPricing.
+     * @param {SchoolPricingUpdateArgs} args - Arguments to update one SchoolPricing.
+     * @example
+     * // Update one SchoolPricing
+     * const schoolPricing = await prisma.schoolPricing.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SchoolPricingUpdateArgs>(args: SelectSubset<T, SchoolPricingUpdateArgs<ExtArgs>>): Prisma__SchoolPricingClient<$Result.GetResult<Prisma.$SchoolPricingPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more SchoolPricings.
+     * @param {SchoolPricingDeleteManyArgs} args - Arguments to filter SchoolPricings to delete.
+     * @example
+     * // Delete a few SchoolPricings
+     * const { count } = await prisma.schoolPricing.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SchoolPricingDeleteManyArgs>(args?: SelectSubset<T, SchoolPricingDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SchoolPricings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SchoolPricingUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SchoolPricings
+     * const schoolPricing = await prisma.schoolPricing.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SchoolPricingUpdateManyArgs>(args: SelectSubset<T, SchoolPricingUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one SchoolPricing.
+     * @param {SchoolPricingUpsertArgs} args - Arguments to update or create a SchoolPricing.
+     * @example
+     * // Update or create a SchoolPricing
+     * const schoolPricing = await prisma.schoolPricing.upsert({
+     *   create: {
+     *     // ... data to create a SchoolPricing
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SchoolPricing we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SchoolPricingUpsertArgs>(args: SelectSubset<T, SchoolPricingUpsertArgs<ExtArgs>>): Prisma__SchoolPricingClient<$Result.GetResult<Prisma.$SchoolPricingPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of SchoolPricings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SchoolPricingCountArgs} args - Arguments to filter SchoolPricings to count.
+     * @example
+     * // Count the number of SchoolPricings
+     * const count = await prisma.schoolPricing.count({
+     *   where: {
+     *     // ... the filter for the SchoolPricings we want to count
+     *   }
+     * })
+    **/
+    count<T extends SchoolPricingCountArgs>(
+      args?: Subset<T, SchoolPricingCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SchoolPricingCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SchoolPricing.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SchoolPricingAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SchoolPricingAggregateArgs>(args: Subset<T, SchoolPricingAggregateArgs>): Prisma.PrismaPromise<GetSchoolPricingAggregateType<T>>
+
+    /**
+     * Group by SchoolPricing.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SchoolPricingGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SchoolPricingGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SchoolPricingGroupByArgs['orderBy'] }
+        : { orderBy?: SchoolPricingGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SchoolPricingGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSchoolPricingGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SchoolPricing model
+   */
+  readonly fields: SchoolPricingFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SchoolPricing.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SchoolPricingClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    pricingConfig<T extends CounsellorPricingConfigDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CounsellorPricingConfigDefaultArgs<ExtArgs>>): Prisma__CounsellorPricingConfigClient<$Result.GetResult<Prisma.$CounsellorPricingConfigPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SchoolPricing model
+   */ 
+  interface SchoolPricingFieldRefs {
+    readonly id: FieldRef<"SchoolPricing", 'String'>
+    readonly pricingConfigId: FieldRef<"SchoolPricing", 'String'>
+    readonly counsellorId: FieldRef<"SchoolPricing", 'String'>
+    readonly schoolId: FieldRef<"SchoolPricing", 'String'>
+    readonly schoolName: FieldRef<"SchoolPricing", 'String'>
+    readonly amount: FieldRef<"SchoolPricing", 'Int'>
+    readonly isActive: FieldRef<"SchoolPricing", 'Boolean'>
+    readonly createdAt: FieldRef<"SchoolPricing", 'DateTime'>
+    readonly updatedAt: FieldRef<"SchoolPricing", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SchoolPricing findUnique
+   */
+  export type SchoolPricingFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SchoolPricing
+     */
+    select?: SchoolPricingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SchoolPricingInclude<ExtArgs> | null
+    /**
+     * Filter, which SchoolPricing to fetch.
+     */
+    where: SchoolPricingWhereUniqueInput
+  }
+
+  /**
+   * SchoolPricing findUniqueOrThrow
+   */
+  export type SchoolPricingFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SchoolPricing
+     */
+    select?: SchoolPricingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SchoolPricingInclude<ExtArgs> | null
+    /**
+     * Filter, which SchoolPricing to fetch.
+     */
+    where: SchoolPricingWhereUniqueInput
+  }
+
+  /**
+   * SchoolPricing findFirst
+   */
+  export type SchoolPricingFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SchoolPricing
+     */
+    select?: SchoolPricingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SchoolPricingInclude<ExtArgs> | null
+    /**
+     * Filter, which SchoolPricing to fetch.
+     */
+    where?: SchoolPricingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SchoolPricings to fetch.
+     */
+    orderBy?: SchoolPricingOrderByWithRelationInput | SchoolPricingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SchoolPricings.
+     */
+    cursor?: SchoolPricingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SchoolPricings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SchoolPricings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SchoolPricings.
+     */
+    distinct?: SchoolPricingScalarFieldEnum | SchoolPricingScalarFieldEnum[]
+  }
+
+  /**
+   * SchoolPricing findFirstOrThrow
+   */
+  export type SchoolPricingFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SchoolPricing
+     */
+    select?: SchoolPricingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SchoolPricingInclude<ExtArgs> | null
+    /**
+     * Filter, which SchoolPricing to fetch.
+     */
+    where?: SchoolPricingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SchoolPricings to fetch.
+     */
+    orderBy?: SchoolPricingOrderByWithRelationInput | SchoolPricingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SchoolPricings.
+     */
+    cursor?: SchoolPricingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SchoolPricings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SchoolPricings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SchoolPricings.
+     */
+    distinct?: SchoolPricingScalarFieldEnum | SchoolPricingScalarFieldEnum[]
+  }
+
+  /**
+   * SchoolPricing findMany
+   */
+  export type SchoolPricingFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SchoolPricing
+     */
+    select?: SchoolPricingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SchoolPricingInclude<ExtArgs> | null
+    /**
+     * Filter, which SchoolPricings to fetch.
+     */
+    where?: SchoolPricingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SchoolPricings to fetch.
+     */
+    orderBy?: SchoolPricingOrderByWithRelationInput | SchoolPricingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SchoolPricings.
+     */
+    cursor?: SchoolPricingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SchoolPricings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SchoolPricings.
+     */
+    skip?: number
+    distinct?: SchoolPricingScalarFieldEnum | SchoolPricingScalarFieldEnum[]
+  }
+
+  /**
+   * SchoolPricing create
+   */
+  export type SchoolPricingCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SchoolPricing
+     */
+    select?: SchoolPricingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SchoolPricingInclude<ExtArgs> | null
+    /**
+     * The data needed to create a SchoolPricing.
+     */
+    data: XOR<SchoolPricingCreateInput, SchoolPricingUncheckedCreateInput>
+  }
+
+  /**
+   * SchoolPricing createMany
+   */
+  export type SchoolPricingCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SchoolPricings.
+     */
+    data: SchoolPricingCreateManyInput | SchoolPricingCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SchoolPricing createManyAndReturn
+   */
+  export type SchoolPricingCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SchoolPricing
+     */
+    select?: SchoolPricingSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many SchoolPricings.
+     */
+    data: SchoolPricingCreateManyInput | SchoolPricingCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SchoolPricingIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * SchoolPricing update
+   */
+  export type SchoolPricingUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SchoolPricing
+     */
+    select?: SchoolPricingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SchoolPricingInclude<ExtArgs> | null
+    /**
+     * The data needed to update a SchoolPricing.
+     */
+    data: XOR<SchoolPricingUpdateInput, SchoolPricingUncheckedUpdateInput>
+    /**
+     * Choose, which SchoolPricing to update.
+     */
+    where: SchoolPricingWhereUniqueInput
+  }
+
+  /**
+   * SchoolPricing updateMany
+   */
+  export type SchoolPricingUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SchoolPricings.
+     */
+    data: XOR<SchoolPricingUpdateManyMutationInput, SchoolPricingUncheckedUpdateManyInput>
+    /**
+     * Filter which SchoolPricings to update
+     */
+    where?: SchoolPricingWhereInput
+  }
+
+  /**
+   * SchoolPricing upsert
+   */
+  export type SchoolPricingUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SchoolPricing
+     */
+    select?: SchoolPricingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SchoolPricingInclude<ExtArgs> | null
+    /**
+     * The filter to search for the SchoolPricing to update in case it exists.
+     */
+    where: SchoolPricingWhereUniqueInput
+    /**
+     * In case the SchoolPricing found by the `where` argument doesn't exist, create a new SchoolPricing with this data.
+     */
+    create: XOR<SchoolPricingCreateInput, SchoolPricingUncheckedCreateInput>
+    /**
+     * In case the SchoolPricing was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SchoolPricingUpdateInput, SchoolPricingUncheckedUpdateInput>
+  }
+
+  /**
+   * SchoolPricing delete
+   */
+  export type SchoolPricingDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SchoolPricing
+     */
+    select?: SchoolPricingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SchoolPricingInclude<ExtArgs> | null
+    /**
+     * Filter which SchoolPricing to delete.
+     */
+    where: SchoolPricingWhereUniqueInput
+  }
+
+  /**
+   * SchoolPricing deleteMany
+   */
+  export type SchoolPricingDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SchoolPricings to delete
+     */
+    where?: SchoolPricingWhereInput
+  }
+
+  /**
+   * SchoolPricing without action
+   */
+  export type SchoolPricingDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SchoolPricing
+     */
+    select?: SchoolPricingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SchoolPricingInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model StudentPayment
+   */
+
+  export type AggregateStudentPayment = {
+    _count: StudentPaymentCountAggregateOutputType | null
+    _avg: StudentPaymentAvgAggregateOutputType | null
+    _sum: StudentPaymentSumAggregateOutputType | null
+    _min: StudentPaymentMinAggregateOutputType | null
+    _max: StudentPaymentMaxAggregateOutputType | null
+  }
+
+  export type StudentPaymentAvgAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type StudentPaymentSumAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type StudentPaymentMinAggregateOutputType = {
+    id: string | null
+    studentId: string | null
+    counsellorId: string | null
+    registrationType: $Enums.RegistrationPricingType | null
+    schoolId: string | null
+    schoolName: string | null
+    referenceCode: string | null
+    amount: number | null
+    currency: string | null
+    status: $Enums.StudentPaymentStatus | null
+    razorpayOrderId: string | null
+    razorpayPaymentId: string | null
+    razorpaySignature: string | null
+    receiptNumber: string | null
+    receiptSent: boolean | null
+    receiptSentAt: Date | null
+    failureReason: string | null
+    paidAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type StudentPaymentMaxAggregateOutputType = {
+    id: string | null
+    studentId: string | null
+    counsellorId: string | null
+    registrationType: $Enums.RegistrationPricingType | null
+    schoolId: string | null
+    schoolName: string | null
+    referenceCode: string | null
+    amount: number | null
+    currency: string | null
+    status: $Enums.StudentPaymentStatus | null
+    razorpayOrderId: string | null
+    razorpayPaymentId: string | null
+    razorpaySignature: string | null
+    receiptNumber: string | null
+    receiptSent: boolean | null
+    receiptSentAt: Date | null
+    failureReason: string | null
+    paidAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type StudentPaymentCountAggregateOutputType = {
+    id: number
+    studentId: number
+    counsellorId: number
+    registrationType: number
+    schoolId: number
+    schoolName: number
+    referenceCode: number
+    amount: number
+    currency: number
+    status: number
+    razorpayOrderId: number
+    razorpayPaymentId: number
+    razorpaySignature: number
+    receiptNumber: number
+    receiptSent: number
+    receiptSentAt: number
+    failureReason: number
+    paidAt: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type StudentPaymentAvgAggregateInputType = {
+    amount?: true
+  }
+
+  export type StudentPaymentSumAggregateInputType = {
+    amount?: true
+  }
+
+  export type StudentPaymentMinAggregateInputType = {
+    id?: true
+    studentId?: true
+    counsellorId?: true
+    registrationType?: true
+    schoolId?: true
+    schoolName?: true
+    referenceCode?: true
+    amount?: true
+    currency?: true
+    status?: true
+    razorpayOrderId?: true
+    razorpayPaymentId?: true
+    razorpaySignature?: true
+    receiptNumber?: true
+    receiptSent?: true
+    receiptSentAt?: true
+    failureReason?: true
+    paidAt?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type StudentPaymentMaxAggregateInputType = {
+    id?: true
+    studentId?: true
+    counsellorId?: true
+    registrationType?: true
+    schoolId?: true
+    schoolName?: true
+    referenceCode?: true
+    amount?: true
+    currency?: true
+    status?: true
+    razorpayOrderId?: true
+    razorpayPaymentId?: true
+    razorpaySignature?: true
+    receiptNumber?: true
+    receiptSent?: true
+    receiptSentAt?: true
+    failureReason?: true
+    paidAt?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type StudentPaymentCountAggregateInputType = {
+    id?: true
+    studentId?: true
+    counsellorId?: true
+    registrationType?: true
+    schoolId?: true
+    schoolName?: true
+    referenceCode?: true
+    amount?: true
+    currency?: true
+    status?: true
+    razorpayOrderId?: true
+    razorpayPaymentId?: true
+    razorpaySignature?: true
+    receiptNumber?: true
+    receiptSent?: true
+    receiptSentAt?: true
+    failureReason?: true
+    paidAt?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type StudentPaymentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which StudentPayment to aggregate.
+     */
+    where?: StudentPaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of StudentPayments to fetch.
+     */
+    orderBy?: StudentPaymentOrderByWithRelationInput | StudentPaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: StudentPaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` StudentPayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` StudentPayments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned StudentPayments
+    **/
+    _count?: true | StudentPaymentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: StudentPaymentAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: StudentPaymentSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: StudentPaymentMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: StudentPaymentMaxAggregateInputType
+  }
+
+  export type GetStudentPaymentAggregateType<T extends StudentPaymentAggregateArgs> = {
+        [P in keyof T & keyof AggregateStudentPayment]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateStudentPayment[P]>
+      : GetScalarType<T[P], AggregateStudentPayment[P]>
+  }
+
+
+
+
+  export type StudentPaymentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: StudentPaymentWhereInput
+    orderBy?: StudentPaymentOrderByWithAggregationInput | StudentPaymentOrderByWithAggregationInput[]
+    by: StudentPaymentScalarFieldEnum[] | StudentPaymentScalarFieldEnum
+    having?: StudentPaymentScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: StudentPaymentCountAggregateInputType | true
+    _avg?: StudentPaymentAvgAggregateInputType
+    _sum?: StudentPaymentSumAggregateInputType
+    _min?: StudentPaymentMinAggregateInputType
+    _max?: StudentPaymentMaxAggregateInputType
+  }
+
+  export type StudentPaymentGroupByOutputType = {
+    id: string
+    studentId: string
+    counsellorId: string
+    registrationType: $Enums.RegistrationPricingType
+    schoolId: string | null
+    schoolName: string | null
+    referenceCode: string | null
+    amount: number
+    currency: string
+    status: $Enums.StudentPaymentStatus
+    razorpayOrderId: string | null
+    razorpayPaymentId: string | null
+    razorpaySignature: string | null
+    receiptNumber: string | null
+    receiptSent: boolean
+    receiptSentAt: Date | null
+    failureReason: string | null
+    paidAt: Date | null
+    createdAt: Date
+    updatedAt: Date
+    _count: StudentPaymentCountAggregateOutputType | null
+    _avg: StudentPaymentAvgAggregateOutputType | null
+    _sum: StudentPaymentSumAggregateOutputType | null
+    _min: StudentPaymentMinAggregateOutputType | null
+    _max: StudentPaymentMaxAggregateOutputType | null
+  }
+
+  type GetStudentPaymentGroupByPayload<T extends StudentPaymentGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<StudentPaymentGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof StudentPaymentGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], StudentPaymentGroupByOutputType[P]>
+            : GetScalarType<T[P], StudentPaymentGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type StudentPaymentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    studentId?: boolean
+    counsellorId?: boolean
+    registrationType?: boolean
+    schoolId?: boolean
+    schoolName?: boolean
+    referenceCode?: boolean
+    amount?: boolean
+    currency?: boolean
+    status?: boolean
+    razorpayOrderId?: boolean
+    razorpayPaymentId?: boolean
+    razorpaySignature?: boolean
+    receiptNumber?: boolean
+    receiptSent?: boolean
+    receiptSentAt?: boolean
+    failureReason?: boolean
+    paidAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["studentPayment"]>
+
+  export type StudentPaymentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    studentId?: boolean
+    counsellorId?: boolean
+    registrationType?: boolean
+    schoolId?: boolean
+    schoolName?: boolean
+    referenceCode?: boolean
+    amount?: boolean
+    currency?: boolean
+    status?: boolean
+    razorpayOrderId?: boolean
+    razorpayPaymentId?: boolean
+    razorpaySignature?: boolean
+    receiptNumber?: boolean
+    receiptSent?: boolean
+    receiptSentAt?: boolean
+    failureReason?: boolean
+    paidAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["studentPayment"]>
+
+  export type StudentPaymentSelectScalar = {
+    id?: boolean
+    studentId?: boolean
+    counsellorId?: boolean
+    registrationType?: boolean
+    schoolId?: boolean
+    schoolName?: boolean
+    referenceCode?: boolean
+    amount?: boolean
+    currency?: boolean
+    status?: boolean
+    razorpayOrderId?: boolean
+    razorpayPaymentId?: boolean
+    razorpaySignature?: boolean
+    receiptNumber?: boolean
+    receiptSent?: boolean
+    receiptSentAt?: boolean
+    failureReason?: boolean
+    paidAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+
+  export type $StudentPaymentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "StudentPayment"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      studentId: string
+      counsellorId: string
+      registrationType: $Enums.RegistrationPricingType
+      schoolId: string | null
+      schoolName: string | null
+      referenceCode: string | null
+      amount: number
+      currency: string
+      status: $Enums.StudentPaymentStatus
+      razorpayOrderId: string | null
+      razorpayPaymentId: string | null
+      razorpaySignature: string | null
+      receiptNumber: string | null
+      receiptSent: boolean
+      receiptSentAt: Date | null
+      failureReason: string | null
+      paidAt: Date | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["studentPayment"]>
+    composites: {}
+  }
+
+  type StudentPaymentGetPayload<S extends boolean | null | undefined | StudentPaymentDefaultArgs> = $Result.GetResult<Prisma.$StudentPaymentPayload, S>
+
+  type StudentPaymentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<StudentPaymentFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: StudentPaymentCountAggregateInputType | true
+    }
+
+  export interface StudentPaymentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['StudentPayment'], meta: { name: 'StudentPayment' } }
+    /**
+     * Find zero or one StudentPayment that matches the filter.
+     * @param {StudentPaymentFindUniqueArgs} args - Arguments to find a StudentPayment
+     * @example
+     * // Get one StudentPayment
+     * const studentPayment = await prisma.studentPayment.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends StudentPaymentFindUniqueArgs>(args: SelectSubset<T, StudentPaymentFindUniqueArgs<ExtArgs>>): Prisma__StudentPaymentClient<$Result.GetResult<Prisma.$StudentPaymentPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one StudentPayment that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {StudentPaymentFindUniqueOrThrowArgs} args - Arguments to find a StudentPayment
+     * @example
+     * // Get one StudentPayment
+     * const studentPayment = await prisma.studentPayment.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends StudentPaymentFindUniqueOrThrowArgs>(args: SelectSubset<T, StudentPaymentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__StudentPaymentClient<$Result.GetResult<Prisma.$StudentPaymentPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first StudentPayment that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StudentPaymentFindFirstArgs} args - Arguments to find a StudentPayment
+     * @example
+     * // Get one StudentPayment
+     * const studentPayment = await prisma.studentPayment.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends StudentPaymentFindFirstArgs>(args?: SelectSubset<T, StudentPaymentFindFirstArgs<ExtArgs>>): Prisma__StudentPaymentClient<$Result.GetResult<Prisma.$StudentPaymentPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first StudentPayment that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StudentPaymentFindFirstOrThrowArgs} args - Arguments to find a StudentPayment
+     * @example
+     * // Get one StudentPayment
+     * const studentPayment = await prisma.studentPayment.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends StudentPaymentFindFirstOrThrowArgs>(args?: SelectSubset<T, StudentPaymentFindFirstOrThrowArgs<ExtArgs>>): Prisma__StudentPaymentClient<$Result.GetResult<Prisma.$StudentPaymentPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more StudentPayments that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StudentPaymentFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all StudentPayments
+     * const studentPayments = await prisma.studentPayment.findMany()
+     * 
+     * // Get first 10 StudentPayments
+     * const studentPayments = await prisma.studentPayment.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const studentPaymentWithIdOnly = await prisma.studentPayment.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends StudentPaymentFindManyArgs>(args?: SelectSubset<T, StudentPaymentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StudentPaymentPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a StudentPayment.
+     * @param {StudentPaymentCreateArgs} args - Arguments to create a StudentPayment.
+     * @example
+     * // Create one StudentPayment
+     * const StudentPayment = await prisma.studentPayment.create({
+     *   data: {
+     *     // ... data to create a StudentPayment
+     *   }
+     * })
+     * 
+     */
+    create<T extends StudentPaymentCreateArgs>(args: SelectSubset<T, StudentPaymentCreateArgs<ExtArgs>>): Prisma__StudentPaymentClient<$Result.GetResult<Prisma.$StudentPaymentPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many StudentPayments.
+     * @param {StudentPaymentCreateManyArgs} args - Arguments to create many StudentPayments.
+     * @example
+     * // Create many StudentPayments
+     * const studentPayment = await prisma.studentPayment.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends StudentPaymentCreateManyArgs>(args?: SelectSubset<T, StudentPaymentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many StudentPayments and returns the data saved in the database.
+     * @param {StudentPaymentCreateManyAndReturnArgs} args - Arguments to create many StudentPayments.
+     * @example
+     * // Create many StudentPayments
+     * const studentPayment = await prisma.studentPayment.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many StudentPayments and only return the `id`
+     * const studentPaymentWithIdOnly = await prisma.studentPayment.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends StudentPaymentCreateManyAndReturnArgs>(args?: SelectSubset<T, StudentPaymentCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StudentPaymentPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a StudentPayment.
+     * @param {StudentPaymentDeleteArgs} args - Arguments to delete one StudentPayment.
+     * @example
+     * // Delete one StudentPayment
+     * const StudentPayment = await prisma.studentPayment.delete({
+     *   where: {
+     *     // ... filter to delete one StudentPayment
+     *   }
+     * })
+     * 
+     */
+    delete<T extends StudentPaymentDeleteArgs>(args: SelectSubset<T, StudentPaymentDeleteArgs<ExtArgs>>): Prisma__StudentPaymentClient<$Result.GetResult<Prisma.$StudentPaymentPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one StudentPayment.
+     * @param {StudentPaymentUpdateArgs} args - Arguments to update one StudentPayment.
+     * @example
+     * // Update one StudentPayment
+     * const studentPayment = await prisma.studentPayment.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends StudentPaymentUpdateArgs>(args: SelectSubset<T, StudentPaymentUpdateArgs<ExtArgs>>): Prisma__StudentPaymentClient<$Result.GetResult<Prisma.$StudentPaymentPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more StudentPayments.
+     * @param {StudentPaymentDeleteManyArgs} args - Arguments to filter StudentPayments to delete.
+     * @example
+     * // Delete a few StudentPayments
+     * const { count } = await prisma.studentPayment.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends StudentPaymentDeleteManyArgs>(args?: SelectSubset<T, StudentPaymentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more StudentPayments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StudentPaymentUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many StudentPayments
+     * const studentPayment = await prisma.studentPayment.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends StudentPaymentUpdateManyArgs>(args: SelectSubset<T, StudentPaymentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one StudentPayment.
+     * @param {StudentPaymentUpsertArgs} args - Arguments to update or create a StudentPayment.
+     * @example
+     * // Update or create a StudentPayment
+     * const studentPayment = await prisma.studentPayment.upsert({
+     *   create: {
+     *     // ... data to create a StudentPayment
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the StudentPayment we want to update
+     *   }
+     * })
+     */
+    upsert<T extends StudentPaymentUpsertArgs>(args: SelectSubset<T, StudentPaymentUpsertArgs<ExtArgs>>): Prisma__StudentPaymentClient<$Result.GetResult<Prisma.$StudentPaymentPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of StudentPayments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StudentPaymentCountArgs} args - Arguments to filter StudentPayments to count.
+     * @example
+     * // Count the number of StudentPayments
+     * const count = await prisma.studentPayment.count({
+     *   where: {
+     *     // ... the filter for the StudentPayments we want to count
+     *   }
+     * })
+    **/
+    count<T extends StudentPaymentCountArgs>(
+      args?: Subset<T, StudentPaymentCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], StudentPaymentCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a StudentPayment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StudentPaymentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends StudentPaymentAggregateArgs>(args: Subset<T, StudentPaymentAggregateArgs>): Prisma.PrismaPromise<GetStudentPaymentAggregateType<T>>
+
+    /**
+     * Group by StudentPayment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StudentPaymentGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends StudentPaymentGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: StudentPaymentGroupByArgs['orderBy'] }
+        : { orderBy?: StudentPaymentGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, StudentPaymentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetStudentPaymentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the StudentPayment model
+   */
+  readonly fields: StudentPaymentFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for StudentPayment.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__StudentPaymentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the StudentPayment model
+   */ 
+  interface StudentPaymentFieldRefs {
+    readonly id: FieldRef<"StudentPayment", 'String'>
+    readonly studentId: FieldRef<"StudentPayment", 'String'>
+    readonly counsellorId: FieldRef<"StudentPayment", 'String'>
+    readonly registrationType: FieldRef<"StudentPayment", 'RegistrationPricingType'>
+    readonly schoolId: FieldRef<"StudentPayment", 'String'>
+    readonly schoolName: FieldRef<"StudentPayment", 'String'>
+    readonly referenceCode: FieldRef<"StudentPayment", 'String'>
+    readonly amount: FieldRef<"StudentPayment", 'Int'>
+    readonly currency: FieldRef<"StudentPayment", 'String'>
+    readonly status: FieldRef<"StudentPayment", 'StudentPaymentStatus'>
+    readonly razorpayOrderId: FieldRef<"StudentPayment", 'String'>
+    readonly razorpayPaymentId: FieldRef<"StudentPayment", 'String'>
+    readonly razorpaySignature: FieldRef<"StudentPayment", 'String'>
+    readonly receiptNumber: FieldRef<"StudentPayment", 'String'>
+    readonly receiptSent: FieldRef<"StudentPayment", 'Boolean'>
+    readonly receiptSentAt: FieldRef<"StudentPayment", 'DateTime'>
+    readonly failureReason: FieldRef<"StudentPayment", 'String'>
+    readonly paidAt: FieldRef<"StudentPayment", 'DateTime'>
+    readonly createdAt: FieldRef<"StudentPayment", 'DateTime'>
+    readonly updatedAt: FieldRef<"StudentPayment", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * StudentPayment findUnique
+   */
+  export type StudentPaymentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudentPayment
+     */
+    select?: StudentPaymentSelect<ExtArgs> | null
+    /**
+     * Filter, which StudentPayment to fetch.
+     */
+    where: StudentPaymentWhereUniqueInput
+  }
+
+  /**
+   * StudentPayment findUniqueOrThrow
+   */
+  export type StudentPaymentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudentPayment
+     */
+    select?: StudentPaymentSelect<ExtArgs> | null
+    /**
+     * Filter, which StudentPayment to fetch.
+     */
+    where: StudentPaymentWhereUniqueInput
+  }
+
+  /**
+   * StudentPayment findFirst
+   */
+  export type StudentPaymentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudentPayment
+     */
+    select?: StudentPaymentSelect<ExtArgs> | null
+    /**
+     * Filter, which StudentPayment to fetch.
+     */
+    where?: StudentPaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of StudentPayments to fetch.
+     */
+    orderBy?: StudentPaymentOrderByWithRelationInput | StudentPaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for StudentPayments.
+     */
+    cursor?: StudentPaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` StudentPayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` StudentPayments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of StudentPayments.
+     */
+    distinct?: StudentPaymentScalarFieldEnum | StudentPaymentScalarFieldEnum[]
+  }
+
+  /**
+   * StudentPayment findFirstOrThrow
+   */
+  export type StudentPaymentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudentPayment
+     */
+    select?: StudentPaymentSelect<ExtArgs> | null
+    /**
+     * Filter, which StudentPayment to fetch.
+     */
+    where?: StudentPaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of StudentPayments to fetch.
+     */
+    orderBy?: StudentPaymentOrderByWithRelationInput | StudentPaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for StudentPayments.
+     */
+    cursor?: StudentPaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` StudentPayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` StudentPayments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of StudentPayments.
+     */
+    distinct?: StudentPaymentScalarFieldEnum | StudentPaymentScalarFieldEnum[]
+  }
+
+  /**
+   * StudentPayment findMany
+   */
+  export type StudentPaymentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudentPayment
+     */
+    select?: StudentPaymentSelect<ExtArgs> | null
+    /**
+     * Filter, which StudentPayments to fetch.
+     */
+    where?: StudentPaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of StudentPayments to fetch.
+     */
+    orderBy?: StudentPaymentOrderByWithRelationInput | StudentPaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing StudentPayments.
+     */
+    cursor?: StudentPaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` StudentPayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` StudentPayments.
+     */
+    skip?: number
+    distinct?: StudentPaymentScalarFieldEnum | StudentPaymentScalarFieldEnum[]
+  }
+
+  /**
+   * StudentPayment create
+   */
+  export type StudentPaymentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudentPayment
+     */
+    select?: StudentPaymentSelect<ExtArgs> | null
+    /**
+     * The data needed to create a StudentPayment.
+     */
+    data: XOR<StudentPaymentCreateInput, StudentPaymentUncheckedCreateInput>
+  }
+
+  /**
+   * StudentPayment createMany
+   */
+  export type StudentPaymentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many StudentPayments.
+     */
+    data: StudentPaymentCreateManyInput | StudentPaymentCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * StudentPayment createManyAndReturn
+   */
+  export type StudentPaymentCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudentPayment
+     */
+    select?: StudentPaymentSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many StudentPayments.
+     */
+    data: StudentPaymentCreateManyInput | StudentPaymentCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * StudentPayment update
+   */
+  export type StudentPaymentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudentPayment
+     */
+    select?: StudentPaymentSelect<ExtArgs> | null
+    /**
+     * The data needed to update a StudentPayment.
+     */
+    data: XOR<StudentPaymentUpdateInput, StudentPaymentUncheckedUpdateInput>
+    /**
+     * Choose, which StudentPayment to update.
+     */
+    where: StudentPaymentWhereUniqueInput
+  }
+
+  /**
+   * StudentPayment updateMany
+   */
+  export type StudentPaymentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update StudentPayments.
+     */
+    data: XOR<StudentPaymentUpdateManyMutationInput, StudentPaymentUncheckedUpdateManyInput>
+    /**
+     * Filter which StudentPayments to update
+     */
+    where?: StudentPaymentWhereInput
+  }
+
+  /**
+   * StudentPayment upsert
+   */
+  export type StudentPaymentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudentPayment
+     */
+    select?: StudentPaymentSelect<ExtArgs> | null
+    /**
+     * The filter to search for the StudentPayment to update in case it exists.
+     */
+    where: StudentPaymentWhereUniqueInput
+    /**
+     * In case the StudentPayment found by the `where` argument doesn't exist, create a new StudentPayment with this data.
+     */
+    create: XOR<StudentPaymentCreateInput, StudentPaymentUncheckedCreateInput>
+    /**
+     * In case the StudentPayment was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<StudentPaymentUpdateInput, StudentPaymentUncheckedUpdateInput>
+  }
+
+  /**
+   * StudentPayment delete
+   */
+  export type StudentPaymentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudentPayment
+     */
+    select?: StudentPaymentSelect<ExtArgs> | null
+    /**
+     * Filter which StudentPayment to delete.
+     */
+    where: StudentPaymentWhereUniqueInput
+  }
+
+  /**
+   * StudentPayment deleteMany
+   */
+  export type StudentPaymentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which StudentPayments to delete
+     */
+    where?: StudentPaymentWhereInput
+  }
+
+  /**
+   * StudentPayment without action
+   */
+  export type StudentPaymentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudentPayment
+     */
+    select?: StudentPaymentSelect<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -4916,6 +8333,59 @@ export namespace Prisma {
   };
 
   export type CreditTransactionScalarFieldEnum = (typeof CreditTransactionScalarFieldEnum)[keyof typeof CreditTransactionScalarFieldEnum]
+
+
+  export const CounsellorPricingConfigScalarFieldEnum: {
+    id: 'id',
+    counsellorId: 'counsellorId',
+    paymentEnabled: 'paymentEnabled',
+    individualPrice: 'individualPrice',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type CounsellorPricingConfigScalarFieldEnum = (typeof CounsellorPricingConfigScalarFieldEnum)[keyof typeof CounsellorPricingConfigScalarFieldEnum]
+
+
+  export const SchoolPricingScalarFieldEnum: {
+    id: 'id',
+    pricingConfigId: 'pricingConfigId',
+    counsellorId: 'counsellorId',
+    schoolId: 'schoolId',
+    schoolName: 'schoolName',
+    amount: 'amount',
+    isActive: 'isActive',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type SchoolPricingScalarFieldEnum = (typeof SchoolPricingScalarFieldEnum)[keyof typeof SchoolPricingScalarFieldEnum]
+
+
+  export const StudentPaymentScalarFieldEnum: {
+    id: 'id',
+    studentId: 'studentId',
+    counsellorId: 'counsellorId',
+    registrationType: 'registrationType',
+    schoolId: 'schoolId',
+    schoolName: 'schoolName',
+    referenceCode: 'referenceCode',
+    amount: 'amount',
+    currency: 'currency',
+    status: 'status',
+    razorpayOrderId: 'razorpayOrderId',
+    razorpayPaymentId: 'razorpayPaymentId',
+    razorpaySignature: 'razorpaySignature',
+    receiptNumber: 'receiptNumber',
+    receiptSent: 'receiptSent',
+    receiptSentAt: 'receiptSentAt',
+    failureReason: 'failureReason',
+    paidAt: 'paidAt',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type StudentPaymentScalarFieldEnum = (typeof StudentPaymentScalarFieldEnum)[keyof typeof StudentPaymentScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -5037,6 +8507,41 @@ export namespace Prisma {
    * Reference to a field of type 'CreditTransactionType[]'
    */
   export type ListEnumCreditTransactionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CreditTransactionType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
+   * Reference to a field of type 'RegistrationPricingType'
+   */
+  export type EnumRegistrationPricingTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RegistrationPricingType'>
+    
+
+
+  /**
+   * Reference to a field of type 'RegistrationPricingType[]'
+   */
+  export type ListEnumRegistrationPricingTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RegistrationPricingType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'StudentPaymentStatus'
+   */
+  export type EnumStudentPaymentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StudentPaymentStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'StudentPaymentStatus[]'
+   */
+  export type ListEnumStudentPaymentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StudentPaymentStatus[]'>
     
 
 
@@ -5309,6 +8814,274 @@ export namespace Prisma {
     referenceId?: StringNullableWithAggregatesFilter<"CreditTransaction"> | string | null
     description?: StringNullableWithAggregatesFilter<"CreditTransaction"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"CreditTransaction"> | Date | string
+  }
+
+  export type CounsellorPricingConfigWhereInput = {
+    AND?: CounsellorPricingConfigWhereInput | CounsellorPricingConfigWhereInput[]
+    OR?: CounsellorPricingConfigWhereInput[]
+    NOT?: CounsellorPricingConfigWhereInput | CounsellorPricingConfigWhereInput[]
+    id?: StringFilter<"CounsellorPricingConfig"> | string
+    counsellorId?: StringFilter<"CounsellorPricingConfig"> | string
+    paymentEnabled?: BoolFilter<"CounsellorPricingConfig"> | boolean
+    individualPrice?: IntNullableFilter<"CounsellorPricingConfig"> | number | null
+    createdAt?: DateTimeFilter<"CounsellorPricingConfig"> | Date | string
+    updatedAt?: DateTimeFilter<"CounsellorPricingConfig"> | Date | string
+    schoolPrices?: SchoolPricingListRelationFilter
+  }
+
+  export type CounsellorPricingConfigOrderByWithRelationInput = {
+    id?: SortOrder
+    counsellorId?: SortOrder
+    paymentEnabled?: SortOrder
+    individualPrice?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    schoolPrices?: SchoolPricingOrderByRelationAggregateInput
+  }
+
+  export type CounsellorPricingConfigWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    counsellorId?: string
+    AND?: CounsellorPricingConfigWhereInput | CounsellorPricingConfigWhereInput[]
+    OR?: CounsellorPricingConfigWhereInput[]
+    NOT?: CounsellorPricingConfigWhereInput | CounsellorPricingConfigWhereInput[]
+    paymentEnabled?: BoolFilter<"CounsellorPricingConfig"> | boolean
+    individualPrice?: IntNullableFilter<"CounsellorPricingConfig"> | number | null
+    createdAt?: DateTimeFilter<"CounsellorPricingConfig"> | Date | string
+    updatedAt?: DateTimeFilter<"CounsellorPricingConfig"> | Date | string
+    schoolPrices?: SchoolPricingListRelationFilter
+  }, "id" | "counsellorId">
+
+  export type CounsellorPricingConfigOrderByWithAggregationInput = {
+    id?: SortOrder
+    counsellorId?: SortOrder
+    paymentEnabled?: SortOrder
+    individualPrice?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: CounsellorPricingConfigCountOrderByAggregateInput
+    _avg?: CounsellorPricingConfigAvgOrderByAggregateInput
+    _max?: CounsellorPricingConfigMaxOrderByAggregateInput
+    _min?: CounsellorPricingConfigMinOrderByAggregateInput
+    _sum?: CounsellorPricingConfigSumOrderByAggregateInput
+  }
+
+  export type CounsellorPricingConfigScalarWhereWithAggregatesInput = {
+    AND?: CounsellorPricingConfigScalarWhereWithAggregatesInput | CounsellorPricingConfigScalarWhereWithAggregatesInput[]
+    OR?: CounsellorPricingConfigScalarWhereWithAggregatesInput[]
+    NOT?: CounsellorPricingConfigScalarWhereWithAggregatesInput | CounsellorPricingConfigScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"CounsellorPricingConfig"> | string
+    counsellorId?: StringWithAggregatesFilter<"CounsellorPricingConfig"> | string
+    paymentEnabled?: BoolWithAggregatesFilter<"CounsellorPricingConfig"> | boolean
+    individualPrice?: IntNullableWithAggregatesFilter<"CounsellorPricingConfig"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"CounsellorPricingConfig"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"CounsellorPricingConfig"> | Date | string
+  }
+
+  export type SchoolPricingWhereInput = {
+    AND?: SchoolPricingWhereInput | SchoolPricingWhereInput[]
+    OR?: SchoolPricingWhereInput[]
+    NOT?: SchoolPricingWhereInput | SchoolPricingWhereInput[]
+    id?: StringFilter<"SchoolPricing"> | string
+    pricingConfigId?: StringFilter<"SchoolPricing"> | string
+    counsellorId?: StringFilter<"SchoolPricing"> | string
+    schoolId?: StringFilter<"SchoolPricing"> | string
+    schoolName?: StringFilter<"SchoolPricing"> | string
+    amount?: IntFilter<"SchoolPricing"> | number
+    isActive?: BoolFilter<"SchoolPricing"> | boolean
+    createdAt?: DateTimeFilter<"SchoolPricing"> | Date | string
+    updatedAt?: DateTimeFilter<"SchoolPricing"> | Date | string
+    pricingConfig?: XOR<CounsellorPricingConfigRelationFilter, CounsellorPricingConfigWhereInput>
+  }
+
+  export type SchoolPricingOrderByWithRelationInput = {
+    id?: SortOrder
+    pricingConfigId?: SortOrder
+    counsellorId?: SortOrder
+    schoolId?: SortOrder
+    schoolName?: SortOrder
+    amount?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    pricingConfig?: CounsellorPricingConfigOrderByWithRelationInput
+  }
+
+  export type SchoolPricingWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SchoolPricingWhereInput | SchoolPricingWhereInput[]
+    OR?: SchoolPricingWhereInput[]
+    NOT?: SchoolPricingWhereInput | SchoolPricingWhereInput[]
+    pricingConfigId?: StringFilter<"SchoolPricing"> | string
+    counsellorId?: StringFilter<"SchoolPricing"> | string
+    schoolId?: StringFilter<"SchoolPricing"> | string
+    schoolName?: StringFilter<"SchoolPricing"> | string
+    amount?: IntFilter<"SchoolPricing"> | number
+    isActive?: BoolFilter<"SchoolPricing"> | boolean
+    createdAt?: DateTimeFilter<"SchoolPricing"> | Date | string
+    updatedAt?: DateTimeFilter<"SchoolPricing"> | Date | string
+    pricingConfig?: XOR<CounsellorPricingConfigRelationFilter, CounsellorPricingConfigWhereInput>
+  }, "id">
+
+  export type SchoolPricingOrderByWithAggregationInput = {
+    id?: SortOrder
+    pricingConfigId?: SortOrder
+    counsellorId?: SortOrder
+    schoolId?: SortOrder
+    schoolName?: SortOrder
+    amount?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: SchoolPricingCountOrderByAggregateInput
+    _avg?: SchoolPricingAvgOrderByAggregateInput
+    _max?: SchoolPricingMaxOrderByAggregateInput
+    _min?: SchoolPricingMinOrderByAggregateInput
+    _sum?: SchoolPricingSumOrderByAggregateInput
+  }
+
+  export type SchoolPricingScalarWhereWithAggregatesInput = {
+    AND?: SchoolPricingScalarWhereWithAggregatesInput | SchoolPricingScalarWhereWithAggregatesInput[]
+    OR?: SchoolPricingScalarWhereWithAggregatesInput[]
+    NOT?: SchoolPricingScalarWhereWithAggregatesInput | SchoolPricingScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"SchoolPricing"> | string
+    pricingConfigId?: StringWithAggregatesFilter<"SchoolPricing"> | string
+    counsellorId?: StringWithAggregatesFilter<"SchoolPricing"> | string
+    schoolId?: StringWithAggregatesFilter<"SchoolPricing"> | string
+    schoolName?: StringWithAggregatesFilter<"SchoolPricing"> | string
+    amount?: IntWithAggregatesFilter<"SchoolPricing"> | number
+    isActive?: BoolWithAggregatesFilter<"SchoolPricing"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"SchoolPricing"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"SchoolPricing"> | Date | string
+  }
+
+  export type StudentPaymentWhereInput = {
+    AND?: StudentPaymentWhereInput | StudentPaymentWhereInput[]
+    OR?: StudentPaymentWhereInput[]
+    NOT?: StudentPaymentWhereInput | StudentPaymentWhereInput[]
+    id?: StringFilter<"StudentPayment"> | string
+    studentId?: StringFilter<"StudentPayment"> | string
+    counsellorId?: StringFilter<"StudentPayment"> | string
+    registrationType?: EnumRegistrationPricingTypeFilter<"StudentPayment"> | $Enums.RegistrationPricingType
+    schoolId?: StringNullableFilter<"StudentPayment"> | string | null
+    schoolName?: StringNullableFilter<"StudentPayment"> | string | null
+    referenceCode?: StringNullableFilter<"StudentPayment"> | string | null
+    amount?: IntFilter<"StudentPayment"> | number
+    currency?: StringFilter<"StudentPayment"> | string
+    status?: EnumStudentPaymentStatusFilter<"StudentPayment"> | $Enums.StudentPaymentStatus
+    razorpayOrderId?: StringNullableFilter<"StudentPayment"> | string | null
+    razorpayPaymentId?: StringNullableFilter<"StudentPayment"> | string | null
+    razorpaySignature?: StringNullableFilter<"StudentPayment"> | string | null
+    receiptNumber?: StringNullableFilter<"StudentPayment"> | string | null
+    receiptSent?: BoolFilter<"StudentPayment"> | boolean
+    receiptSentAt?: DateTimeNullableFilter<"StudentPayment"> | Date | string | null
+    failureReason?: StringNullableFilter<"StudentPayment"> | string | null
+    paidAt?: DateTimeNullableFilter<"StudentPayment"> | Date | string | null
+    createdAt?: DateTimeFilter<"StudentPayment"> | Date | string
+    updatedAt?: DateTimeFilter<"StudentPayment"> | Date | string
+  }
+
+  export type StudentPaymentOrderByWithRelationInput = {
+    id?: SortOrder
+    studentId?: SortOrder
+    counsellorId?: SortOrder
+    registrationType?: SortOrder
+    schoolId?: SortOrderInput | SortOrder
+    schoolName?: SortOrderInput | SortOrder
+    referenceCode?: SortOrderInput | SortOrder
+    amount?: SortOrder
+    currency?: SortOrder
+    status?: SortOrder
+    razorpayOrderId?: SortOrderInput | SortOrder
+    razorpayPaymentId?: SortOrderInput | SortOrder
+    razorpaySignature?: SortOrderInput | SortOrder
+    receiptNumber?: SortOrderInput | SortOrder
+    receiptSent?: SortOrder
+    receiptSentAt?: SortOrderInput | SortOrder
+    failureReason?: SortOrderInput | SortOrder
+    paidAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type StudentPaymentWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    studentId?: string
+    razorpayOrderId?: string
+    receiptNumber?: string
+    AND?: StudentPaymentWhereInput | StudentPaymentWhereInput[]
+    OR?: StudentPaymentWhereInput[]
+    NOT?: StudentPaymentWhereInput | StudentPaymentWhereInput[]
+    counsellorId?: StringFilter<"StudentPayment"> | string
+    registrationType?: EnumRegistrationPricingTypeFilter<"StudentPayment"> | $Enums.RegistrationPricingType
+    schoolId?: StringNullableFilter<"StudentPayment"> | string | null
+    schoolName?: StringNullableFilter<"StudentPayment"> | string | null
+    referenceCode?: StringNullableFilter<"StudentPayment"> | string | null
+    amount?: IntFilter<"StudentPayment"> | number
+    currency?: StringFilter<"StudentPayment"> | string
+    status?: EnumStudentPaymentStatusFilter<"StudentPayment"> | $Enums.StudentPaymentStatus
+    razorpayPaymentId?: StringNullableFilter<"StudentPayment"> | string | null
+    razorpaySignature?: StringNullableFilter<"StudentPayment"> | string | null
+    receiptSent?: BoolFilter<"StudentPayment"> | boolean
+    receiptSentAt?: DateTimeNullableFilter<"StudentPayment"> | Date | string | null
+    failureReason?: StringNullableFilter<"StudentPayment"> | string | null
+    paidAt?: DateTimeNullableFilter<"StudentPayment"> | Date | string | null
+    createdAt?: DateTimeFilter<"StudentPayment"> | Date | string
+    updatedAt?: DateTimeFilter<"StudentPayment"> | Date | string
+  }, "id" | "studentId" | "razorpayOrderId" | "receiptNumber">
+
+  export type StudentPaymentOrderByWithAggregationInput = {
+    id?: SortOrder
+    studentId?: SortOrder
+    counsellorId?: SortOrder
+    registrationType?: SortOrder
+    schoolId?: SortOrderInput | SortOrder
+    schoolName?: SortOrderInput | SortOrder
+    referenceCode?: SortOrderInput | SortOrder
+    amount?: SortOrder
+    currency?: SortOrder
+    status?: SortOrder
+    razorpayOrderId?: SortOrderInput | SortOrder
+    razorpayPaymentId?: SortOrderInput | SortOrder
+    razorpaySignature?: SortOrderInput | SortOrder
+    receiptNumber?: SortOrderInput | SortOrder
+    receiptSent?: SortOrder
+    receiptSentAt?: SortOrderInput | SortOrder
+    failureReason?: SortOrderInput | SortOrder
+    paidAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: StudentPaymentCountOrderByAggregateInput
+    _avg?: StudentPaymentAvgOrderByAggregateInput
+    _max?: StudentPaymentMaxOrderByAggregateInput
+    _min?: StudentPaymentMinOrderByAggregateInput
+    _sum?: StudentPaymentSumOrderByAggregateInput
+  }
+
+  export type StudentPaymentScalarWhereWithAggregatesInput = {
+    AND?: StudentPaymentScalarWhereWithAggregatesInput | StudentPaymentScalarWhereWithAggregatesInput[]
+    OR?: StudentPaymentScalarWhereWithAggregatesInput[]
+    NOT?: StudentPaymentScalarWhereWithAggregatesInput | StudentPaymentScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"StudentPayment"> | string
+    studentId?: StringWithAggregatesFilter<"StudentPayment"> | string
+    counsellorId?: StringWithAggregatesFilter<"StudentPayment"> | string
+    registrationType?: EnumRegistrationPricingTypeWithAggregatesFilter<"StudentPayment"> | $Enums.RegistrationPricingType
+    schoolId?: StringNullableWithAggregatesFilter<"StudentPayment"> | string | null
+    schoolName?: StringNullableWithAggregatesFilter<"StudentPayment"> | string | null
+    referenceCode?: StringNullableWithAggregatesFilter<"StudentPayment"> | string | null
+    amount?: IntWithAggregatesFilter<"StudentPayment"> | number
+    currency?: StringWithAggregatesFilter<"StudentPayment"> | string
+    status?: EnumStudentPaymentStatusWithAggregatesFilter<"StudentPayment"> | $Enums.StudentPaymentStatus
+    razorpayOrderId?: StringNullableWithAggregatesFilter<"StudentPayment"> | string | null
+    razorpayPaymentId?: StringNullableWithAggregatesFilter<"StudentPayment"> | string | null
+    razorpaySignature?: StringNullableWithAggregatesFilter<"StudentPayment"> | string | null
+    receiptNumber?: StringNullableWithAggregatesFilter<"StudentPayment"> | string | null
+    receiptSent?: BoolWithAggregatesFilter<"StudentPayment"> | boolean
+    receiptSentAt?: DateTimeNullableWithAggregatesFilter<"StudentPayment"> | Date | string | null
+    failureReason?: StringNullableWithAggregatesFilter<"StudentPayment"> | string | null
+    paidAt?: DateTimeNullableWithAggregatesFilter<"StudentPayment"> | Date | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"StudentPayment"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"StudentPayment"> | Date | string
   }
 
   export type PaymentOrderCreateInput = {
@@ -5589,6 +9362,317 @@ export namespace Prisma {
     referenceId?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CounsellorPricingConfigCreateInput = {
+    id?: string
+    counsellorId: string
+    paymentEnabled?: boolean
+    individualPrice?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    schoolPrices?: SchoolPricingCreateNestedManyWithoutPricingConfigInput
+  }
+
+  export type CounsellorPricingConfigUncheckedCreateInput = {
+    id?: string
+    counsellorId: string
+    paymentEnabled?: boolean
+    individualPrice?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    schoolPrices?: SchoolPricingUncheckedCreateNestedManyWithoutPricingConfigInput
+  }
+
+  export type CounsellorPricingConfigUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    paymentEnabled?: BoolFieldUpdateOperationsInput | boolean
+    individualPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    schoolPrices?: SchoolPricingUpdateManyWithoutPricingConfigNestedInput
+  }
+
+  export type CounsellorPricingConfigUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    paymentEnabled?: BoolFieldUpdateOperationsInput | boolean
+    individualPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    schoolPrices?: SchoolPricingUncheckedUpdateManyWithoutPricingConfigNestedInput
+  }
+
+  export type CounsellorPricingConfigCreateManyInput = {
+    id?: string
+    counsellorId: string
+    paymentEnabled?: boolean
+    individualPrice?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CounsellorPricingConfigUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    paymentEnabled?: BoolFieldUpdateOperationsInput | boolean
+    individualPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CounsellorPricingConfigUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    paymentEnabled?: BoolFieldUpdateOperationsInput | boolean
+    individualPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SchoolPricingCreateInput = {
+    id?: string
+    counsellorId: string
+    schoolId: string
+    schoolName: string
+    amount: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    pricingConfig: CounsellorPricingConfigCreateNestedOneWithoutSchoolPricesInput
+  }
+
+  export type SchoolPricingUncheckedCreateInput = {
+    id?: string
+    pricingConfigId: string
+    counsellorId: string
+    schoolId: string
+    schoolName: string
+    amount: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SchoolPricingUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    schoolId?: StringFieldUpdateOperationsInput | string
+    schoolName?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    pricingConfig?: CounsellorPricingConfigUpdateOneRequiredWithoutSchoolPricesNestedInput
+  }
+
+  export type SchoolPricingUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    pricingConfigId?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    schoolId?: StringFieldUpdateOperationsInput | string
+    schoolName?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SchoolPricingCreateManyInput = {
+    id?: string
+    pricingConfigId: string
+    counsellorId: string
+    schoolId: string
+    schoolName: string
+    amount: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SchoolPricingUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    schoolId?: StringFieldUpdateOperationsInput | string
+    schoolName?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SchoolPricingUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    pricingConfigId?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    schoolId?: StringFieldUpdateOperationsInput | string
+    schoolName?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type StudentPaymentCreateInput = {
+    id?: string
+    studentId: string
+    counsellorId: string
+    registrationType: $Enums.RegistrationPricingType
+    schoolId?: string | null
+    schoolName?: string | null
+    referenceCode?: string | null
+    amount: number
+    currency?: string
+    status?: $Enums.StudentPaymentStatus
+    razorpayOrderId?: string | null
+    razorpayPaymentId?: string | null
+    razorpaySignature?: string | null
+    receiptNumber?: string | null
+    receiptSent?: boolean
+    receiptSentAt?: Date | string | null
+    failureReason?: string | null
+    paidAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type StudentPaymentUncheckedCreateInput = {
+    id?: string
+    studentId: string
+    counsellorId: string
+    registrationType: $Enums.RegistrationPricingType
+    schoolId?: string | null
+    schoolName?: string | null
+    referenceCode?: string | null
+    amount: number
+    currency?: string
+    status?: $Enums.StudentPaymentStatus
+    razorpayOrderId?: string | null
+    razorpayPaymentId?: string | null
+    razorpaySignature?: string | null
+    receiptNumber?: string | null
+    receiptSent?: boolean
+    receiptSentAt?: Date | string | null
+    failureReason?: string | null
+    paidAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type StudentPaymentUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    studentId?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    registrationType?: EnumRegistrationPricingTypeFieldUpdateOperationsInput | $Enums.RegistrationPricingType
+    schoolId?: NullableStringFieldUpdateOperationsInput | string | null
+    schoolName?: NullableStringFieldUpdateOperationsInput | string | null
+    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    currency?: StringFieldUpdateOperationsInput | string
+    status?: EnumStudentPaymentStatusFieldUpdateOperationsInput | $Enums.StudentPaymentStatus
+    razorpayOrderId?: NullableStringFieldUpdateOperationsInput | string | null
+    razorpayPaymentId?: NullableStringFieldUpdateOperationsInput | string | null
+    razorpaySignature?: NullableStringFieldUpdateOperationsInput | string | null
+    receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    receiptSent?: BoolFieldUpdateOperationsInput | boolean
+    receiptSentAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    failureReason?: NullableStringFieldUpdateOperationsInput | string | null
+    paidAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type StudentPaymentUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    studentId?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    registrationType?: EnumRegistrationPricingTypeFieldUpdateOperationsInput | $Enums.RegistrationPricingType
+    schoolId?: NullableStringFieldUpdateOperationsInput | string | null
+    schoolName?: NullableStringFieldUpdateOperationsInput | string | null
+    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    currency?: StringFieldUpdateOperationsInput | string
+    status?: EnumStudentPaymentStatusFieldUpdateOperationsInput | $Enums.StudentPaymentStatus
+    razorpayOrderId?: NullableStringFieldUpdateOperationsInput | string | null
+    razorpayPaymentId?: NullableStringFieldUpdateOperationsInput | string | null
+    razorpaySignature?: NullableStringFieldUpdateOperationsInput | string | null
+    receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    receiptSent?: BoolFieldUpdateOperationsInput | boolean
+    receiptSentAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    failureReason?: NullableStringFieldUpdateOperationsInput | string | null
+    paidAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type StudentPaymentCreateManyInput = {
+    id?: string
+    studentId: string
+    counsellorId: string
+    registrationType: $Enums.RegistrationPricingType
+    schoolId?: string | null
+    schoolName?: string | null
+    referenceCode?: string | null
+    amount: number
+    currency?: string
+    status?: $Enums.StudentPaymentStatus
+    razorpayOrderId?: string | null
+    razorpayPaymentId?: string | null
+    razorpaySignature?: string | null
+    receiptNumber?: string | null
+    receiptSent?: boolean
+    receiptSentAt?: Date | string | null
+    failureReason?: string | null
+    paidAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type StudentPaymentUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    studentId?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    registrationType?: EnumRegistrationPricingTypeFieldUpdateOperationsInput | $Enums.RegistrationPricingType
+    schoolId?: NullableStringFieldUpdateOperationsInput | string | null
+    schoolName?: NullableStringFieldUpdateOperationsInput | string | null
+    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    currency?: StringFieldUpdateOperationsInput | string
+    status?: EnumStudentPaymentStatusFieldUpdateOperationsInput | $Enums.StudentPaymentStatus
+    razorpayOrderId?: NullableStringFieldUpdateOperationsInput | string | null
+    razorpayPaymentId?: NullableStringFieldUpdateOperationsInput | string | null
+    razorpaySignature?: NullableStringFieldUpdateOperationsInput | string | null
+    receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    receiptSent?: BoolFieldUpdateOperationsInput | boolean
+    receiptSentAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    failureReason?: NullableStringFieldUpdateOperationsInput | string | null
+    paidAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type StudentPaymentUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    studentId?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    registrationType?: EnumRegistrationPricingTypeFieldUpdateOperationsInput | $Enums.RegistrationPricingType
+    schoolId?: NullableStringFieldUpdateOperationsInput | string | null
+    schoolName?: NullableStringFieldUpdateOperationsInput | string | null
+    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    currency?: StringFieldUpdateOperationsInput | string
+    status?: EnumStudentPaymentStatusFieldUpdateOperationsInput | $Enums.StudentPaymentStatus
+    razorpayOrderId?: NullableStringFieldUpdateOperationsInput | string | null
+    razorpayPaymentId?: NullableStringFieldUpdateOperationsInput | string | null
+    razorpaySignature?: NullableStringFieldUpdateOperationsInput | string | null
+    receiptNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    receiptSent?: BoolFieldUpdateOperationsInput | boolean
+    receiptSentAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    failureReason?: NullableStringFieldUpdateOperationsInput | string | null
+    paidAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -5943,6 +10027,276 @@ export namespace Prisma {
     _max?: NestedEnumCreditTransactionTypeFilter<$PrismaModel>
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type SchoolPricingListRelationFilter = {
+    every?: SchoolPricingWhereInput
+    some?: SchoolPricingWhereInput
+    none?: SchoolPricingWhereInput
+  }
+
+  export type SchoolPricingOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CounsellorPricingConfigCountOrderByAggregateInput = {
+    id?: SortOrder
+    counsellorId?: SortOrder
+    paymentEnabled?: SortOrder
+    individualPrice?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CounsellorPricingConfigAvgOrderByAggregateInput = {
+    individualPrice?: SortOrder
+  }
+
+  export type CounsellorPricingConfigMaxOrderByAggregateInput = {
+    id?: SortOrder
+    counsellorId?: SortOrder
+    paymentEnabled?: SortOrder
+    individualPrice?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CounsellorPricingConfigMinOrderByAggregateInput = {
+    id?: SortOrder
+    counsellorId?: SortOrder
+    paymentEnabled?: SortOrder
+    individualPrice?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CounsellorPricingConfigSumOrderByAggregateInput = {
+    individualPrice?: SortOrder
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type CounsellorPricingConfigRelationFilter = {
+    is?: CounsellorPricingConfigWhereInput
+    isNot?: CounsellorPricingConfigWhereInput
+  }
+
+  export type SchoolPricingCountOrderByAggregateInput = {
+    id?: SortOrder
+    pricingConfigId?: SortOrder
+    counsellorId?: SortOrder
+    schoolId?: SortOrder
+    schoolName?: SortOrder
+    amount?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SchoolPricingAvgOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type SchoolPricingMaxOrderByAggregateInput = {
+    id?: SortOrder
+    pricingConfigId?: SortOrder
+    counsellorId?: SortOrder
+    schoolId?: SortOrder
+    schoolName?: SortOrder
+    amount?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SchoolPricingMinOrderByAggregateInput = {
+    id?: SortOrder
+    pricingConfigId?: SortOrder
+    counsellorId?: SortOrder
+    schoolId?: SortOrder
+    schoolName?: SortOrder
+    amount?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SchoolPricingSumOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type EnumRegistrationPricingTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.RegistrationPricingType | EnumRegistrationPricingTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.RegistrationPricingType[] | ListEnumRegistrationPricingTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.RegistrationPricingType[] | ListEnumRegistrationPricingTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegistrationPricingTypeFilter<$PrismaModel> | $Enums.RegistrationPricingType
+  }
+
+  export type EnumStudentPaymentStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.StudentPaymentStatus | EnumStudentPaymentStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.StudentPaymentStatus[] | ListEnumStudentPaymentStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.StudentPaymentStatus[] | ListEnumStudentPaymentStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumStudentPaymentStatusFilter<$PrismaModel> | $Enums.StudentPaymentStatus
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type StudentPaymentCountOrderByAggregateInput = {
+    id?: SortOrder
+    studentId?: SortOrder
+    counsellorId?: SortOrder
+    registrationType?: SortOrder
+    schoolId?: SortOrder
+    schoolName?: SortOrder
+    referenceCode?: SortOrder
+    amount?: SortOrder
+    currency?: SortOrder
+    status?: SortOrder
+    razorpayOrderId?: SortOrder
+    razorpayPaymentId?: SortOrder
+    razorpaySignature?: SortOrder
+    receiptNumber?: SortOrder
+    receiptSent?: SortOrder
+    receiptSentAt?: SortOrder
+    failureReason?: SortOrder
+    paidAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type StudentPaymentAvgOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type StudentPaymentMaxOrderByAggregateInput = {
+    id?: SortOrder
+    studentId?: SortOrder
+    counsellorId?: SortOrder
+    registrationType?: SortOrder
+    schoolId?: SortOrder
+    schoolName?: SortOrder
+    referenceCode?: SortOrder
+    amount?: SortOrder
+    currency?: SortOrder
+    status?: SortOrder
+    razorpayOrderId?: SortOrder
+    razorpayPaymentId?: SortOrder
+    razorpaySignature?: SortOrder
+    receiptNumber?: SortOrder
+    receiptSent?: SortOrder
+    receiptSentAt?: SortOrder
+    failureReason?: SortOrder
+    paidAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type StudentPaymentMinOrderByAggregateInput = {
+    id?: SortOrder
+    studentId?: SortOrder
+    counsellorId?: SortOrder
+    registrationType?: SortOrder
+    schoolId?: SortOrder
+    schoolName?: SortOrder
+    referenceCode?: SortOrder
+    amount?: SortOrder
+    currency?: SortOrder
+    status?: SortOrder
+    razorpayOrderId?: SortOrder
+    razorpayPaymentId?: SortOrder
+    razorpaySignature?: SortOrder
+    receiptNumber?: SortOrder
+    receiptSent?: SortOrder
+    receiptSentAt?: SortOrder
+    failureReason?: SortOrder
+    paidAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type StudentPaymentSumOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type EnumRegistrationPricingTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.RegistrationPricingType | EnumRegistrationPricingTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.RegistrationPricingType[] | ListEnumRegistrationPricingTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.RegistrationPricingType[] | ListEnumRegistrationPricingTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegistrationPricingTypeWithAggregatesFilter<$PrismaModel> | $Enums.RegistrationPricingType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRegistrationPricingTypeFilter<$PrismaModel>
+    _max?: NestedEnumRegistrationPricingTypeFilter<$PrismaModel>
+  }
+
+  export type EnumStudentPaymentStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.StudentPaymentStatus | EnumStudentPaymentStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.StudentPaymentStatus[] | ListEnumStudentPaymentStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.StudentPaymentStatus[] | ListEnumStudentPaymentStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumStudentPaymentStatusWithAggregatesFilter<$PrismaModel> | $Enums.StudentPaymentStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumStudentPaymentStatusFilter<$PrismaModel>
+    _max?: NestedEnumStudentPaymentStatusFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -5969,6 +10323,86 @@ export namespace Prisma {
 
   export type EnumCreditTransactionTypeFieldUpdateOperationsInput = {
     set?: $Enums.CreditTransactionType
+  }
+
+  export type SchoolPricingCreateNestedManyWithoutPricingConfigInput = {
+    create?: XOR<SchoolPricingCreateWithoutPricingConfigInput, SchoolPricingUncheckedCreateWithoutPricingConfigInput> | SchoolPricingCreateWithoutPricingConfigInput[] | SchoolPricingUncheckedCreateWithoutPricingConfigInput[]
+    connectOrCreate?: SchoolPricingCreateOrConnectWithoutPricingConfigInput | SchoolPricingCreateOrConnectWithoutPricingConfigInput[]
+    createMany?: SchoolPricingCreateManyPricingConfigInputEnvelope
+    connect?: SchoolPricingWhereUniqueInput | SchoolPricingWhereUniqueInput[]
+  }
+
+  export type SchoolPricingUncheckedCreateNestedManyWithoutPricingConfigInput = {
+    create?: XOR<SchoolPricingCreateWithoutPricingConfigInput, SchoolPricingUncheckedCreateWithoutPricingConfigInput> | SchoolPricingCreateWithoutPricingConfigInput[] | SchoolPricingUncheckedCreateWithoutPricingConfigInput[]
+    connectOrCreate?: SchoolPricingCreateOrConnectWithoutPricingConfigInput | SchoolPricingCreateOrConnectWithoutPricingConfigInput[]
+    createMany?: SchoolPricingCreateManyPricingConfigInputEnvelope
+    connect?: SchoolPricingWhereUniqueInput | SchoolPricingWhereUniqueInput[]
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type SchoolPricingUpdateManyWithoutPricingConfigNestedInput = {
+    create?: XOR<SchoolPricingCreateWithoutPricingConfigInput, SchoolPricingUncheckedCreateWithoutPricingConfigInput> | SchoolPricingCreateWithoutPricingConfigInput[] | SchoolPricingUncheckedCreateWithoutPricingConfigInput[]
+    connectOrCreate?: SchoolPricingCreateOrConnectWithoutPricingConfigInput | SchoolPricingCreateOrConnectWithoutPricingConfigInput[]
+    upsert?: SchoolPricingUpsertWithWhereUniqueWithoutPricingConfigInput | SchoolPricingUpsertWithWhereUniqueWithoutPricingConfigInput[]
+    createMany?: SchoolPricingCreateManyPricingConfigInputEnvelope
+    set?: SchoolPricingWhereUniqueInput | SchoolPricingWhereUniqueInput[]
+    disconnect?: SchoolPricingWhereUniqueInput | SchoolPricingWhereUniqueInput[]
+    delete?: SchoolPricingWhereUniqueInput | SchoolPricingWhereUniqueInput[]
+    connect?: SchoolPricingWhereUniqueInput | SchoolPricingWhereUniqueInput[]
+    update?: SchoolPricingUpdateWithWhereUniqueWithoutPricingConfigInput | SchoolPricingUpdateWithWhereUniqueWithoutPricingConfigInput[]
+    updateMany?: SchoolPricingUpdateManyWithWhereWithoutPricingConfigInput | SchoolPricingUpdateManyWithWhereWithoutPricingConfigInput[]
+    deleteMany?: SchoolPricingScalarWhereInput | SchoolPricingScalarWhereInput[]
+  }
+
+  export type SchoolPricingUncheckedUpdateManyWithoutPricingConfigNestedInput = {
+    create?: XOR<SchoolPricingCreateWithoutPricingConfigInput, SchoolPricingUncheckedCreateWithoutPricingConfigInput> | SchoolPricingCreateWithoutPricingConfigInput[] | SchoolPricingUncheckedCreateWithoutPricingConfigInput[]
+    connectOrCreate?: SchoolPricingCreateOrConnectWithoutPricingConfigInput | SchoolPricingCreateOrConnectWithoutPricingConfigInput[]
+    upsert?: SchoolPricingUpsertWithWhereUniqueWithoutPricingConfigInput | SchoolPricingUpsertWithWhereUniqueWithoutPricingConfigInput[]
+    createMany?: SchoolPricingCreateManyPricingConfigInputEnvelope
+    set?: SchoolPricingWhereUniqueInput | SchoolPricingWhereUniqueInput[]
+    disconnect?: SchoolPricingWhereUniqueInput | SchoolPricingWhereUniqueInput[]
+    delete?: SchoolPricingWhereUniqueInput | SchoolPricingWhereUniqueInput[]
+    connect?: SchoolPricingWhereUniqueInput | SchoolPricingWhereUniqueInput[]
+    update?: SchoolPricingUpdateWithWhereUniqueWithoutPricingConfigInput | SchoolPricingUpdateWithWhereUniqueWithoutPricingConfigInput[]
+    updateMany?: SchoolPricingUpdateManyWithWhereWithoutPricingConfigInput | SchoolPricingUpdateManyWithWhereWithoutPricingConfigInput[]
+    deleteMany?: SchoolPricingScalarWhereInput | SchoolPricingScalarWhereInput[]
+  }
+
+  export type CounsellorPricingConfigCreateNestedOneWithoutSchoolPricesInput = {
+    create?: XOR<CounsellorPricingConfigCreateWithoutSchoolPricesInput, CounsellorPricingConfigUncheckedCreateWithoutSchoolPricesInput>
+    connectOrCreate?: CounsellorPricingConfigCreateOrConnectWithoutSchoolPricesInput
+    connect?: CounsellorPricingConfigWhereUniqueInput
+  }
+
+  export type CounsellorPricingConfigUpdateOneRequiredWithoutSchoolPricesNestedInput = {
+    create?: XOR<CounsellorPricingConfigCreateWithoutSchoolPricesInput, CounsellorPricingConfigUncheckedCreateWithoutSchoolPricesInput>
+    connectOrCreate?: CounsellorPricingConfigCreateOrConnectWithoutSchoolPricesInput
+    upsert?: CounsellorPricingConfigUpsertWithoutSchoolPricesInput
+    connect?: CounsellorPricingConfigWhereUniqueInput
+    update?: XOR<XOR<CounsellorPricingConfigUpdateToOneWithWhereWithoutSchoolPricesInput, CounsellorPricingConfigUpdateWithoutSchoolPricesInput>, CounsellorPricingConfigUncheckedUpdateWithoutSchoolPricesInput>
+  }
+
+  export type EnumRegistrationPricingTypeFieldUpdateOperationsInput = {
+    set?: $Enums.RegistrationPricingType
+  }
+
+  export type EnumStudentPaymentStatusFieldUpdateOperationsInput = {
+    set?: $Enums.StudentPaymentStatus
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -6163,11 +10597,273 @@ export namespace Prisma {
     _max?: NestedEnumCreditTransactionTypeFilter<$PrismaModel>
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedEnumRegistrationPricingTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.RegistrationPricingType | EnumRegistrationPricingTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.RegistrationPricingType[] | ListEnumRegistrationPricingTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.RegistrationPricingType[] | ListEnumRegistrationPricingTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegistrationPricingTypeFilter<$PrismaModel> | $Enums.RegistrationPricingType
+  }
+
+  export type NestedEnumStudentPaymentStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.StudentPaymentStatus | EnumStudentPaymentStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.StudentPaymentStatus[] | ListEnumStudentPaymentStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.StudentPaymentStatus[] | ListEnumStudentPaymentStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumStudentPaymentStatusFilter<$PrismaModel> | $Enums.StudentPaymentStatus
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedEnumRegistrationPricingTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.RegistrationPricingType | EnumRegistrationPricingTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.RegistrationPricingType[] | ListEnumRegistrationPricingTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.RegistrationPricingType[] | ListEnumRegistrationPricingTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegistrationPricingTypeWithAggregatesFilter<$PrismaModel> | $Enums.RegistrationPricingType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRegistrationPricingTypeFilter<$PrismaModel>
+    _max?: NestedEnumRegistrationPricingTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumStudentPaymentStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.StudentPaymentStatus | EnumStudentPaymentStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.StudentPaymentStatus[] | ListEnumStudentPaymentStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.StudentPaymentStatus[] | ListEnumStudentPaymentStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumStudentPaymentStatusWithAggregatesFilter<$PrismaModel> | $Enums.StudentPaymentStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumStudentPaymentStatusFilter<$PrismaModel>
+    _max?: NestedEnumStudentPaymentStatusFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type SchoolPricingCreateWithoutPricingConfigInput = {
+    id?: string
+    counsellorId: string
+    schoolId: string
+    schoolName: string
+    amount: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SchoolPricingUncheckedCreateWithoutPricingConfigInput = {
+    id?: string
+    counsellorId: string
+    schoolId: string
+    schoolName: string
+    amount: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SchoolPricingCreateOrConnectWithoutPricingConfigInput = {
+    where: SchoolPricingWhereUniqueInput
+    create: XOR<SchoolPricingCreateWithoutPricingConfigInput, SchoolPricingUncheckedCreateWithoutPricingConfigInput>
+  }
+
+  export type SchoolPricingCreateManyPricingConfigInputEnvelope = {
+    data: SchoolPricingCreateManyPricingConfigInput | SchoolPricingCreateManyPricingConfigInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SchoolPricingUpsertWithWhereUniqueWithoutPricingConfigInput = {
+    where: SchoolPricingWhereUniqueInput
+    update: XOR<SchoolPricingUpdateWithoutPricingConfigInput, SchoolPricingUncheckedUpdateWithoutPricingConfigInput>
+    create: XOR<SchoolPricingCreateWithoutPricingConfigInput, SchoolPricingUncheckedCreateWithoutPricingConfigInput>
+  }
+
+  export type SchoolPricingUpdateWithWhereUniqueWithoutPricingConfigInput = {
+    where: SchoolPricingWhereUniqueInput
+    data: XOR<SchoolPricingUpdateWithoutPricingConfigInput, SchoolPricingUncheckedUpdateWithoutPricingConfigInput>
+  }
+
+  export type SchoolPricingUpdateManyWithWhereWithoutPricingConfigInput = {
+    where: SchoolPricingScalarWhereInput
+    data: XOR<SchoolPricingUpdateManyMutationInput, SchoolPricingUncheckedUpdateManyWithoutPricingConfigInput>
+  }
+
+  export type SchoolPricingScalarWhereInput = {
+    AND?: SchoolPricingScalarWhereInput | SchoolPricingScalarWhereInput[]
+    OR?: SchoolPricingScalarWhereInput[]
+    NOT?: SchoolPricingScalarWhereInput | SchoolPricingScalarWhereInput[]
+    id?: StringFilter<"SchoolPricing"> | string
+    pricingConfigId?: StringFilter<"SchoolPricing"> | string
+    counsellorId?: StringFilter<"SchoolPricing"> | string
+    schoolId?: StringFilter<"SchoolPricing"> | string
+    schoolName?: StringFilter<"SchoolPricing"> | string
+    amount?: IntFilter<"SchoolPricing"> | number
+    isActive?: BoolFilter<"SchoolPricing"> | boolean
+    createdAt?: DateTimeFilter<"SchoolPricing"> | Date | string
+    updatedAt?: DateTimeFilter<"SchoolPricing"> | Date | string
+  }
+
+  export type CounsellorPricingConfigCreateWithoutSchoolPricesInput = {
+    id?: string
+    counsellorId: string
+    paymentEnabled?: boolean
+    individualPrice?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CounsellorPricingConfigUncheckedCreateWithoutSchoolPricesInput = {
+    id?: string
+    counsellorId: string
+    paymentEnabled?: boolean
+    individualPrice?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CounsellorPricingConfigCreateOrConnectWithoutSchoolPricesInput = {
+    where: CounsellorPricingConfigWhereUniqueInput
+    create: XOR<CounsellorPricingConfigCreateWithoutSchoolPricesInput, CounsellorPricingConfigUncheckedCreateWithoutSchoolPricesInput>
+  }
+
+  export type CounsellorPricingConfigUpsertWithoutSchoolPricesInput = {
+    update: XOR<CounsellorPricingConfigUpdateWithoutSchoolPricesInput, CounsellorPricingConfigUncheckedUpdateWithoutSchoolPricesInput>
+    create: XOR<CounsellorPricingConfigCreateWithoutSchoolPricesInput, CounsellorPricingConfigUncheckedCreateWithoutSchoolPricesInput>
+    where?: CounsellorPricingConfigWhereInput
+  }
+
+  export type CounsellorPricingConfigUpdateToOneWithWhereWithoutSchoolPricesInput = {
+    where?: CounsellorPricingConfigWhereInput
+    data: XOR<CounsellorPricingConfigUpdateWithoutSchoolPricesInput, CounsellorPricingConfigUncheckedUpdateWithoutSchoolPricesInput>
+  }
+
+  export type CounsellorPricingConfigUpdateWithoutSchoolPricesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    paymentEnabled?: BoolFieldUpdateOperationsInput | boolean
+    individualPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CounsellorPricingConfigUncheckedUpdateWithoutSchoolPricesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    paymentEnabled?: BoolFieldUpdateOperationsInput | boolean
+    individualPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SchoolPricingCreateManyPricingConfigInput = {
+    id?: string
+    counsellorId: string
+    schoolId: string
+    schoolName: string
+    amount: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SchoolPricingUpdateWithoutPricingConfigInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    schoolId?: StringFieldUpdateOperationsInput | string
+    schoolName?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SchoolPricingUncheckedUpdateWithoutPricingConfigInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    schoolId?: StringFieldUpdateOperationsInput | string
+    schoolName?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SchoolPricingUncheckedUpdateManyWithoutPricingConfigInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    schoolId?: StringFieldUpdateOperationsInput | string
+    schoolName?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
 
 
   /**
    * Aliases for legacy arg types
    */
+    /**
+     * @deprecated Use CounsellorPricingConfigCountOutputTypeDefaultArgs instead
+     */
+    export type CounsellorPricingConfigCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CounsellorPricingConfigCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use PaymentOrderDefaultArgs instead
      */
@@ -6184,6 +10880,18 @@ export namespace Prisma {
      * @deprecated Use CreditTransactionDefaultArgs instead
      */
     export type CreditTransactionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CreditTransactionDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use CounsellorPricingConfigDefaultArgs instead
+     */
+    export type CounsellorPricingConfigArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CounsellorPricingConfigDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use SchoolPricingDefaultArgs instead
+     */
+    export type SchoolPricingArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = SchoolPricingDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use StudentPaymentDefaultArgs instead
+     */
+    export type StudentPaymentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = StudentPaymentDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany
