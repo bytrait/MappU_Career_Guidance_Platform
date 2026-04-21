@@ -34,11 +34,28 @@ const getStudentPaymentStatus = async (studentId) => {
     },
   });
 
+  // Counsellor-created students may not have any payment record
+  // In that case return FREE instead of throwing an error
   if (!payment) {
-    throw new Error('Student payment record not found');
+    return {
+      studentId,
+      amount: 0,
+      currency: 'INR',
+      status: 'FREE',
+      paidAt: null,
+      razorpayOrderId: null,
+      razorpayPaymentId: null,
+      receiptNumber: null,
+      receiptSent: false,
+      receiptSentAt: null,
+      isPaymentRequired: false,
+    };
   }
 
-  return payment;
+  return {
+    ...payment,
+    isPaymentRequired: payment.status !== 'FREE',
+  };
 };
 
 const createStudentPaymentOrder = async (studentId) => {
@@ -48,8 +65,15 @@ const createStudentPaymentOrder = async (studentId) => {
     },
   });
 
+  // No payment row means this student does not require payment
   if (!payment) {
-    throw new Error('Student payment record not found');
+    return {
+      amount: 0,
+      currency: 'INR',
+      status: 'FREE',
+      isPaymentRequired: false,
+      message: 'No payment required for this student',
+    };
   }
 
   if (payment.status === 'PAID') {
@@ -57,7 +81,13 @@ const createStudentPaymentOrder = async (studentId) => {
   }
 
   if (payment.status === 'FREE') {
-    throw new Error('No payment required for this student');
+    return {
+      amount: 0,
+      currency: 'INR',
+      status: 'FREE',
+      isPaymentRequired: false,
+      message: 'No payment required for this student',
+    };
   }
 
   const receiptId = `stu_${payment.studentId.slice(0, 20)}`;
@@ -89,6 +119,7 @@ const createStudentPaymentOrder = async (studentId) => {
     razorpayOrderId: razorpayOrder.id,
     currency: 'INR',
     key: process.env.RAZORPAY_KEY_ID,
+    isPaymentRequired: true,
   };
 };
 
