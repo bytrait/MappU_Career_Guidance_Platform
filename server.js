@@ -13,6 +13,7 @@ const {
   startStudentPaymentReceiptJob,
 } = require('./billing-service/src/jobs/studentPaymentReceipt.job');
 
+
 const app = express();
 app.set("trust proxy", 1);
 
@@ -29,6 +30,8 @@ const corsOrigins = [
   "http://127.0.0.1:5174",
   "http://127.0.0.1:3000"
 ];
+
+// app.use(express.json({ limit: "10mb" }));
 
 app.use(
   cors({
@@ -95,7 +98,7 @@ app.use(cookieParser());
 /* =======================================================
    JSON PARSER
 ======================================================= */
-app.use(express.json());
+app.use(express.json({ limit: "10mb" }));
 /* =======================================================
    RATE LIMIT
 ======================================================= */
