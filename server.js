@@ -9,6 +9,10 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 
 const billingRoutes = require("./billing-service/src/routes");
 const assessmentRoutes = require("./assessment-service/src/routes");
+const {
+  startStudentPaymentReceiptJob,
+} = require('./billing-service/src/jobs/studentPaymentReceipt.job');
+
 
 const app = express();
 app.set("trust proxy", 1);
@@ -18,9 +22,16 @@ app.set("trust proxy", 1);
 ======================================================= */
 const corsOrigins = [
   "https://career-psychometric-assessment.mappmyuniversity.com",
+  "https://career-psychometric-assessment-test.mappmyuniversity.com",
+
+  "https://career-api.mappmyuniversity.com",
+  "https://career-api-test.mappmyuniversity.com",
+
   "http://127.0.0.1:5174",
-  "http://127.0.0.1:3000",
+  "http://127.0.0.1:8001"
 ];
+
+// app.use(express.json({ limit: "10mb" }));
 
 app.use(
   cors({
@@ -87,7 +98,7 @@ app.use(cookieParser());
 /* =======================================================
    JSON PARSER
 ======================================================= */
-app.use(express.json());
+app.use(express.json({ limit: "10mb" }));
 /* =======================================================
    RATE LIMIT
 ======================================================= */
@@ -176,6 +187,8 @@ app.use((err, req, res, next) => {
    START SERVER
 ======================================================= */
 const PORT = process.env.PORT || 4000;
+
+startStudentPaymentReceiptJob();
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

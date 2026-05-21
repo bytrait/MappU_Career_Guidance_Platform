@@ -22,6 +22,20 @@ enum CreditTransactionType {
   SIGNUP_BONUS
 }
 
+enum RegistrationPricingType {
+  INDIVIDUAL
+  SCHOOL
+}
+
+enum StudentPaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  CANCELLED
+  FREE
+  WAIVED
+}
+
 model PaymentOrder {
   id              String        @id @default(uuid())
   counsellorId    String
@@ -66,8 +80,8 @@ model CreditTransaction {
   id           String                @id @default(uuid())
   counsellorId String
   type         CreditTransactionType
-  amount       Int // + for purchase/refund, - for consume
-  referenceId  String? // PaymentOrder.id or studentId
+  amount       Int
+  referenceId  String?
   description  String?
 
   createdAt DateTime @default(now())
@@ -75,4 +89,82 @@ model CreditTransaction {
   @@index([counsellorId])
   @@index([type])
   @@index([createdAt])
+}
+
+model CounsellorPricingConfig {
+  id           String @id @default(uuid())
+  counsellorId String @unique
+
+  paymentEnabled  Boolean @default(true)
+  individualPrice Int?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  schoolPrices SchoolPricing[]
+}
+
+model SchoolPricing {
+  id String @id @default(uuid())
+
+  pricingConfigId String
+  pricingConfig   CounsellorPricingConfig @relation(fields: [pricingConfigId], references: [id], onDelete: Cascade)
+
+  counsellorId String
+  schoolId     String
+  schoolName   String
+
+  amount   Int
+  isActive Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([pricingConfigId])
+  @@index([counsellorId])
+  @@index([schoolId])
+  @@index([isActive])
+}
+
+model StudentPayment {
+  id String @id @default(uuid())
+
+  studentId    String @unique
+  counsellorId String
+
+  registrationType RegistrationPricingType
+
+  schoolId   String?
+  schoolName String?
+
+  referenceCode String?
+
+  amount   Int
+  currency String @default("INR")
+
+  status StudentPaymentStatus @default(PENDING)
+
+  razorpayOrderId   String? @unique
+  razorpayPaymentId String?
+  razorpaySignature String?
+
+  receiptNumber String?   @unique
+  receiptSent   Boolean   @default(false)
+  receiptSentAt DateTime?
+
+  failureReason String?
+
+  paidAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([studentId])
+  @@index([counsellorId])
+  @@index([registrationType])
+  @@index([status])
+  @@index([schoolId])
+  @@index([createdAt])
+  @@index([receiptNumber])
+  @@index([receiptSent])
 }

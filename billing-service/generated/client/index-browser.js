@@ -162,6 +162,50 @@ exports.Prisma.CreditTransactionScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.CounsellorPricingConfigScalarFieldEnum = {
+  id: 'id',
+  counsellorId: 'counsellorId',
+  paymentEnabled: 'paymentEnabled',
+  individualPrice: 'individualPrice',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SchoolPricingScalarFieldEnum = {
+  id: 'id',
+  pricingConfigId: 'pricingConfigId',
+  counsellorId: 'counsellorId',
+  schoolId: 'schoolId',
+  schoolName: 'schoolName',
+  amount: 'amount',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.StudentPaymentScalarFieldEnum = {
+  id: 'id',
+  studentId: 'studentId',
+  counsellorId: 'counsellorId',
+  registrationType: 'registrationType',
+  schoolId: 'schoolId',
+  schoolName: 'schoolName',
+  referenceCode: 'referenceCode',
+  amount: 'amount',
+  currency: 'currency',
+  status: 'status',
+  razorpayOrderId: 'razorpayOrderId',
+  razorpayPaymentId: 'razorpayPaymentId',
+  razorpaySignature: 'razorpaySignature',
+  receiptNumber: 'receiptNumber',
+  receiptSent: 'receiptSent',
+  receiptSentAt: 'receiptSentAt',
+  failureReason: 'failureReason',
+  paidAt: 'paidAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -200,11 +244,28 @@ exports.CreditTransactionType = exports.$Enums.CreditTransactionType = {
   SIGNUP_BONUS: 'SIGNUP_BONUS'
 };
 
+exports.RegistrationPricingType = exports.$Enums.RegistrationPricingType = {
+  INDIVIDUAL: 'INDIVIDUAL',
+  SCHOOL: 'SCHOOL'
+};
+
+exports.StudentPaymentStatus = exports.$Enums.StudentPaymentStatus = {
+  PENDING: 'PENDING',
+  PAID: 'PAID',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED',
+  FREE: 'FREE',
+  WAIVED: 'WAIVED'
+};
+
 exports.Prisma.ModelName = {
   PaymentOrder: 'PaymentOrder',
   CounsellorCredit: 'CounsellorCredit',
   PaymentWebhookLog: 'PaymentWebhookLog',
-  CreditTransaction: 'CreditTransaction'
+  CreditTransaction: 'CreditTransaction',
+  CounsellorPricingConfig: 'CounsellorPricingConfig',
+  SchoolPricing: 'SchoolPricing',
+  StudentPayment: 'StudentPayment'
 };
 
 /**

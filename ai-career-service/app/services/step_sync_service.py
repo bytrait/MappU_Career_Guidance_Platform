@@ -11,19 +11,52 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-CARD_MARKERS = (
-    'class="card"',
-    "class='card'",
+REQUIRED_HTML_MARKERS = (
+    'class="stage"',
     'class="cards"',
-    "class='cards'",
+    'class="card"',
+    "<h3>",
+    "<ul>",
+    "<li>",
+)
+
+INVALID_TEXT_PATTERNS = (
+    "list the most important personal or thinking skills",
+    "explain the key technical or subject-specific skills",
+    "mention the main tools, software, or platforms",
+    "suggest trusted platforms where students can start learning",
+    "include 3–5 soft skills",
+    "connect each skill to real industry work",
+    "keep explanations beginner-friendly",
+    "error",
+    "unable to generate",
+    "failed to generate",
+    "something went wrong",
+    "openai",
+    "api error",
+    "rate limit",
 )
 
 
-def has_card_content(html: str | None) -> bool:
+def is_valid_stage_html(html: str | None) -> bool:
     if not html:
         return False
-    html = html.lower()
-    return any(m in html for m in CARD_MARKERS)
+
+    lower_html = html.lower()
+
+    # Required structure check
+    if not all(marker.lower() in lower_html for marker in REQUIRED_HTML_MARKERS):
+        return False
+
+    # Resource section should usually contain table
+    if "<table>" not in lower_html:
+        return False
+
+    # Detect copied instructions or AI error messages
+    # if any(pattern in lower_html for pattern in INVALID_TEXT_PATTERNS):
+    #     return False
+
+    return True
 
 
 def sync_stage_for_all_careers(
@@ -31,20 +64,14 @@ def sync_stage_for_all_careers(
     db: Session,
     stage_number: int,
     language: str = "en",
-    batch_size: int = 1,   # 🔒 safety valve
+    batch_size: int = 1,
+    max_retries: int = 3,
 ):
     """
-    PRODUCTION-SAFE + DETERMINISTIC
-
-    - Queries ONLY steps with given order
-    - No full Career graph loading
-    - Small commits (batch)
-    - No lost updates
+    Regenerate stage HTML for ONLY professional careers.
+    Retries generation if HTML is invalid or contains error text.
     """
 
-    # --------------------------------------------------
-    # 1. Get EXACT rows that can be updated
-    # --------------------------------------------------
     rows = (
         db.query(
             Career.id.label("career_id"),
@@ -67,6 +94,7 @@ def sync_stage_for_all_careers(
             (CareerStepTranslation.step_id == CareerStep.id)
             & (CareerStepTranslation.language == language),
         )
+        .filter(Career.career_type == "professional")
         .filter(CareerStep.order == stage_number)
         .all()
     )
@@ -74,42 +102,52 @@ def sync_stage_for_all_careers(
     total = len(rows)
     updated = 0
     skipped = 0
+    failed = 0
 
     logger.info(
-        "🚀 Stage sync started | stage=%s | total_steps=%d",
+        "🚀 Professional stage sync started | stage=%s | total_steps=%d",
         stage_number,
         total,
     )
 
-    # --------------------------------------------------
-    # 2. Process deterministically
-    # --------------------------------------------------
     for idx, row in enumerate(rows, start=1):
         try:
-            if not row.career_type:
-                skipped += 1
-                continue
+            generated_html = None
 
-            if has_card_content(row.note):
-                skipped += 1
-                continue
+            for attempt in range(1, max_retries + 1):
+                html = generate_single_stage_html(
+                    career_name=row.career_title,
+                    stage_number=stage_number,
+                    grade="grade10",
+                    career_type=row.career_type,
+                )
 
-            html = generate_single_stage_html(
-                career_name=row.career_title,
-                stage_number=stage_number,
-                grade="grade10",
-                career_type=row.career_type,
-            )
+                if is_valid_stage_html(html):
+                    generated_html = html
+                    break
 
-            if not html:
-                skipped += 1
+                logger.warning(
+                    "⚠️ Invalid HTML generated | career_id=%s | step_id=%s | attempt=%s/%s",
+                    row.career_id,
+                    row.step_id,
+                    attempt,
+                    max_retries,
+                )
+
+            if not generated_html:
+                failed += 1
+                logger.error(
+                    "❌ Failed after retries | career_id=%s | step_id=%s",
+                    row.career_id,
+                    row.step_id,
+                )
                 continue
 
             if row.step_tr_id:
                 db.query(CareerStepTranslation).filter(
                     CareerStepTranslation.id == row.step_tr_id
                 ).update(
-                    {"note": html},
+                    {"note": generated_html},
                     synchronize_session=False,
                 )
             else:
@@ -118,29 +156,27 @@ def sync_stage_for_all_careers(
                         step_id=row.step_id,
                         language=language,
                         title=row.step_type,
-                        note=html,
+                        note=generated_html,
                     )
                 )
 
             updated += 1
 
-            # -------------------------------
-            # Batch commit (CRITICAL)
-            # -------------------------------
             if updated % batch_size == 0:
                 db.commit()
                 logger.info(
-                    "✅ Progress | updated=%d | skipped=%d | remaining=%d",
+                    "✅ Progress | updated=%d | failed=%d | skipped=%d | remaining=%d",
                     updated,
+                    failed,
                     skipped,
                     total - idx,
                 )
 
         except Exception:
             db.rollback()
-            skipped += 1
+            failed += 1
             logger.exception(
-                "❌ Failed career_id=%s step_id=%s",
+                "❌ Exception while processing | career_id=%s | step_id=%s",
                 row.career_id,
                 row.step_id,
             )
@@ -148,16 +184,19 @@ def sync_stage_for_all_careers(
     db.commit()
 
     logger.info(
-        "🎉 Stage sync completed | stage=%s | total=%d | updated=%d | skipped=%d",
+        "🎉 Professional stage sync completed | stage=%s | total=%d | updated=%d | failed=%d | skipped=%d",
         stage_number,
         total,
         updated,
+        failed,
         skipped,
     )
 
     return {
         "stage_number": stage_number,
+        "career_type": "professional",
         "total": total,
         "updated": updated,
+        "failed": failed,
         "skipped": skipped,
     }

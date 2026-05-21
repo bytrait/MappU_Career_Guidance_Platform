@@ -4,6 +4,7 @@ const path = require("path");
 const assessmentRoutes = require("./assessment.routes");
 const userAssessmentProgressRoutes = require("./userAssessmentProgress.route");
 const preferenceRoutes = require("./preference.routes");
+const reportRoutes = require("./report.routes");
 
 const router = express.Router();
 
@@ -20,5 +21,6 @@ router.use(
 router.use("/", assessmentRoutes);
 router.use("/assessment-progress", userAssessmentProgressRoutes);
 router.use("/preference", preferenceRoutes);
+router.use("/report", reportRoutes);
 
 module.exports = router;
