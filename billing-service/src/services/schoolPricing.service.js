@@ -1,4 +1,6 @@
 // src/services/schoolPricing.service.js
+// @deprecated For new student signups use auth ReferenceCode + ReferenceTokenPrice.
+// Retained for admin/legacy reads and backward-compatible registrations without a reference code.
 
 const prisma = require('../utils/prisma.util');
 
@@ -16,6 +18,7 @@ const getSchoolPricingList = async (counsellorId) => {
   return schoolPricingList;
 };
 
+/** @deprecated Auth no longer creates SchoolPricing on school create; use reference token upsert instead. */
 const createSchoolPricing = async ({
   counsellorId,
   schoolId,

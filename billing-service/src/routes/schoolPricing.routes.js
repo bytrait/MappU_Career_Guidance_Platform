@@ -1,4 +1,5 @@
 // src/routes/schoolPricing.routes.js
+// @deprecated Legacy counsellor school pricing API. New flows use /reference-token-internal.
 
 const express = require('express');
 

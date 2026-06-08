@@ -91,6 +91,7 @@ model CreditTransaction {
   @@index([createdAt])
 }
 
+// @deprecated Legacy per-counsellor defaults — not used for new signups when referenceCode/referenceCodeId is set.
 model CounsellorPricingConfig {
   id           String @id @default(uuid())
   counsellorId String @unique
@@ -104,6 +105,7 @@ model CounsellorPricingConfig {
   schoolPrices SchoolPricing[]
 }
 
+// @deprecated Legacy school-level pricing — use ReferenceTokenPrice (auth reference tokens) for new flows.
 model SchoolPricing {
   id String @id @default(uuid())
 
@@ -126,6 +128,28 @@ model SchoolPricing {
   @@index([isActive])
 }
 
+model ReferenceTokenPrice {
+  id           String    @id @default(uuid())
+  tokenId      String    @unique
+  code         String    @unique
+  counsellorId String
+  type         String
+  targetId     String
+  amount       Int
+  currency     String    @default("INR")
+  label        String?
+  startDate    DateTime?
+  expiryDate   DateTime?
+  isActive     Boolean   @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([counsellorId])
+  @@index([code])
+  @@index([isActive])
+}
+
 model StudentPayment {
   id String @id @default(uuid())
 
@@ -137,7 +161,8 @@ model StudentPayment {
   schoolId   String?
   schoolName String?
 
-  referenceCode String?
+  referenceCode   String?
+  referenceCodeId String?
 
   amount   Int
   currency String @default("INR")
@@ -167,4 +192,6 @@ model StudentPayment {
   @@index([createdAt])
   @@index([receiptNumber])
   @@index([receiptSent])
+  @@index([referenceCode])
+  @@index([referenceCodeId])
 }

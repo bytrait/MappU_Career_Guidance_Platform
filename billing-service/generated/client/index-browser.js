@@ -183,6 +183,23 @@ exports.Prisma.SchoolPricingScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.ReferenceTokenPriceScalarFieldEnum = {
+  id: 'id',
+  tokenId: 'tokenId',
+  code: 'code',
+  counsellorId: 'counsellorId',
+  type: 'type',
+  targetId: 'targetId',
+  amount: 'amount',
+  currency: 'currency',
+  label: 'label',
+  startDate: 'startDate',
+  expiryDate: 'expiryDate',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.StudentPaymentScalarFieldEnum = {
   id: 'id',
   studentId: 'studentId',
@@ -191,6 +208,7 @@ exports.Prisma.StudentPaymentScalarFieldEnum = {
   schoolId: 'schoolId',
   schoolName: 'schoolName',
   referenceCode: 'referenceCode',
+  referenceCodeId: 'referenceCodeId',
   amount: 'amount',
   currency: 'currency',
   status: 'status',
@@ -265,6 +283,7 @@ exports.Prisma.ModelName = {
   CreditTransaction: 'CreditTransaction',
   CounsellorPricingConfig: 'CounsellorPricingConfig',
   SchoolPricing: 'SchoolPricing',
+  ReferenceTokenPrice: 'ReferenceTokenPrice',
   StudentPayment: 'StudentPayment'
 };
 

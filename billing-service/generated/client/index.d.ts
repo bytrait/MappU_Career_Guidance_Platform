@@ -44,6 +44,11 @@ export type CounsellorPricingConfig = $Result.DefaultSelection<Prisma.$Counsello
  */
 export type SchoolPricing = $Result.DefaultSelection<Prisma.$SchoolPricingPayload>
 /**
+ * Model ReferenceTokenPrice
+ * 
+ */
+export type ReferenceTokenPrice = $Result.DefaultSelection<Prisma.$ReferenceTokenPricePayload>
+/**
  * Model StudentPayment
  * 
  */
@@ -292,6 +297,16 @@ export class PrismaClient<
     * ```
     */
   get schoolPricing(): Prisma.SchoolPricingDelegate<ExtArgs>;
+
+  /**
+   * `prisma.referenceTokenPrice`: Exposes CRUD operations for the **ReferenceTokenPrice** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ReferenceTokenPrices
+    * const referenceTokenPrices = await prisma.referenceTokenPrice.findMany()
+    * ```
+    */
+  get referenceTokenPrice(): Prisma.ReferenceTokenPriceDelegate<ExtArgs>;
 
   /**
    * `prisma.studentPayment`: Exposes CRUD operations for the **StudentPayment** model.
@@ -749,6 +764,7 @@ export namespace Prisma {
     CreditTransaction: 'CreditTransaction',
     CounsellorPricingConfig: 'CounsellorPricingConfig',
     SchoolPricing: 'SchoolPricing',
+    ReferenceTokenPrice: 'ReferenceTokenPrice',
     StudentPayment: 'StudentPayment'
   };
 
@@ -765,7 +781,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "paymentOrder" | "counsellorCredit" | "paymentWebhookLog" | "creditTransaction" | "counsellorPricingConfig" | "schoolPricing" | "studentPayment"
+      modelProps: "paymentOrder" | "counsellorCredit" | "paymentWebhookLog" | "creditTransaction" | "counsellorPricingConfig" | "schoolPricing" | "referenceTokenPrice" | "studentPayment"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1186,6 +1202,76 @@ export namespace Prisma {
           count: {
             args: Prisma.SchoolPricingCountArgs<ExtArgs>
             result: $Utils.Optional<SchoolPricingCountAggregateOutputType> | number
+          }
+        }
+      }
+      ReferenceTokenPrice: {
+        payload: Prisma.$ReferenceTokenPricePayload<ExtArgs>
+        fields: Prisma.ReferenceTokenPriceFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ReferenceTokenPriceFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferenceTokenPricePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ReferenceTokenPriceFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferenceTokenPricePayload>
+          }
+          findFirst: {
+            args: Prisma.ReferenceTokenPriceFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferenceTokenPricePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ReferenceTokenPriceFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferenceTokenPricePayload>
+          }
+          findMany: {
+            args: Prisma.ReferenceTokenPriceFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferenceTokenPricePayload>[]
+          }
+          create: {
+            args: Prisma.ReferenceTokenPriceCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferenceTokenPricePayload>
+          }
+          createMany: {
+            args: Prisma.ReferenceTokenPriceCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ReferenceTokenPriceCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferenceTokenPricePayload>[]
+          }
+          delete: {
+            args: Prisma.ReferenceTokenPriceDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferenceTokenPricePayload>
+          }
+          update: {
+            args: Prisma.ReferenceTokenPriceUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferenceTokenPricePayload>
+          }
+          deleteMany: {
+            args: Prisma.ReferenceTokenPriceDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ReferenceTokenPriceUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.ReferenceTokenPriceUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferenceTokenPricePayload>
+          }
+          aggregate: {
+            args: Prisma.ReferenceTokenPriceAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateReferenceTokenPrice>
+          }
+          groupBy: {
+            args: Prisma.ReferenceTokenPriceGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ReferenceTokenPriceGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ReferenceTokenPriceCountArgs<ExtArgs>
+            result: $Utils.Optional<ReferenceTokenPriceCountAggregateOutputType> | number
           }
         }
       }
@@ -7178,6 +7264,1026 @@ export namespace Prisma {
 
 
   /**
+   * Model ReferenceTokenPrice
+   */
+
+  export type AggregateReferenceTokenPrice = {
+    _count: ReferenceTokenPriceCountAggregateOutputType | null
+    _avg: ReferenceTokenPriceAvgAggregateOutputType | null
+    _sum: ReferenceTokenPriceSumAggregateOutputType | null
+    _min: ReferenceTokenPriceMinAggregateOutputType | null
+    _max: ReferenceTokenPriceMaxAggregateOutputType | null
+  }
+
+  export type ReferenceTokenPriceAvgAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type ReferenceTokenPriceSumAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type ReferenceTokenPriceMinAggregateOutputType = {
+    id: string | null
+    tokenId: string | null
+    code: string | null
+    counsellorId: string | null
+    type: string | null
+    targetId: string | null
+    amount: number | null
+    currency: string | null
+    label: string | null
+    startDate: Date | null
+    expiryDate: Date | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ReferenceTokenPriceMaxAggregateOutputType = {
+    id: string | null
+    tokenId: string | null
+    code: string | null
+    counsellorId: string | null
+    type: string | null
+    targetId: string | null
+    amount: number | null
+    currency: string | null
+    label: string | null
+    startDate: Date | null
+    expiryDate: Date | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ReferenceTokenPriceCountAggregateOutputType = {
+    id: number
+    tokenId: number
+    code: number
+    counsellorId: number
+    type: number
+    targetId: number
+    amount: number
+    currency: number
+    label: number
+    startDate: number
+    expiryDate: number
+    isActive: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ReferenceTokenPriceAvgAggregateInputType = {
+    amount?: true
+  }
+
+  export type ReferenceTokenPriceSumAggregateInputType = {
+    amount?: true
+  }
+
+  export type ReferenceTokenPriceMinAggregateInputType = {
+    id?: true
+    tokenId?: true
+    code?: true
+    counsellorId?: true
+    type?: true
+    targetId?: true
+    amount?: true
+    currency?: true
+    label?: true
+    startDate?: true
+    expiryDate?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ReferenceTokenPriceMaxAggregateInputType = {
+    id?: true
+    tokenId?: true
+    code?: true
+    counsellorId?: true
+    type?: true
+    targetId?: true
+    amount?: true
+    currency?: true
+    label?: true
+    startDate?: true
+    expiryDate?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ReferenceTokenPriceCountAggregateInputType = {
+    id?: true
+    tokenId?: true
+    code?: true
+    counsellorId?: true
+    type?: true
+    targetId?: true
+    amount?: true
+    currency?: true
+    label?: true
+    startDate?: true
+    expiryDate?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ReferenceTokenPriceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ReferenceTokenPrice to aggregate.
+     */
+    where?: ReferenceTokenPriceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ReferenceTokenPrices to fetch.
+     */
+    orderBy?: ReferenceTokenPriceOrderByWithRelationInput | ReferenceTokenPriceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ReferenceTokenPriceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ReferenceTokenPrices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ReferenceTokenPrices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ReferenceTokenPrices
+    **/
+    _count?: true | ReferenceTokenPriceCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ReferenceTokenPriceAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ReferenceTokenPriceSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ReferenceTokenPriceMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ReferenceTokenPriceMaxAggregateInputType
+  }
+
+  export type GetReferenceTokenPriceAggregateType<T extends ReferenceTokenPriceAggregateArgs> = {
+        [P in keyof T & keyof AggregateReferenceTokenPrice]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateReferenceTokenPrice[P]>
+      : GetScalarType<T[P], AggregateReferenceTokenPrice[P]>
+  }
+
+
+
+
+  export type ReferenceTokenPriceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReferenceTokenPriceWhereInput
+    orderBy?: ReferenceTokenPriceOrderByWithAggregationInput | ReferenceTokenPriceOrderByWithAggregationInput[]
+    by: ReferenceTokenPriceScalarFieldEnum[] | ReferenceTokenPriceScalarFieldEnum
+    having?: ReferenceTokenPriceScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ReferenceTokenPriceCountAggregateInputType | true
+    _avg?: ReferenceTokenPriceAvgAggregateInputType
+    _sum?: ReferenceTokenPriceSumAggregateInputType
+    _min?: ReferenceTokenPriceMinAggregateInputType
+    _max?: ReferenceTokenPriceMaxAggregateInputType
+  }
+
+  export type ReferenceTokenPriceGroupByOutputType = {
+    id: string
+    tokenId: string
+    code: string
+    counsellorId: string
+    type: string
+    targetId: string
+    amount: number
+    currency: string
+    label: string | null
+    startDate: Date | null
+    expiryDate: Date | null
+    isActive: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: ReferenceTokenPriceCountAggregateOutputType | null
+    _avg: ReferenceTokenPriceAvgAggregateOutputType | null
+    _sum: ReferenceTokenPriceSumAggregateOutputType | null
+    _min: ReferenceTokenPriceMinAggregateOutputType | null
+    _max: ReferenceTokenPriceMaxAggregateOutputType | null
+  }
+
+  type GetReferenceTokenPriceGroupByPayload<T extends ReferenceTokenPriceGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ReferenceTokenPriceGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ReferenceTokenPriceGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ReferenceTokenPriceGroupByOutputType[P]>
+            : GetScalarType<T[P], ReferenceTokenPriceGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ReferenceTokenPriceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tokenId?: boolean
+    code?: boolean
+    counsellorId?: boolean
+    type?: boolean
+    targetId?: boolean
+    amount?: boolean
+    currency?: boolean
+    label?: boolean
+    startDate?: boolean
+    expiryDate?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["referenceTokenPrice"]>
+
+  export type ReferenceTokenPriceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tokenId?: boolean
+    code?: boolean
+    counsellorId?: boolean
+    type?: boolean
+    targetId?: boolean
+    amount?: boolean
+    currency?: boolean
+    label?: boolean
+    startDate?: boolean
+    expiryDate?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["referenceTokenPrice"]>
+
+  export type ReferenceTokenPriceSelectScalar = {
+    id?: boolean
+    tokenId?: boolean
+    code?: boolean
+    counsellorId?: boolean
+    type?: boolean
+    targetId?: boolean
+    amount?: boolean
+    currency?: boolean
+    label?: boolean
+    startDate?: boolean
+    expiryDate?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+
+  export type $ReferenceTokenPricePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ReferenceTokenPrice"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      tokenId: string
+      code: string
+      counsellorId: string
+      type: string
+      targetId: string
+      amount: number
+      currency: string
+      label: string | null
+      startDate: Date | null
+      expiryDate: Date | null
+      isActive: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["referenceTokenPrice"]>
+    composites: {}
+  }
+
+  type ReferenceTokenPriceGetPayload<S extends boolean | null | undefined | ReferenceTokenPriceDefaultArgs> = $Result.GetResult<Prisma.$ReferenceTokenPricePayload, S>
+
+  type ReferenceTokenPriceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<ReferenceTokenPriceFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: ReferenceTokenPriceCountAggregateInputType | true
+    }
+
+  export interface ReferenceTokenPriceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ReferenceTokenPrice'], meta: { name: 'ReferenceTokenPrice' } }
+    /**
+     * Find zero or one ReferenceTokenPrice that matches the filter.
+     * @param {ReferenceTokenPriceFindUniqueArgs} args - Arguments to find a ReferenceTokenPrice
+     * @example
+     * // Get one ReferenceTokenPrice
+     * const referenceTokenPrice = await prisma.referenceTokenPrice.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ReferenceTokenPriceFindUniqueArgs>(args: SelectSubset<T, ReferenceTokenPriceFindUniqueArgs<ExtArgs>>): Prisma__ReferenceTokenPriceClient<$Result.GetResult<Prisma.$ReferenceTokenPricePayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one ReferenceTokenPrice that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {ReferenceTokenPriceFindUniqueOrThrowArgs} args - Arguments to find a ReferenceTokenPrice
+     * @example
+     * // Get one ReferenceTokenPrice
+     * const referenceTokenPrice = await prisma.referenceTokenPrice.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ReferenceTokenPriceFindUniqueOrThrowArgs>(args: SelectSubset<T, ReferenceTokenPriceFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ReferenceTokenPriceClient<$Result.GetResult<Prisma.$ReferenceTokenPricePayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first ReferenceTokenPrice that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferenceTokenPriceFindFirstArgs} args - Arguments to find a ReferenceTokenPrice
+     * @example
+     * // Get one ReferenceTokenPrice
+     * const referenceTokenPrice = await prisma.referenceTokenPrice.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ReferenceTokenPriceFindFirstArgs>(args?: SelectSubset<T, ReferenceTokenPriceFindFirstArgs<ExtArgs>>): Prisma__ReferenceTokenPriceClient<$Result.GetResult<Prisma.$ReferenceTokenPricePayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first ReferenceTokenPrice that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferenceTokenPriceFindFirstOrThrowArgs} args - Arguments to find a ReferenceTokenPrice
+     * @example
+     * // Get one ReferenceTokenPrice
+     * const referenceTokenPrice = await prisma.referenceTokenPrice.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ReferenceTokenPriceFindFirstOrThrowArgs>(args?: SelectSubset<T, ReferenceTokenPriceFindFirstOrThrowArgs<ExtArgs>>): Prisma__ReferenceTokenPriceClient<$Result.GetResult<Prisma.$ReferenceTokenPricePayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more ReferenceTokenPrices that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferenceTokenPriceFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ReferenceTokenPrices
+     * const referenceTokenPrices = await prisma.referenceTokenPrice.findMany()
+     * 
+     * // Get first 10 ReferenceTokenPrices
+     * const referenceTokenPrices = await prisma.referenceTokenPrice.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const referenceTokenPriceWithIdOnly = await prisma.referenceTokenPrice.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ReferenceTokenPriceFindManyArgs>(args?: SelectSubset<T, ReferenceTokenPriceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReferenceTokenPricePayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a ReferenceTokenPrice.
+     * @param {ReferenceTokenPriceCreateArgs} args - Arguments to create a ReferenceTokenPrice.
+     * @example
+     * // Create one ReferenceTokenPrice
+     * const ReferenceTokenPrice = await prisma.referenceTokenPrice.create({
+     *   data: {
+     *     // ... data to create a ReferenceTokenPrice
+     *   }
+     * })
+     * 
+     */
+    create<T extends ReferenceTokenPriceCreateArgs>(args: SelectSubset<T, ReferenceTokenPriceCreateArgs<ExtArgs>>): Prisma__ReferenceTokenPriceClient<$Result.GetResult<Prisma.$ReferenceTokenPricePayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many ReferenceTokenPrices.
+     * @param {ReferenceTokenPriceCreateManyArgs} args - Arguments to create many ReferenceTokenPrices.
+     * @example
+     * // Create many ReferenceTokenPrices
+     * const referenceTokenPrice = await prisma.referenceTokenPrice.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ReferenceTokenPriceCreateManyArgs>(args?: SelectSubset<T, ReferenceTokenPriceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ReferenceTokenPrices and returns the data saved in the database.
+     * @param {ReferenceTokenPriceCreateManyAndReturnArgs} args - Arguments to create many ReferenceTokenPrices.
+     * @example
+     * // Create many ReferenceTokenPrices
+     * const referenceTokenPrice = await prisma.referenceTokenPrice.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ReferenceTokenPrices and only return the `id`
+     * const referenceTokenPriceWithIdOnly = await prisma.referenceTokenPrice.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ReferenceTokenPriceCreateManyAndReturnArgs>(args?: SelectSubset<T, ReferenceTokenPriceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReferenceTokenPricePayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a ReferenceTokenPrice.
+     * @param {ReferenceTokenPriceDeleteArgs} args - Arguments to delete one ReferenceTokenPrice.
+     * @example
+     * // Delete one ReferenceTokenPrice
+     * const ReferenceTokenPrice = await prisma.referenceTokenPrice.delete({
+     *   where: {
+     *     // ... filter to delete one ReferenceTokenPrice
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ReferenceTokenPriceDeleteArgs>(args: SelectSubset<T, ReferenceTokenPriceDeleteArgs<ExtArgs>>): Prisma__ReferenceTokenPriceClient<$Result.GetResult<Prisma.$ReferenceTokenPricePayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one ReferenceTokenPrice.
+     * @param {ReferenceTokenPriceUpdateArgs} args - Arguments to update one ReferenceTokenPrice.
+     * @example
+     * // Update one ReferenceTokenPrice
+     * const referenceTokenPrice = await prisma.referenceTokenPrice.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ReferenceTokenPriceUpdateArgs>(args: SelectSubset<T, ReferenceTokenPriceUpdateArgs<ExtArgs>>): Prisma__ReferenceTokenPriceClient<$Result.GetResult<Prisma.$ReferenceTokenPricePayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more ReferenceTokenPrices.
+     * @param {ReferenceTokenPriceDeleteManyArgs} args - Arguments to filter ReferenceTokenPrices to delete.
+     * @example
+     * // Delete a few ReferenceTokenPrices
+     * const { count } = await prisma.referenceTokenPrice.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ReferenceTokenPriceDeleteManyArgs>(args?: SelectSubset<T, ReferenceTokenPriceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ReferenceTokenPrices.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferenceTokenPriceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ReferenceTokenPrices
+     * const referenceTokenPrice = await prisma.referenceTokenPrice.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ReferenceTokenPriceUpdateManyArgs>(args: SelectSubset<T, ReferenceTokenPriceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one ReferenceTokenPrice.
+     * @param {ReferenceTokenPriceUpsertArgs} args - Arguments to update or create a ReferenceTokenPrice.
+     * @example
+     * // Update or create a ReferenceTokenPrice
+     * const referenceTokenPrice = await prisma.referenceTokenPrice.upsert({
+     *   create: {
+     *     // ... data to create a ReferenceTokenPrice
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ReferenceTokenPrice we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ReferenceTokenPriceUpsertArgs>(args: SelectSubset<T, ReferenceTokenPriceUpsertArgs<ExtArgs>>): Prisma__ReferenceTokenPriceClient<$Result.GetResult<Prisma.$ReferenceTokenPricePayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of ReferenceTokenPrices.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferenceTokenPriceCountArgs} args - Arguments to filter ReferenceTokenPrices to count.
+     * @example
+     * // Count the number of ReferenceTokenPrices
+     * const count = await prisma.referenceTokenPrice.count({
+     *   where: {
+     *     // ... the filter for the ReferenceTokenPrices we want to count
+     *   }
+     * })
+    **/
+    count<T extends ReferenceTokenPriceCountArgs>(
+      args?: Subset<T, ReferenceTokenPriceCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ReferenceTokenPriceCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ReferenceTokenPrice.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferenceTokenPriceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ReferenceTokenPriceAggregateArgs>(args: Subset<T, ReferenceTokenPriceAggregateArgs>): Prisma.PrismaPromise<GetReferenceTokenPriceAggregateType<T>>
+
+    /**
+     * Group by ReferenceTokenPrice.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferenceTokenPriceGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ReferenceTokenPriceGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ReferenceTokenPriceGroupByArgs['orderBy'] }
+        : { orderBy?: ReferenceTokenPriceGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ReferenceTokenPriceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetReferenceTokenPriceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ReferenceTokenPrice model
+   */
+  readonly fields: ReferenceTokenPriceFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ReferenceTokenPrice.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ReferenceTokenPriceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ReferenceTokenPrice model
+   */ 
+  interface ReferenceTokenPriceFieldRefs {
+    readonly id: FieldRef<"ReferenceTokenPrice", 'String'>
+    readonly tokenId: FieldRef<"ReferenceTokenPrice", 'String'>
+    readonly code: FieldRef<"ReferenceTokenPrice", 'String'>
+    readonly counsellorId: FieldRef<"ReferenceTokenPrice", 'String'>
+    readonly type: FieldRef<"ReferenceTokenPrice", 'String'>
+    readonly targetId: FieldRef<"ReferenceTokenPrice", 'String'>
+    readonly amount: FieldRef<"ReferenceTokenPrice", 'Int'>
+    readonly currency: FieldRef<"ReferenceTokenPrice", 'String'>
+    readonly label: FieldRef<"ReferenceTokenPrice", 'String'>
+    readonly startDate: FieldRef<"ReferenceTokenPrice", 'DateTime'>
+    readonly expiryDate: FieldRef<"ReferenceTokenPrice", 'DateTime'>
+    readonly isActive: FieldRef<"ReferenceTokenPrice", 'Boolean'>
+    readonly createdAt: FieldRef<"ReferenceTokenPrice", 'DateTime'>
+    readonly updatedAt: FieldRef<"ReferenceTokenPrice", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ReferenceTokenPrice findUnique
+   */
+  export type ReferenceTokenPriceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferenceTokenPrice
+     */
+    select?: ReferenceTokenPriceSelect<ExtArgs> | null
+    /**
+     * Filter, which ReferenceTokenPrice to fetch.
+     */
+    where: ReferenceTokenPriceWhereUniqueInput
+  }
+
+  /**
+   * ReferenceTokenPrice findUniqueOrThrow
+   */
+  export type ReferenceTokenPriceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferenceTokenPrice
+     */
+    select?: ReferenceTokenPriceSelect<ExtArgs> | null
+    /**
+     * Filter, which ReferenceTokenPrice to fetch.
+     */
+    where: ReferenceTokenPriceWhereUniqueInput
+  }
+
+  /**
+   * ReferenceTokenPrice findFirst
+   */
+  export type ReferenceTokenPriceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferenceTokenPrice
+     */
+    select?: ReferenceTokenPriceSelect<ExtArgs> | null
+    /**
+     * Filter, which ReferenceTokenPrice to fetch.
+     */
+    where?: ReferenceTokenPriceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ReferenceTokenPrices to fetch.
+     */
+    orderBy?: ReferenceTokenPriceOrderByWithRelationInput | ReferenceTokenPriceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ReferenceTokenPrices.
+     */
+    cursor?: ReferenceTokenPriceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ReferenceTokenPrices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ReferenceTokenPrices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ReferenceTokenPrices.
+     */
+    distinct?: ReferenceTokenPriceScalarFieldEnum | ReferenceTokenPriceScalarFieldEnum[]
+  }
+
+  /**
+   * ReferenceTokenPrice findFirstOrThrow
+   */
+  export type ReferenceTokenPriceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferenceTokenPrice
+     */
+    select?: ReferenceTokenPriceSelect<ExtArgs> | null
+    /**
+     * Filter, which ReferenceTokenPrice to fetch.
+     */
+    where?: ReferenceTokenPriceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ReferenceTokenPrices to fetch.
+     */
+    orderBy?: ReferenceTokenPriceOrderByWithRelationInput | ReferenceTokenPriceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ReferenceTokenPrices.
+     */
+    cursor?: ReferenceTokenPriceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ReferenceTokenPrices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ReferenceTokenPrices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ReferenceTokenPrices.
+     */
+    distinct?: ReferenceTokenPriceScalarFieldEnum | ReferenceTokenPriceScalarFieldEnum[]
+  }
+
+  /**
+   * ReferenceTokenPrice findMany
+   */
+  export type ReferenceTokenPriceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferenceTokenPrice
+     */
+    select?: ReferenceTokenPriceSelect<ExtArgs> | null
+    /**
+     * Filter, which ReferenceTokenPrices to fetch.
+     */
+    where?: ReferenceTokenPriceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ReferenceTokenPrices to fetch.
+     */
+    orderBy?: ReferenceTokenPriceOrderByWithRelationInput | ReferenceTokenPriceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ReferenceTokenPrices.
+     */
+    cursor?: ReferenceTokenPriceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ReferenceTokenPrices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ReferenceTokenPrices.
+     */
+    skip?: number
+    distinct?: ReferenceTokenPriceScalarFieldEnum | ReferenceTokenPriceScalarFieldEnum[]
+  }
+
+  /**
+   * ReferenceTokenPrice create
+   */
+  export type ReferenceTokenPriceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferenceTokenPrice
+     */
+    select?: ReferenceTokenPriceSelect<ExtArgs> | null
+    /**
+     * The data needed to create a ReferenceTokenPrice.
+     */
+    data: XOR<ReferenceTokenPriceCreateInput, ReferenceTokenPriceUncheckedCreateInput>
+  }
+
+  /**
+   * ReferenceTokenPrice createMany
+   */
+  export type ReferenceTokenPriceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ReferenceTokenPrices.
+     */
+    data: ReferenceTokenPriceCreateManyInput | ReferenceTokenPriceCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ReferenceTokenPrice createManyAndReturn
+   */
+  export type ReferenceTokenPriceCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferenceTokenPrice
+     */
+    select?: ReferenceTokenPriceSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many ReferenceTokenPrices.
+     */
+    data: ReferenceTokenPriceCreateManyInput | ReferenceTokenPriceCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ReferenceTokenPrice update
+   */
+  export type ReferenceTokenPriceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferenceTokenPrice
+     */
+    select?: ReferenceTokenPriceSelect<ExtArgs> | null
+    /**
+     * The data needed to update a ReferenceTokenPrice.
+     */
+    data: XOR<ReferenceTokenPriceUpdateInput, ReferenceTokenPriceUncheckedUpdateInput>
+    /**
+     * Choose, which ReferenceTokenPrice to update.
+     */
+    where: ReferenceTokenPriceWhereUniqueInput
+  }
+
+  /**
+   * ReferenceTokenPrice updateMany
+   */
+  export type ReferenceTokenPriceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ReferenceTokenPrices.
+     */
+    data: XOR<ReferenceTokenPriceUpdateManyMutationInput, ReferenceTokenPriceUncheckedUpdateManyInput>
+    /**
+     * Filter which ReferenceTokenPrices to update
+     */
+    where?: ReferenceTokenPriceWhereInput
+  }
+
+  /**
+   * ReferenceTokenPrice upsert
+   */
+  export type ReferenceTokenPriceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferenceTokenPrice
+     */
+    select?: ReferenceTokenPriceSelect<ExtArgs> | null
+    /**
+     * The filter to search for the ReferenceTokenPrice to update in case it exists.
+     */
+    where: ReferenceTokenPriceWhereUniqueInput
+    /**
+     * In case the ReferenceTokenPrice found by the `where` argument doesn't exist, create a new ReferenceTokenPrice with this data.
+     */
+    create: XOR<ReferenceTokenPriceCreateInput, ReferenceTokenPriceUncheckedCreateInput>
+    /**
+     * In case the ReferenceTokenPrice was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ReferenceTokenPriceUpdateInput, ReferenceTokenPriceUncheckedUpdateInput>
+  }
+
+  /**
+   * ReferenceTokenPrice delete
+   */
+  export type ReferenceTokenPriceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferenceTokenPrice
+     */
+    select?: ReferenceTokenPriceSelect<ExtArgs> | null
+    /**
+     * Filter which ReferenceTokenPrice to delete.
+     */
+    where: ReferenceTokenPriceWhereUniqueInput
+  }
+
+  /**
+   * ReferenceTokenPrice deleteMany
+   */
+  export type ReferenceTokenPriceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ReferenceTokenPrices to delete
+     */
+    where?: ReferenceTokenPriceWhereInput
+  }
+
+  /**
+   * ReferenceTokenPrice without action
+   */
+  export type ReferenceTokenPriceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferenceTokenPrice
+     */
+    select?: ReferenceTokenPriceSelect<ExtArgs> | null
+  }
+
+
+  /**
    * Model StudentPayment
    */
 
@@ -7205,6 +8311,7 @@ export namespace Prisma {
     schoolId: string | null
     schoolName: string | null
     referenceCode: string | null
+    referenceCodeId: string | null
     amount: number | null
     currency: string | null
     status: $Enums.StudentPaymentStatus | null
@@ -7228,6 +8335,7 @@ export namespace Prisma {
     schoolId: string | null
     schoolName: string | null
     referenceCode: string | null
+    referenceCodeId: string | null
     amount: number | null
     currency: string | null
     status: $Enums.StudentPaymentStatus | null
@@ -7251,6 +8359,7 @@ export namespace Prisma {
     schoolId: number
     schoolName: number
     referenceCode: number
+    referenceCodeId: number
     amount: number
     currency: number
     status: number
@@ -7284,6 +8393,7 @@ export namespace Prisma {
     schoolId?: true
     schoolName?: true
     referenceCode?: true
+    referenceCodeId?: true
     amount?: true
     currency?: true
     status?: true
@@ -7307,6 +8417,7 @@ export namespace Prisma {
     schoolId?: true
     schoolName?: true
     referenceCode?: true
+    referenceCodeId?: true
     amount?: true
     currency?: true
     status?: true
@@ -7330,6 +8441,7 @@ export namespace Prisma {
     schoolId?: true
     schoolName?: true
     referenceCode?: true
+    referenceCodeId?: true
     amount?: true
     currency?: true
     status?: true
@@ -7440,6 +8552,7 @@ export namespace Prisma {
     schoolId: string | null
     schoolName: string | null
     referenceCode: string | null
+    referenceCodeId: string | null
     amount: number
     currency: string
     status: $Enums.StudentPaymentStatus
@@ -7482,6 +8595,7 @@ export namespace Prisma {
     schoolId?: boolean
     schoolName?: boolean
     referenceCode?: boolean
+    referenceCodeId?: boolean
     amount?: boolean
     currency?: boolean
     status?: boolean
@@ -7505,6 +8619,7 @@ export namespace Prisma {
     schoolId?: boolean
     schoolName?: boolean
     referenceCode?: boolean
+    referenceCodeId?: boolean
     amount?: boolean
     currency?: boolean
     status?: boolean
@@ -7528,6 +8643,7 @@ export namespace Prisma {
     schoolId?: boolean
     schoolName?: boolean
     referenceCode?: boolean
+    referenceCodeId?: boolean
     amount?: boolean
     currency?: boolean
     status?: boolean
@@ -7555,6 +8671,7 @@ export namespace Prisma {
       schoolId: string | null
       schoolName: string | null
       referenceCode: string | null
+      referenceCodeId: string | null
       amount: number
       currency: string
       status: $Enums.StudentPaymentStatus
@@ -7968,6 +9085,7 @@ export namespace Prisma {
     readonly schoolId: FieldRef<"StudentPayment", 'String'>
     readonly schoolName: FieldRef<"StudentPayment", 'String'>
     readonly referenceCode: FieldRef<"StudentPayment", 'String'>
+    readonly referenceCodeId: FieldRef<"StudentPayment", 'String'>
     readonly amount: FieldRef<"StudentPayment", 'Int'>
     readonly currency: FieldRef<"StudentPayment", 'String'>
     readonly status: FieldRef<"StudentPayment", 'StudentPaymentStatus'>
@@ -8362,6 +9480,26 @@ export namespace Prisma {
   export type SchoolPricingScalarFieldEnum = (typeof SchoolPricingScalarFieldEnum)[keyof typeof SchoolPricingScalarFieldEnum]
 
 
+  export const ReferenceTokenPriceScalarFieldEnum: {
+    id: 'id',
+    tokenId: 'tokenId',
+    code: 'code',
+    counsellorId: 'counsellorId',
+    type: 'type',
+    targetId: 'targetId',
+    amount: 'amount',
+    currency: 'currency',
+    label: 'label',
+    startDate: 'startDate',
+    expiryDate: 'expiryDate',
+    isActive: 'isActive',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ReferenceTokenPriceScalarFieldEnum = (typeof ReferenceTokenPriceScalarFieldEnum)[keyof typeof ReferenceTokenPriceScalarFieldEnum]
+
+
   export const StudentPaymentScalarFieldEnum: {
     id: 'id',
     studentId: 'studentId',
@@ -8370,6 +9508,7 @@ export namespace Prisma {
     schoolId: 'schoolId',
     schoolName: 'schoolName',
     referenceCode: 'referenceCode',
+    referenceCodeId: 'referenceCodeId',
     amount: 'amount',
     currency: 'currency',
     status: 'status',
@@ -8955,6 +10094,105 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"SchoolPricing"> | Date | string
   }
 
+  export type ReferenceTokenPriceWhereInput = {
+    AND?: ReferenceTokenPriceWhereInput | ReferenceTokenPriceWhereInput[]
+    OR?: ReferenceTokenPriceWhereInput[]
+    NOT?: ReferenceTokenPriceWhereInput | ReferenceTokenPriceWhereInput[]
+    id?: StringFilter<"ReferenceTokenPrice"> | string
+    tokenId?: StringFilter<"ReferenceTokenPrice"> | string
+    code?: StringFilter<"ReferenceTokenPrice"> | string
+    counsellorId?: StringFilter<"ReferenceTokenPrice"> | string
+    type?: StringFilter<"ReferenceTokenPrice"> | string
+    targetId?: StringFilter<"ReferenceTokenPrice"> | string
+    amount?: IntFilter<"ReferenceTokenPrice"> | number
+    currency?: StringFilter<"ReferenceTokenPrice"> | string
+    label?: StringNullableFilter<"ReferenceTokenPrice"> | string | null
+    startDate?: DateTimeNullableFilter<"ReferenceTokenPrice"> | Date | string | null
+    expiryDate?: DateTimeNullableFilter<"ReferenceTokenPrice"> | Date | string | null
+    isActive?: BoolFilter<"ReferenceTokenPrice"> | boolean
+    createdAt?: DateTimeFilter<"ReferenceTokenPrice"> | Date | string
+    updatedAt?: DateTimeFilter<"ReferenceTokenPrice"> | Date | string
+  }
+
+  export type ReferenceTokenPriceOrderByWithRelationInput = {
+    id?: SortOrder
+    tokenId?: SortOrder
+    code?: SortOrder
+    counsellorId?: SortOrder
+    type?: SortOrder
+    targetId?: SortOrder
+    amount?: SortOrder
+    currency?: SortOrder
+    label?: SortOrderInput | SortOrder
+    startDate?: SortOrderInput | SortOrder
+    expiryDate?: SortOrderInput | SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ReferenceTokenPriceWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    tokenId?: string
+    code?: string
+    AND?: ReferenceTokenPriceWhereInput | ReferenceTokenPriceWhereInput[]
+    OR?: ReferenceTokenPriceWhereInput[]
+    NOT?: ReferenceTokenPriceWhereInput | ReferenceTokenPriceWhereInput[]
+    counsellorId?: StringFilter<"ReferenceTokenPrice"> | string
+    type?: StringFilter<"ReferenceTokenPrice"> | string
+    targetId?: StringFilter<"ReferenceTokenPrice"> | string
+    amount?: IntFilter<"ReferenceTokenPrice"> | number
+    currency?: StringFilter<"ReferenceTokenPrice"> | string
+    label?: StringNullableFilter<"ReferenceTokenPrice"> | string | null
+    startDate?: DateTimeNullableFilter<"ReferenceTokenPrice"> | Date | string | null
+    expiryDate?: DateTimeNullableFilter<"ReferenceTokenPrice"> | Date | string | null
+    isActive?: BoolFilter<"ReferenceTokenPrice"> | boolean
+    createdAt?: DateTimeFilter<"ReferenceTokenPrice"> | Date | string
+    updatedAt?: DateTimeFilter<"ReferenceTokenPrice"> | Date | string
+  }, "id" | "tokenId" | "code">
+
+  export type ReferenceTokenPriceOrderByWithAggregationInput = {
+    id?: SortOrder
+    tokenId?: SortOrder
+    code?: SortOrder
+    counsellorId?: SortOrder
+    type?: SortOrder
+    targetId?: SortOrder
+    amount?: SortOrder
+    currency?: SortOrder
+    label?: SortOrderInput | SortOrder
+    startDate?: SortOrderInput | SortOrder
+    expiryDate?: SortOrderInput | SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ReferenceTokenPriceCountOrderByAggregateInput
+    _avg?: ReferenceTokenPriceAvgOrderByAggregateInput
+    _max?: ReferenceTokenPriceMaxOrderByAggregateInput
+    _min?: ReferenceTokenPriceMinOrderByAggregateInput
+    _sum?: ReferenceTokenPriceSumOrderByAggregateInput
+  }
+
+  export type ReferenceTokenPriceScalarWhereWithAggregatesInput = {
+    AND?: ReferenceTokenPriceScalarWhereWithAggregatesInput | ReferenceTokenPriceScalarWhereWithAggregatesInput[]
+    OR?: ReferenceTokenPriceScalarWhereWithAggregatesInput[]
+    NOT?: ReferenceTokenPriceScalarWhereWithAggregatesInput | ReferenceTokenPriceScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ReferenceTokenPrice"> | string
+    tokenId?: StringWithAggregatesFilter<"ReferenceTokenPrice"> | string
+    code?: StringWithAggregatesFilter<"ReferenceTokenPrice"> | string
+    counsellorId?: StringWithAggregatesFilter<"ReferenceTokenPrice"> | string
+    type?: StringWithAggregatesFilter<"ReferenceTokenPrice"> | string
+    targetId?: StringWithAggregatesFilter<"ReferenceTokenPrice"> | string
+    amount?: IntWithAggregatesFilter<"ReferenceTokenPrice"> | number
+    currency?: StringWithAggregatesFilter<"ReferenceTokenPrice"> | string
+    label?: StringNullableWithAggregatesFilter<"ReferenceTokenPrice"> | string | null
+    startDate?: DateTimeNullableWithAggregatesFilter<"ReferenceTokenPrice"> | Date | string | null
+    expiryDate?: DateTimeNullableWithAggregatesFilter<"ReferenceTokenPrice"> | Date | string | null
+    isActive?: BoolWithAggregatesFilter<"ReferenceTokenPrice"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"ReferenceTokenPrice"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ReferenceTokenPrice"> | Date | string
+  }
+
   export type StudentPaymentWhereInput = {
     AND?: StudentPaymentWhereInput | StudentPaymentWhereInput[]
     OR?: StudentPaymentWhereInput[]
@@ -8966,6 +10204,7 @@ export namespace Prisma {
     schoolId?: StringNullableFilter<"StudentPayment"> | string | null
     schoolName?: StringNullableFilter<"StudentPayment"> | string | null
     referenceCode?: StringNullableFilter<"StudentPayment"> | string | null
+    referenceCodeId?: StringNullableFilter<"StudentPayment"> | string | null
     amount?: IntFilter<"StudentPayment"> | number
     currency?: StringFilter<"StudentPayment"> | string
     status?: EnumStudentPaymentStatusFilter<"StudentPayment"> | $Enums.StudentPaymentStatus
@@ -8989,6 +10228,7 @@ export namespace Prisma {
     schoolId?: SortOrderInput | SortOrder
     schoolName?: SortOrderInput | SortOrder
     referenceCode?: SortOrderInput | SortOrder
+    referenceCodeId?: SortOrderInput | SortOrder
     amount?: SortOrder
     currency?: SortOrder
     status?: SortOrder
@@ -9017,6 +10257,7 @@ export namespace Prisma {
     schoolId?: StringNullableFilter<"StudentPayment"> | string | null
     schoolName?: StringNullableFilter<"StudentPayment"> | string | null
     referenceCode?: StringNullableFilter<"StudentPayment"> | string | null
+    referenceCodeId?: StringNullableFilter<"StudentPayment"> | string | null
     amount?: IntFilter<"StudentPayment"> | number
     currency?: StringFilter<"StudentPayment"> | string
     status?: EnumStudentPaymentStatusFilter<"StudentPayment"> | $Enums.StudentPaymentStatus
@@ -9038,6 +10279,7 @@ export namespace Prisma {
     schoolId?: SortOrderInput | SortOrder
     schoolName?: SortOrderInput | SortOrder
     referenceCode?: SortOrderInput | SortOrder
+    referenceCodeId?: SortOrderInput | SortOrder
     amount?: SortOrder
     currency?: SortOrder
     status?: SortOrder
@@ -9069,6 +10311,7 @@ export namespace Prisma {
     schoolId?: StringNullableWithAggregatesFilter<"StudentPayment"> | string | null
     schoolName?: StringNullableWithAggregatesFilter<"StudentPayment"> | string | null
     referenceCode?: StringNullableWithAggregatesFilter<"StudentPayment"> | string | null
+    referenceCodeId?: StringNullableWithAggregatesFilter<"StudentPayment"> | string | null
     amount?: IntWithAggregatesFilter<"StudentPayment"> | number
     currency?: StringWithAggregatesFilter<"StudentPayment"> | string
     status?: EnumStudentPaymentStatusWithAggregatesFilter<"StudentPayment"> | $Enums.StudentPaymentStatus
@@ -9514,6 +10757,125 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type ReferenceTokenPriceCreateInput = {
+    id?: string
+    tokenId: string
+    code: string
+    counsellorId: string
+    type: string
+    targetId: string
+    amount: number
+    currency?: string
+    label?: string | null
+    startDate?: Date | string | null
+    expiryDate?: Date | string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ReferenceTokenPriceUncheckedCreateInput = {
+    id?: string
+    tokenId: string
+    code: string
+    counsellorId: string
+    type: string
+    targetId: string
+    amount: number
+    currency?: string
+    label?: string | null
+    startDate?: Date | string | null
+    expiryDate?: Date | string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ReferenceTokenPriceUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tokenId?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    targetId?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    currency?: StringFieldUpdateOperationsInput | string
+    label?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expiryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ReferenceTokenPriceUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tokenId?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    targetId?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    currency?: StringFieldUpdateOperationsInput | string
+    label?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expiryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ReferenceTokenPriceCreateManyInput = {
+    id?: string
+    tokenId: string
+    code: string
+    counsellorId: string
+    type: string
+    targetId: string
+    amount: number
+    currency?: string
+    label?: string | null
+    startDate?: Date | string | null
+    expiryDate?: Date | string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ReferenceTokenPriceUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tokenId?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    targetId?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    currency?: StringFieldUpdateOperationsInput | string
+    label?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expiryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ReferenceTokenPriceUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tokenId?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    counsellorId?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    targetId?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    currency?: StringFieldUpdateOperationsInput | string
+    label?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expiryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StudentPaymentCreateInput = {
     id?: string
     studentId: string
@@ -9522,6 +10884,7 @@ export namespace Prisma {
     schoolId?: string | null
     schoolName?: string | null
     referenceCode?: string | null
+    referenceCodeId?: string | null
     amount: number
     currency?: string
     status?: $Enums.StudentPaymentStatus
@@ -9545,6 +10908,7 @@ export namespace Prisma {
     schoolId?: string | null
     schoolName?: string | null
     referenceCode?: string | null
+    referenceCodeId?: string | null
     amount: number
     currency?: string
     status?: $Enums.StudentPaymentStatus
@@ -9568,6 +10932,7 @@ export namespace Prisma {
     schoolId?: NullableStringFieldUpdateOperationsInput | string | null
     schoolName?: NullableStringFieldUpdateOperationsInput | string | null
     referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
+    referenceCodeId?: NullableStringFieldUpdateOperationsInput | string | null
     amount?: IntFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     status?: EnumStudentPaymentStatusFieldUpdateOperationsInput | $Enums.StudentPaymentStatus
@@ -9591,6 +10956,7 @@ export namespace Prisma {
     schoolId?: NullableStringFieldUpdateOperationsInput | string | null
     schoolName?: NullableStringFieldUpdateOperationsInput | string | null
     referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
+    referenceCodeId?: NullableStringFieldUpdateOperationsInput | string | null
     amount?: IntFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     status?: EnumStudentPaymentStatusFieldUpdateOperationsInput | $Enums.StudentPaymentStatus
@@ -9614,6 +10980,7 @@ export namespace Prisma {
     schoolId?: string | null
     schoolName?: string | null
     referenceCode?: string | null
+    referenceCodeId?: string | null
     amount: number
     currency?: string
     status?: $Enums.StudentPaymentStatus
@@ -9637,6 +11004,7 @@ export namespace Prisma {
     schoolId?: NullableStringFieldUpdateOperationsInput | string | null
     schoolName?: NullableStringFieldUpdateOperationsInput | string | null
     referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
+    referenceCodeId?: NullableStringFieldUpdateOperationsInput | string | null
     amount?: IntFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     status?: EnumStudentPaymentStatusFieldUpdateOperationsInput | $Enums.StudentPaymentStatus
@@ -9660,6 +11028,7 @@ export namespace Prisma {
     schoolId?: NullableStringFieldUpdateOperationsInput | string | null
     schoolName?: NullableStringFieldUpdateOperationsInput | string | null
     referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
+    referenceCodeId?: NullableStringFieldUpdateOperationsInput | string | null
     amount?: IntFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     status?: EnumStudentPaymentStatusFieldUpdateOperationsInput | $Enums.StudentPaymentStatus
@@ -10161,6 +11530,90 @@ export namespace Prisma {
     amount?: SortOrder
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type ReferenceTokenPriceCountOrderByAggregateInput = {
+    id?: SortOrder
+    tokenId?: SortOrder
+    code?: SortOrder
+    counsellorId?: SortOrder
+    type?: SortOrder
+    targetId?: SortOrder
+    amount?: SortOrder
+    currency?: SortOrder
+    label?: SortOrder
+    startDate?: SortOrder
+    expiryDate?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ReferenceTokenPriceAvgOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type ReferenceTokenPriceMaxOrderByAggregateInput = {
+    id?: SortOrder
+    tokenId?: SortOrder
+    code?: SortOrder
+    counsellorId?: SortOrder
+    type?: SortOrder
+    targetId?: SortOrder
+    amount?: SortOrder
+    currency?: SortOrder
+    label?: SortOrder
+    startDate?: SortOrder
+    expiryDate?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ReferenceTokenPriceMinOrderByAggregateInput = {
+    id?: SortOrder
+    tokenId?: SortOrder
+    code?: SortOrder
+    counsellorId?: SortOrder
+    type?: SortOrder
+    targetId?: SortOrder
+    amount?: SortOrder
+    currency?: SortOrder
+    label?: SortOrder
+    startDate?: SortOrder
+    expiryDate?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ReferenceTokenPriceSumOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type EnumRegistrationPricingTypeFilter<$PrismaModel = never> = {
     equals?: $Enums.RegistrationPricingType | EnumRegistrationPricingTypeFieldRefInput<$PrismaModel>
     in?: $Enums.RegistrationPricingType[] | ListEnumRegistrationPricingTypeFieldRefInput<$PrismaModel>
@@ -10175,17 +11628,6 @@ export namespace Prisma {
     not?: NestedEnumStudentPaymentStatusFilter<$PrismaModel> | $Enums.StudentPaymentStatus
   }
 
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
   export type StudentPaymentCountOrderByAggregateInput = {
     id?: SortOrder
     studentId?: SortOrder
@@ -10194,6 +11636,7 @@ export namespace Prisma {
     schoolId?: SortOrder
     schoolName?: SortOrder
     referenceCode?: SortOrder
+    referenceCodeId?: SortOrder
     amount?: SortOrder
     currency?: SortOrder
     status?: SortOrder
@@ -10221,6 +11664,7 @@ export namespace Prisma {
     schoolId?: SortOrder
     schoolName?: SortOrder
     referenceCode?: SortOrder
+    referenceCodeId?: SortOrder
     amount?: SortOrder
     currency?: SortOrder
     status?: SortOrder
@@ -10244,6 +11688,7 @@ export namespace Prisma {
     schoolId?: SortOrder
     schoolName?: SortOrder
     referenceCode?: SortOrder
+    referenceCodeId?: SortOrder
     amount?: SortOrder
     currency?: SortOrder
     status?: SortOrder
@@ -10281,20 +11726,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumStudentPaymentStatusFilter<$PrismaModel>
     _max?: NestedEnumStudentPaymentStatusFilter<$PrismaModel>
-  }
-
-  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -10393,16 +11824,16 @@ export namespace Prisma {
     update?: XOR<XOR<CounsellorPricingConfigUpdateToOneWithWhereWithoutSchoolPricesInput, CounsellorPricingConfigUpdateWithoutSchoolPricesInput>, CounsellorPricingConfigUncheckedUpdateWithoutSchoolPricesInput>
   }
 
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
   export type EnumRegistrationPricingTypeFieldUpdateOperationsInput = {
     set?: $Enums.RegistrationPricingType
   }
 
   export type EnumStudentPaymentStatusFieldUpdateOperationsInput = {
     set?: $Enums.StudentPaymentStatus
-  }
-
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -10637,6 +12068,31 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type NestedEnumRegistrationPricingTypeFilter<$PrismaModel = never> = {
     equals?: $Enums.RegistrationPricingType | EnumRegistrationPricingTypeFieldRefInput<$PrismaModel>
     in?: $Enums.RegistrationPricingType[] | ListEnumRegistrationPricingTypeFieldRefInput<$PrismaModel>
@@ -10649,17 +12105,6 @@ export namespace Prisma {
     in?: $Enums.StudentPaymentStatus[] | ListEnumStudentPaymentStatusFieldRefInput<$PrismaModel>
     notIn?: $Enums.StudentPaymentStatus[] | ListEnumStudentPaymentStatusFieldRefInput<$PrismaModel>
     not?: NestedEnumStudentPaymentStatusFilter<$PrismaModel> | $Enums.StudentPaymentStatus
-  }
-
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type NestedEnumRegistrationPricingTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -10680,20 +12125,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumStudentPaymentStatusFilter<$PrismaModel>
     _max?: NestedEnumStudentPaymentStatusFilter<$PrismaModel>
-  }
-
-  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type SchoolPricingCreateWithoutPricingConfigInput = {
@@ -10888,6 +12319,10 @@ export namespace Prisma {
      * @deprecated Use SchoolPricingDefaultArgs instead
      */
     export type SchoolPricingArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = SchoolPricingDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use ReferenceTokenPriceDefaultArgs instead
+     */
+    export type ReferenceTokenPriceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ReferenceTokenPriceDefaultArgs<ExtArgs>
     /**
      * @deprecated Use StudentPaymentDefaultArgs instead
      */

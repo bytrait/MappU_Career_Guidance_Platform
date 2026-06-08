@@ -1,4 +1,4 @@
-// billing-service/src/routes/internal.routes.js
+// billing-service/src/routes/studentInternal.routes.js
 
 const express = require('express');
 

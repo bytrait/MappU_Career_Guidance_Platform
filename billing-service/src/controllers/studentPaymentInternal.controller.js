@@ -11,6 +11,7 @@ const createStudentPaymentRecord = async (req, res, next) => {
       schoolId,
       schoolName,
       referenceCode,
+      referenceCodeId,
     } = req.body;
 
     const payment =
@@ -21,6 +22,7 @@ const createStudentPaymentRecord = async (req, res, next) => {
         schoolId,
         schoolName,
         referenceCode,
+        referenceCodeId,
       });
 
     return res.status(201).json({
