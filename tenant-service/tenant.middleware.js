@@ -1,23 +1,28 @@
-const { getTenantByDomain } = require("./tenant.service")
+const { getTenantBySlug, normalizeSlug } = require("./tenant.service");
 
+/**
+ * Soft middleware: attach req.tenant when X-Tenant-Slug (or ?slug=) is present.
+ * Does NOT 404 the request — APIs must keep working without a tenant header.
+ */
 async function tenantMiddleware(req, res, next) {
   try {
-    const tenant = await getTenantByDomain(req.headers.host)
+    const raw =
+      req.headers["x-tenant-slug"] ||
+      req.query.slug ||
+      req.query.tenant;
 
-    if (!tenant) {
-      return res.status(404).json({
-        message: "Tenant not found",
-      })
+    if (raw) {
+      const tenant = await getTenantBySlug(normalizeSlug(String(raw)));
+      if (tenant) {
+        req.tenant = tenant;
+      }
     }
 
-    // attach globally
-    req.tenant = tenant
-
-    next()
+    next();
   } catch (err) {
-    console.error("Tenant middleware error:", err)
-    res.status(500).json({ message: "Tenant error" })
+    console.error("Tenant middleware error:", err);
+    next();
   }
 }
 
-module.exports = tenantMiddleware
+module.exports = tenantMiddleware;

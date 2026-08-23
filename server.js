@@ -51,6 +51,14 @@ const corsOptions = {
   },
 
   credentials: true,
+  allowedHeaders: [
+    "Origin",
+    "X-Requested-With",
+    "Content-Type",
+    "Accept",
+    "Authorization",
+    "X-Tenant-Slug",
+  ],
 }
 
 app.use(cors(corsOptions))

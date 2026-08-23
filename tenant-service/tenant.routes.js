@@ -1,8 +1,9 @@
-const express = require("express")
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
-const { getTenant } = require("./tenant.controller")
+const { getTenant, getTenantByPathSlug } = require("./tenant.controller");
 
-router.get("/", getTenant)
+router.get("/", getTenant);
+router.get("/:slug", getTenantByPathSlug);
 
-module.exports = router
+module.exports = router;
