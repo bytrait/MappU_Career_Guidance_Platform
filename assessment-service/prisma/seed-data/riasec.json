@@ -1,0 +1,338 @@
+[
+  {
+    "code": "R",
+    "name": "Realistic",
+    "questions": [
+      {
+        "order": 1,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Build kitchen cabinets."
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Repair broken appliances."
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Drive a truck to deliver packages."
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Test and repair electronic equipment."
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Assemble electronic parts."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "I",
+    "name": "Investigative",
+    "questions": [
+      {
+        "order": 6,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Study the movement of planets."
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Develop a new medical treatment."
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Conduct chemical experiments."
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Examine blood samples using a microscope."
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Solve complex math problems."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "A",
+    "name": "Artistic",
+    "questions": [
+      {
+        "order": 11,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Paint or draw artwork."
+          }
+        ]
+      },
+      {
+        "order": 12,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Design custom website layouts."
+          }
+        ]
+      },
+      {
+        "order": 13,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Play a musical instrument professionally."
+          }
+        ]
+      },
+      {
+        "order": 14,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Write scripts for movies or shows."
+          }
+        ]
+      },
+      {
+        "order": 15,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Direct a stage play or commercial."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "S",
+    "name": "Social",
+    "questions": [
+      {
+        "order": 16,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Teach high school science classes."
+          }
+        ]
+      },
+      {
+        "order": 17,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Help patients with physical therapy exercises."
+          }
+        ]
+      },
+      {
+        "order": 18,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Counsel people with personal problems."
+          }
+        ]
+      },
+      {
+        "order": 19,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Give career guidance to students."
+          }
+        ]
+      },
+      {
+        "order": 20,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Manage a community outreach program."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "E",
+    "name": "Enterprising",
+    "questions": [
+      {
+        "order": 21,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Sell houses or commercial real estate."
+          }
+        ]
+      },
+      {
+        "order": 22,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Run a profitable clothing store."
+          }
+        ]
+      },
+      {
+        "order": 23,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Negotiate business contracts."
+          }
+        ]
+      },
+      {
+        "order": 24,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Lead a corporate sales team."
+          }
+        ]
+      },
+      {
+        "order": 25,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Pitch new marketing ideas to clients."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "C",
+    "name": "Conventional",
+    "questions": [
+      {
+        "order": 26,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Keep precise financial records."
+          }
+        ]
+      },
+      {
+        "order": 27,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Organize office inventory and supplies."
+          }
+        ]
+      },
+      {
+        "order": 28,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Review data entry for accuracy."
+          }
+        ]
+      },
+      {
+        "order": 29,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Manage company databases and files."
+          }
+        ]
+      },
+      {
+        "order": 30,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Calculate monthly employee payroll."
+          }
+        ]
+      }
+    ]
+  }
+]

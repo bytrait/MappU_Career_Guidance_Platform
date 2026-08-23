@@ -1,0 +1,226 @@
+[
+  {
+    "code": "SAW",
+    "name": "Self-Awareness",
+    "questions": [
+      {
+        "order": 1,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I can usually identify what I am feeling when something important happens."
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I understand what situations tend to make me feel stressed or frustrated."
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I know the areas in which I am strongest as a student."
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I find it difficult to understand why I react emotionally in certain situations."
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I can recognise when my emotions are affecting my decisions."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SR",
+    "name": "Self-Regulation",
+    "questions": [
+      {
+        "order": 6,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I can stay calm when something does not go according to plan."
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "When I am angry or frustrated, I can usually control how I respond."
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I can continue working on an important task even when I am not feeling motivated."
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I sometimes say or do things when I am upset and regret them later."
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "When I make a mistake, I can put my emotions aside and focus on what I should do next."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "EM",
+    "name": "Empathy",
+    "questions": [
+      {
+        "order": 11,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I can usually tell when someone around me is feeling uncomfortable or upset."
+          }
+        ]
+      },
+      {
+        "order": 12,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I try to understand another person's point of view before judging them."
+          }
+        ]
+      },
+      {
+        "order": 13,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "When a friend is struggling, I can usually understand how they might be feeling."
+          }
+        ]
+      },
+      {
+        "order": 14,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I find it difficult to understand why people react differently to the same situation."
+          }
+        ]
+      },
+      {
+        "order": 15,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I adjust the way I communicate when I realise that someone has misunderstood me."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS",
+    "name": "Social Skills",
+    "questions": [
+      {
+        "order": 16,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I feel comfortable starting a conversation with someone I don't know well."
+          }
+        ]
+      },
+      {
+        "order": 17,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I can express disagreement without unnecessarily creating conflict."
+          }
+        ]
+      },
+      {
+        "order": 18,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "When working in a group, I make an effort to listen to other people's ideas."
+          }
+        ]
+      },
+      {
+        "order": 19,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I find it difficult to explain my feelings or opinions clearly to other people."
+          }
+        ]
+      },
+      {
+        "order": 20,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "When there is a disagreement in a group, I try to help find a solution that works for everyone."
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -211,7 +211,9 @@ exports.Prisma.NullsOrder = {
 exports.AssessmentType = exports.$Enums.AssessmentType = {
   OCEAN: 'OCEAN',
   RIASEC: 'RIASEC',
-  APTITUDE: 'APTITUDE'
+  APTITUDE: 'APTITUDE',
+  EQ: 'EQ',
+  LEARNING: 'LEARNING'
 };
 
 exports.Prisma.ModelName = {

@@ -16,12 +16,14 @@ enum AssessmentType {
   OCEAN
   RIASEC
   APTITUDE
+  EQ
+  LEARNING
 }
 
 model AssessmentTrait {
   id             String         @id @default(uuid())
-  code           String // e.g., "O", "C", "E", "A", "N", "R", "I", "Q", etc.
-  name           String // e.g., "Openness", "Realistic", "Quantitative"
+  code           String // e.g., "O", "R", "SAW", "VIS", "NA", etc.
+  name           String // e.g., "Openness", "Realistic", "Self-Awareness", "Visual ↔ Verbal"
   assessmentType AssessmentType
 
   questions Question[]
@@ -40,7 +42,7 @@ model Question {
   reverse          Boolean               @default(false)
   timeLimitSeconds Int? // ⏳ NEW: Only used for APTITUDE MCQs
   translations     QuestionTranslation[]
-  options          QuestionOption[] // Used for APTITUDE MCQs (and can be empty for OCEAN/RIASEC)
+  options          QuestionOption[] // Used for APTITUDE MCQs (empty for Likert: OCEAN/RIASEC/EQ/LEARNING)
   createdAt        DateTime              @default(now())
   updatedAt        DateTime              @updatedAt
 }

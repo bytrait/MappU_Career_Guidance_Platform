@@ -29,7 +29,7 @@ const getQuestions = async (req, res, next) => {
         }))
       );
     } else {
-      // Keep OCEAN & RIASEC structure
+      // Likert-style assessments: OCEAN, RIASEC, EQ, LEARNING
       formatted = traits.map((trait) => ({
         id: trait.id,
         code: trait.code,

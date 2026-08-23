@@ -1,7 +1,7 @@
 const { z } = require('zod');
 
 // ---- Enum for AssessmentType ----
-const AssessmentTypeEnum = z.enum(['OCEAN', 'RIASEC','APTITUDE'], {
+const AssessmentTypeEnum = z.enum(['OCEAN', 'RIASEC', 'APTITUDE', 'EQ', 'LEARNING'], {
   required_error: 'assessmentType is required',
   invalid_type_error: 'Invalid assessment type',
 });

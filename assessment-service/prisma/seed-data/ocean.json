@@ -1,0 +1,732 @@
+[
+  {
+    "code": "O",
+    "name": "Openness",
+    "questions": [
+      {
+        "order": 5,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I use many different words when I talk or write about topics I know."
+          },
+          {
+            "language": "mr",
+            "text": "मला माहित असलेल्या विषयांवर बोलताना किंवा लिहिताना मी अनेक वेगवेगळे शब्द वापरतो."
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I find it hard to understand topics that are very confusing or not clearly explained."
+          },
+          {
+            "language": "mr",
+            "text": "खूप गोंधळात टाकणारे किंवा स्पष्ट नसलेले विषय मला समजणे कठीण जाते."
+          }
+        ]
+      },
+      {
+        "order": 15,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I like imagining different situations or stories in my head."
+          },
+          {
+            "language": "mr",
+            "text": "मला माझ्या डोक्यात वेगवेगळ्या परिस्थिती किंवा गोष्टींची कल्पना करायला आवडते."
+          }
+        ]
+      },
+      {
+        "order": 20,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I find it hard to understand ideas that aren’t very clear or practical."
+          },
+          {
+            "language": "mr",
+            "text": "ज्या कल्पना फार स्पष्ट किंवा व्यावहारिक नाहीत त्या समजणे मला कठीण जाते."
+          }
+        ]
+      },
+      {
+        "order": 25,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I often think of new and creative ideas."
+          },
+          {
+            "language": "mr",
+            "text": "मी अनेकदा नवीन आणि सर्जनशील (क्रिएटिव) कल्पनांचा विचार करतो."
+          }
+        ]
+      },
+      {
+        "order": 30,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I find it hard to imagine things clearly in my mind."
+          },
+          {
+            "language": "mr",
+            "text": "माझ्या मनात गोष्टींची स्पष्टपणे कल्पना करणे मला कठीण जाते."
+          }
+        ]
+      },
+      {
+        "order": 35,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I understand things quickly when they are explained to me."
+          },
+          {
+            "language": "mr",
+            "text": "जेव्हा मला गोष्टी समजावून सांगितल्या जातात तेव्हा मला त्या लवकर समजतात."
+          }
+        ]
+      },
+      {
+        "order": 40,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I like using new or big words when I talk or write."
+          },
+          {
+            "language": "mr",
+            "text": "मी बोलताना किंवा लिहिताना मला नवीन किंवा मोठे शब्द वापरायला आवडते."
+          }
+        ]
+      },
+      {
+        "order": 45,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I often sit quietly and think deeply about things."
+          },
+          {
+            "language": "mr",
+            "text": "मी अनेकदा शांत बसून वेगवेगऴ्या गोष्टींबद्दल खोलवर विचार करतो."
+          }
+        ]
+      },
+      {
+        "order": 50,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I often get a lot of different ideas in my mind."
+          },
+          {
+            "language": "mr",
+            "text": "माझ्या मनात अनेक वेळा वेगवेगळ्या कल्पना येतात."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "C",
+    "name": "Conscientiousness",
+    "questions": [
+      {
+        "order": 3,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I usually get ready for things in advance and have everything I need."
+          },
+          {
+            "language": "mr",
+            "text": "मी सहसा गोष्टींसाठी आधीच तयारी करतो आणि माझ्याकडे आवश्यक असलेल्या सर्व गोष्टी असतात."
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I often leave my things scattered instead of keeping them in one place."
+          },
+          {
+            "language": "mr",
+            "text": "मी अनेकदा माझ्या वस्तू एकाच ठिकाणी ठेवण्याऐवजी विखुरलेल्या ठेवतो."
+          }
+        ]
+      },
+      {
+        "order": 13,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I notice small things that others usually miss."
+          },
+          {
+            "language": "mr",
+            "text": "मला अशा छोट्या छोट्या गोष्टी लक्षात येतात ज्या इतरांच्या सहसा लक्षात येत नाहीत"
+          }
+        ]
+      },
+      {
+        "order": 18,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Sometimes, I do things in a way that makes a bit of a mess or confusion."
+          },
+          {
+            "language": "mr",
+            "text": "कधीकधी, मी अशा प्रकारे गोष्टी करतो ज्यामुळे थोडा गोंधळ होतो."
+          }
+        ]
+      },
+      {
+        "order": 23,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I like finishing my work or chores as soon as I can."
+          },
+          {
+            "language": "mr",
+            "text": "मला माझे काम लवकरात लवकर पूर्ण करायला आवडतात."
+          }
+        ]
+      },
+      {
+        "order": 28,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I often forget to put my things back where they belong."
+          },
+          {
+            "language": "mr",
+            "text": "मी बऱ्याचदा माझ्या वस्तू जागच्या जागी परत ठेवायला विसरतो."
+          }
+        ]
+      },
+      {
+        "order": 33,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I like it when my books, timetable, or room are well-organized."
+          },
+          {
+            "language": "mr",
+            "text": "माझी पुस्तके, वेळापत्रक किंवा खोली व्यवस्थित ठेवायला मला आवडते."
+          }
+        ]
+      },
+      {
+        "order": 38,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Sometimes I find it hard to finish all the work I’m supposed to do."
+          },
+          {
+            "language": "mr",
+            "text": "कधीकधी मला जे काम करायचे आहे ते पूर्ण करणे कठीण जाते."
+          }
+        ]
+      },
+      {
+        "order": 43,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I usually follow my daily schedule or routine."
+          },
+          {
+            "language": "mr",
+            "text": "मी सहसा माझा दैनंदिन दिनक्रम किंवा दिनचर्या पाळतो."
+          }
+        ]
+      },
+      {
+        "order": 48,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I focus well on small details when I’m doing work or other tasks."
+          },
+          {
+            "language": "mr",
+            "text": "मी काम किंवा कृती करताना लहानसहान गोष्टींवर लक्ष केंद्रित करतो."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "E",
+    "name": "Extraversion",
+    "questions": [
+      {
+        "order": 1,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "At birthday parties or group events, I’m usually full of energy and make others feel excited too."
+          },
+          {
+            "language": "mr",
+            "text": "वाढदिवसाच्या पार्टीत किंवा ग्रुप इव्हेंटमध्ये, मी मला खूप उत्साह येतो आणि मी इतरांनाही उत्साहित करतो."
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I don’t talk much in group discussions and prefer to listen more."
+          },
+          {
+            "language": "mr",
+            "text": "मी ग्रुप मध्ये जास्त बोलत नाही आणि ऐकणे जास्त पसंत करतो."
+          }
+        ]
+      },
+      {
+        "order": 11,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I feel comfortable talking to people and enjoy being around others."
+          },
+          {
+            "language": "mr",
+            "text": "मला लोकांशी बोलायला छान वाटते आणि इतर लोक माझ्या भोवती असणे मला आवडते."
+          }
+        ]
+      },
+      {
+        "order": 16,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I prefer staying quiet and watching what’s happening instead of being the center of attention."
+          },
+          {
+            "language": "mr",
+            "text": "इतरांचे लक्ष माझ्यावर केंद्रीत होवू नये म्हणून मी शांत राहून काय घडत आहे ते पाहणे पसंत करतो."
+          }
+        ]
+      },
+      {
+        "order": 21,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I often start conversations and like talking to people around me."
+          },
+          {
+            "language": "mr",
+            "text": "अनेकदा संभाषणाची सुरूवात मी करतो आणि मला माझ्या आजूबाजूच्या लोकांशी बोलायला आवडते."
+          }
+        ]
+      },
+      {
+        "order": 26,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I’m usually quiet and talk less than most people."
+          },
+          {
+            "language": "mr",
+            "text": "मी सहसा शांत असतो आणि बहुतेक लोकांपेक्षा कमी बोलतो."
+          }
+        ]
+      },
+      {
+        "order": 31,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I talk to many people when I go to a party or group event."
+          },
+          {
+            "language": "mr",
+            "text": "मी पार्टी किंवा ग्रुप इव्हेंटमध्ये जातो तेव्हा अनेक लोकांशी बोलतो."
+          }
+        ]
+      },
+      {
+        "order": 36,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I don’t like being the center of attention."
+          },
+          {
+            "language": "mr",
+            "text": "सर्वांचे लक्ष माङयावर राहणे मला आवडत नाही."
+          }
+        ]
+      },
+      {
+        "order": 41,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I feel okay when people notice me or give me attention."
+          },
+          {
+            "language": "mr",
+            "text": "जेव्हा लोकानचे माझ्याकडे लक्ष जाते तेव्हा मला बरे वाटते."
+          }
+        ]
+      },
+      {
+        "order": 46,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "When I’m around new people, I usually stay quiet."
+          },
+          {
+            "language": "mr",
+            "text": "जेव्हा नवीन लोक माझ्याभोवती असतात तेव्हा मी सहसा शांत राहतो."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "A",
+    "name": "Agreeableness",
+    "questions": [
+      {
+        "order": 2,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I sometimes forget to think about how others might feel before I speak or act."
+          },
+          {
+            "language": "mr",
+            "text": "मी कधीकधी बोलण्यापूर्वी किंवा कृती करण्यापूर्वी इतरांना कसे वाटेल याचा विचार करायला विसरतो."
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I enjoy meeting new people and learning about their lives and stories."
+          },
+          {
+            "language": "mr",
+            "text": "मला नवीन लोकांना भेटणे आणि त्यांच्या जीवनाबद्दल जाणून घेणे आवडते."
+          }
+        ]
+      },
+      {
+        "order": 12,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Sometimes, I say things without realizing they might hurt someone’s feelings."
+          },
+          {
+            "language": "mr",
+            "text": "कधीकधी, मी काही गोष्टी नकळत बोलतो, त्यामुळे कोणाच्या भावना दुखावल्या जाऊ शकतात हे मला कळत नाही."
+          }
+        ]
+      },
+      {
+        "order": 17,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I care about how others are feeling and try to understand them."
+          },
+          {
+            "language": "mr",
+            "text": "इतरांना कसे वाटते याची मला काळजी आहे आणि मी त्यांना समजून घेण्याचा प्रयत्न करतो."
+          }
+        ]
+      },
+      {
+        "order": 22,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Sometimes, I find it hard to understand or care about others’ problems."
+          },
+          {
+            "language": "mr",
+            "text": "कधीकधी, मला इतरांच्या समस्या समजून घेणे किंवा त्यांची काळजी घेणे कठीण जाते."
+          }
+        ]
+      },
+      {
+        "order": 27,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I feel bad when others are upset and try to help them."
+          },
+          {
+            "language": "mr",
+            "text": "जेव्हा इतर लोक नाराज किंवा त्रस्त असतात तेव्हा मला वाईट वाटते आणि मी त्यांना मदत करण्याचा प्रयत्न करतो."
+          }
+        ]
+      },
+      {
+        "order": 32,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I don’t always feel interested in what’s happening in other people’s lives."
+          },
+          {
+            "language": "mr",
+            "text": "इतरांच्या आयुष्यात काय घडत आहे यात मला फारसा रस नसतो."
+          }
+        ]
+      },
+      {
+        "order": 37,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I try to find time to help others when they need it."
+          },
+          {
+            "language": "mr",
+            "text": "जेव्हा इतरांना गरज असते तेव्हा मी त्यांना मदत करण्यासाठी वेळ काढण्याचा प्रयत्न करतो."
+          }
+        ]
+      },
+      {
+        "order": 42,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I can tell how someone is feeling by looking at their face or listening to them."
+          },
+          {
+            "language": "mr",
+            "text": "एखाद्या व्यक्तीला कसे वाटते आहे हे मला त्यांचा चेहरा पाहून किंवा त्यांचे बोलणे ऐकून  कळते."
+          }
+        ]
+      },
+      {
+        "order": 47,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I try to make others feel relaxed and happy."
+          },
+          {
+            "language": "mr",
+            "text": "मी इतरांना छान आणि आनंदी वाटावे यासाठी प्रयत्न करतो."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "N",
+    "name": "Neuroticism",
+    "questions": [
+      {
+        "order": 4,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I often feel nervous or worried, even over small things."
+          },
+          {
+            "language": "mr",
+            "text": "मला अनेकदा चिंता वाटते किंवा काळजी वाटते, अगदी छोट्या छोट्या गोष्टींमुळेही."
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I usually stay calm and don’t get upset easily."
+          },
+          {
+            "language": "mr",
+            "text": "मी सहसा शांत राहतो आणि सहज रागावत नाही."
+          }
+        ]
+      },
+      {
+        "order": 14,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I often feel worried or stressed about different things."
+          },
+          {
+            "language": "mr",
+            "text": "मला अनेकदा वेगवेगळ्या गोष्टींबद्दल काळजी वाटते किंवा त्या गोष्टींचा ताण येतो."
+          }
+        ]
+      },
+      {
+        "order": 19,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I rarely feel sad or upset."
+          },
+          {
+            "language": "mr",
+            "text": "मला क्वचितच दुःखी किंवा अस्वस्थ वाटते."
+          }
+        ]
+      },
+      {
+        "order": 24,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I get distracted or irritated quite easily."
+          },
+          {
+            "language": "mr",
+            "text": "मी सहज विचलित होतो किंवा चिडचिड करतो."
+          }
+        ]
+      },
+      {
+        "order": 29,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I get annoyed or upset pretty quickly."
+          },
+          {
+            "language": "mr",
+            "text": "मी खूप लवकर चिडतो किंवा अस्वस्थ होतो."
+          }
+        ]
+      },
+      {
+        "order": 34,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "My mood changes a lot during the day."
+          },
+          {
+            "language": "mr",
+            "text": "दिवसभरात माझा मूड खूप वेळा बदलतो."
+          }
+        ]
+      },
+      {
+        "order": 39,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "My feelings change often and quickly."
+          },
+          {
+            "language": "mr",
+            "text": "माझ्या भावना वारंवार आणि लवकर बदलतात."
+          }
+        ]
+      },
+      {
+        "order": 44,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I get irritated or upset quickly."
+          },
+          {
+            "language": "mr",
+            "text": "माझी लगेच चिडचिड होते किंवा मला लवकर राग येतो."
+          }
+        ]
+      },
+      {
+        "order": 49,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Sometimes I feel low or sad for a while."
+          },
+          {
+            "language": "mr",
+            "text": "कधीकधी मला काही काळासाठी उदास किंवा दुःखी वाटते."
+          }
+        ]
+      }
+    ]
+  }
+]

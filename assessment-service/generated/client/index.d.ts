@@ -61,7 +61,9 @@ export namespace $Enums {
   export const AssessmentType: {
   OCEAN: 'OCEAN',
   RIASEC: 'RIASEC',
-  APTITUDE: 'APTITUDE'
+  APTITUDE: 'APTITUDE',
+  EQ: 'EQ',
+  LEARNING: 'LEARNING'
 };
 
 export type AssessmentType = (typeof AssessmentType)[keyof typeof AssessmentType]

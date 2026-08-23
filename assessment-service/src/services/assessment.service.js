@@ -24,6 +24,7 @@ const getQuestionsByTypeAndLanguage = async (assessmentType) => {
                 text: true,
               },
             },
+            // MCQ options only for APTITUDE; Likert types (OCEAN/RIASEC/EQ/LEARNING) omit options
             ...(assessmentType === 'APTITUDE'
               ? {
                   options: {

@@ -1,0 +1,232 @@
+[
+  {
+    "code": "VIS",
+    "name": "Visual ↔ Verbal",
+    "questions": [
+      {
+        "order": 1,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I understand a new topic faster when I can see a diagram, picture or visual example."
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I prefer reading or listening to an explanation rather than looking at diagrams."
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "When learning something complicated, I like to see how the different parts fit together visually."
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I can understand a new idea easily even when it is explained mainly through words."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "ACT",
+    "name": "Active ↔ Reflective",
+    "questions": [
+      {
+        "order": 5,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I learn best when I can practise something rather than just read or listen about it."
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Before trying to solve a problem, I prefer to spend some time thinking about how I should approach it."
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I like learning activities where I can experiment and find out what happens."
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I usually need time to think through what I have learned before I feel ready to use it."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "STR",
+    "name": "Structured ↔ Exploratory",
+    "questions": [
+      {
+        "order": 9,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I learn more comfortably when a teacher gives me clear steps to follow."
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I enjoy trying different ways to solve a problem, even when I haven't been given a specific method."
+          }
+        ]
+      },
+      {
+        "order": 11,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I prefer lessons where the objectives and sequence of activities are clearly explained."
+          }
+        ]
+      },
+      {
+        "order": 12,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I enjoy discovering the solution myself rather than being shown exactly how to get there."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "PRA",
+    "name": "Practical ↔ Conceptual",
+    "questions": [
+      {
+        "order": 13,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I understand a topic better when I can see how it is used in real life."
+          }
+        ]
+      },
+      {
+        "order": 14,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I enjoy understanding the theory or principle behind something, even if there is no immediate practical application."
+          }
+        ]
+      },
+      {
+        "order": 15,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Examples from everyday life help me understand difficult concepts."
+          }
+        ]
+      },
+      {
+        "order": 16,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I am interested in understanding why something works, even before knowing how it can be applied."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "COL",
+    "name": "Collaborative ↔ Independent",
+    "questions": [
+      {
+        "order": 17,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "Discussing a problem with classmates helps me understand it better."
+          }
+        ]
+      },
+      {
+        "order": 18,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I prefer solving difficult problems on my own before discussing them with others."
+          }
+        ]
+      },
+      {
+        "order": 19,
+        "reverse": false,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I enjoy learning activities where I can exchange ideas with other students."
+          }
+        ]
+      },
+      {
+        "order": 20,
+        "reverse": true,
+        "translations": [
+          {
+            "language": "en",
+            "text": "I concentrate better when I study or work on a task by myself."
+          }
+        ]
+      }
+    ]
+  }
+]
