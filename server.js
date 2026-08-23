@@ -13,32 +13,50 @@ const {
   startStudentPaymentReceiptJob,
 } = require('./billing-service/src/jobs/studentPaymentReceipt.job');
 
+const { registerTenant } = require("./tenant-service")
 
 const app = express();
 app.set("trust proxy", 1);
-
 /* =======================================================
    CORS CONFIG (MUST BE FIRST)
 ======================================================= */
-const corsOrigins = [
-  "https://career-psychometric-assessment.mappmyuniversity.com",
-  "https://career-psychometric-assessment-test.mappmyuniversity.com",
 
-  "https://career-api.mappmyuniversity.com",
-  "https://career-api-test.mappmyuniversity.com",
+const corsOrigins = process.env.CORS_ORIGINS
+  ? process.env.CORS_ORIGINS
+      .split(",")
+      .map(origin => origin.trim())
+  : []
 
-  "http://127.0.0.1:5174",
-  "http://127.0.0.1:8001"
-];
+const corsOptions = {
+  origin(origin, callback) {
+    try {
+      // Allow server-to-server / Postman requests
+      if (!origin) {
+        return callback(null, true)
+      }
 
-// app.use(express.json({ limit: "10mb" }));
+      // Allow configured origins
+      if (corsOrigins.includes(origin)) {
+        return callback(null, true)
+      }
 
-app.use(
-  cors({
-    origin: corsOrigins,
-    credentials: true,
-  })
-);
+      console.error(`❌ Blocked by CORS: ${origin}`)
+
+      return callback(
+        new Error(`Origin ${origin} not allowed by CORS`)
+      )
+    } catch (err) {
+      callback(err)
+    }
+  },
+
+  credentials: true,
+}
+
+app.use(cors(corsOptions))
+
+app.options(/.*/, cors(corsOptions))
+registerTenant(app)
 /* =======================================================
    CAREER SERVICE PROXY (CLEAN VERSION)
 ======================================================= */
