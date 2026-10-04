@@ -194,9 +194,37 @@ exports.Prisma.UserAssessmentPreferenceScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.UserAssessmentStateScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  assessmentType: 'assessmentType',
+  currentQuestionIndex: 'currentQuestionIndex',
+  answers: 'answers',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.GeneratedReportPdfScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  tenantId: 'tenantId',
+  counsellorId: 'counsellorId',
+  language: 'language',
+  filePath: 'filePath',
+  fileName: 'fileName',
+  fileSize: 'fileSize',
+  status: 'status',
+  generatedAt: 'generatedAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
 };
 
 exports.Prisma.QueryMode = {
@@ -207,6 +235,12 @@ exports.Prisma.QueryMode = {
 exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
+};
+
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
 };
 exports.AssessmentType = exports.$Enums.AssessmentType = {
   OCEAN: 'OCEAN',
@@ -224,7 +258,9 @@ exports.Prisma.ModelName = {
   OptionTranslation: 'OptionTranslation',
   AssessmentScore: 'AssessmentScore',
   UserAssessmentProgress: 'UserAssessmentProgress',
-  UserAssessmentPreference: 'UserAssessmentPreference'
+  UserAssessmentPreference: 'UserAssessmentPreference',
+  UserAssessmentState: 'UserAssessmentState',
+  GeneratedReportPdf: 'GeneratedReportPdf'
 };
 
 /**

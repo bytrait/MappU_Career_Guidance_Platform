@@ -20,5 +20,8 @@ router.get(
 );
 router.post("/status/bulk", verifyAuthToken, checkRole("COUNSELLOR"), controller.bulkAssessmentStatus);
 
+router.get('/state', verifyAuthToken, checkRole("STUDENT"), controller.getState);
+router.put('/state', verifyAuthToken, checkRole("STUDENT"), controller.saveState);
+router.delete('/state', verifyAuthToken, checkRole("STUDENT"), controller.clearState);
 
 module.exports = router;

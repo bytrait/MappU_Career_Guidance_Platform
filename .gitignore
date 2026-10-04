@@ -144,3 +144,7 @@ venv/
 .venv/
 */venv/
 */.venv/
+
+# PDF Storage
+assessment-service/storage/reports/**/*.pdf
+storage/reports/**/*.pdf

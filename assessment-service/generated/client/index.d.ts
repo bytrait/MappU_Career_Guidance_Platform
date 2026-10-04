@@ -53,6 +53,16 @@ export type UserAssessmentProgress = $Result.DefaultSelection<Prisma.$UserAssess
  * 
  */
 export type UserAssessmentPreference = $Result.DefaultSelection<Prisma.$UserAssessmentPreferencePayload>
+/**
+ * Model UserAssessmentState
+ * 
+ */
+export type UserAssessmentState = $Result.DefaultSelection<Prisma.$UserAssessmentStatePayload>
+/**
+ * Model GeneratedReportPdf
+ * 
+ */
+export type GeneratedReportPdf = $Result.DefaultSelection<Prisma.$GeneratedReportPdfPayload>
 
 /**
  * Enums
@@ -276,6 +286,26 @@ export class PrismaClient<
     * ```
     */
   get userAssessmentPreference(): Prisma.UserAssessmentPreferenceDelegate<ExtArgs>;
+
+  /**
+   * `prisma.userAssessmentState`: Exposes CRUD operations for the **UserAssessmentState** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more UserAssessmentStates
+    * const userAssessmentStates = await prisma.userAssessmentState.findMany()
+    * ```
+    */
+  get userAssessmentState(): Prisma.UserAssessmentStateDelegate<ExtArgs>;
+
+  /**
+   * `prisma.generatedReportPdf`: Exposes CRUD operations for the **GeneratedReportPdf** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more GeneratedReportPdfs
+    * const generatedReportPdfs = await prisma.generatedReportPdf.findMany()
+    * ```
+    */
+  get generatedReportPdf(): Prisma.GeneratedReportPdfDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -724,7 +754,9 @@ export namespace Prisma {
     OptionTranslation: 'OptionTranslation',
     AssessmentScore: 'AssessmentScore',
     UserAssessmentProgress: 'UserAssessmentProgress',
-    UserAssessmentPreference: 'UserAssessmentPreference'
+    UserAssessmentPreference: 'UserAssessmentPreference',
+    UserAssessmentState: 'UserAssessmentState',
+    GeneratedReportPdf: 'GeneratedReportPdf'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -740,7 +772,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "assessmentTrait" | "question" | "questionTranslation" | "questionOption" | "optionTranslation" | "assessmentScore" | "userAssessmentProgress" | "userAssessmentPreference"
+      modelProps: "assessmentTrait" | "question" | "questionTranslation" | "questionOption" | "optionTranslation" | "assessmentScore" | "userAssessmentProgress" | "userAssessmentPreference" | "userAssessmentState" | "generatedReportPdf"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1301,6 +1333,146 @@ export namespace Prisma {
           count: {
             args: Prisma.UserAssessmentPreferenceCountArgs<ExtArgs>
             result: $Utils.Optional<UserAssessmentPreferenceCountAggregateOutputType> | number
+          }
+        }
+      }
+      UserAssessmentState: {
+        payload: Prisma.$UserAssessmentStatePayload<ExtArgs>
+        fields: Prisma.UserAssessmentStateFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UserAssessmentStateFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserAssessmentStatePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UserAssessmentStateFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserAssessmentStatePayload>
+          }
+          findFirst: {
+            args: Prisma.UserAssessmentStateFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserAssessmentStatePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UserAssessmentStateFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserAssessmentStatePayload>
+          }
+          findMany: {
+            args: Prisma.UserAssessmentStateFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserAssessmentStatePayload>[]
+          }
+          create: {
+            args: Prisma.UserAssessmentStateCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserAssessmentStatePayload>
+          }
+          createMany: {
+            args: Prisma.UserAssessmentStateCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.UserAssessmentStateCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserAssessmentStatePayload>[]
+          }
+          delete: {
+            args: Prisma.UserAssessmentStateDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserAssessmentStatePayload>
+          }
+          update: {
+            args: Prisma.UserAssessmentStateUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserAssessmentStatePayload>
+          }
+          deleteMany: {
+            args: Prisma.UserAssessmentStateDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UserAssessmentStateUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.UserAssessmentStateUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserAssessmentStatePayload>
+          }
+          aggregate: {
+            args: Prisma.UserAssessmentStateAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUserAssessmentState>
+          }
+          groupBy: {
+            args: Prisma.UserAssessmentStateGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UserAssessmentStateGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.UserAssessmentStateCountArgs<ExtArgs>
+            result: $Utils.Optional<UserAssessmentStateCountAggregateOutputType> | number
+          }
+        }
+      }
+      GeneratedReportPdf: {
+        payload: Prisma.$GeneratedReportPdfPayload<ExtArgs>
+        fields: Prisma.GeneratedReportPdfFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.GeneratedReportPdfFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GeneratedReportPdfPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.GeneratedReportPdfFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GeneratedReportPdfPayload>
+          }
+          findFirst: {
+            args: Prisma.GeneratedReportPdfFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GeneratedReportPdfPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.GeneratedReportPdfFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GeneratedReportPdfPayload>
+          }
+          findMany: {
+            args: Prisma.GeneratedReportPdfFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GeneratedReportPdfPayload>[]
+          }
+          create: {
+            args: Prisma.GeneratedReportPdfCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GeneratedReportPdfPayload>
+          }
+          createMany: {
+            args: Prisma.GeneratedReportPdfCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.GeneratedReportPdfCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GeneratedReportPdfPayload>[]
+          }
+          delete: {
+            args: Prisma.GeneratedReportPdfDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GeneratedReportPdfPayload>
+          }
+          update: {
+            args: Prisma.GeneratedReportPdfUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GeneratedReportPdfPayload>
+          }
+          deleteMany: {
+            args: Prisma.GeneratedReportPdfDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.GeneratedReportPdfUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.GeneratedReportPdfUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GeneratedReportPdfPayload>
+          }
+          aggregate: {
+            args: Prisma.GeneratedReportPdfAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateGeneratedReportPdf>
+          }
+          groupBy: {
+            args: Prisma.GeneratedReportPdfGroupByArgs<ExtArgs>
+            result: $Utils.Optional<GeneratedReportPdfGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.GeneratedReportPdfCountArgs<ExtArgs>
+            result: $Utils.Optional<GeneratedReportPdfCountAggregateOutputType> | number
           }
         }
       }
@@ -9159,6 +9331,1922 @@ export namespace Prisma {
 
 
   /**
+   * Model UserAssessmentState
+   */
+
+  export type AggregateUserAssessmentState = {
+    _count: UserAssessmentStateCountAggregateOutputType | null
+    _avg: UserAssessmentStateAvgAggregateOutputType | null
+    _sum: UserAssessmentStateSumAggregateOutputType | null
+    _min: UserAssessmentStateMinAggregateOutputType | null
+    _max: UserAssessmentStateMaxAggregateOutputType | null
+  }
+
+  export type UserAssessmentStateAvgAggregateOutputType = {
+    currentQuestionIndex: number | null
+  }
+
+  export type UserAssessmentStateSumAggregateOutputType = {
+    currentQuestionIndex: number | null
+  }
+
+  export type UserAssessmentStateMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    assessmentType: $Enums.AssessmentType | null
+    currentQuestionIndex: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type UserAssessmentStateMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    assessmentType: $Enums.AssessmentType | null
+    currentQuestionIndex: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type UserAssessmentStateCountAggregateOutputType = {
+    id: number
+    userId: number
+    assessmentType: number
+    currentQuestionIndex: number
+    answers: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type UserAssessmentStateAvgAggregateInputType = {
+    currentQuestionIndex?: true
+  }
+
+  export type UserAssessmentStateSumAggregateInputType = {
+    currentQuestionIndex?: true
+  }
+
+  export type UserAssessmentStateMinAggregateInputType = {
+    id?: true
+    userId?: true
+    assessmentType?: true
+    currentQuestionIndex?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type UserAssessmentStateMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    assessmentType?: true
+    currentQuestionIndex?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type UserAssessmentStateCountAggregateInputType = {
+    id?: true
+    userId?: true
+    assessmentType?: true
+    currentQuestionIndex?: true
+    answers?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type UserAssessmentStateAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserAssessmentState to aggregate.
+     */
+    where?: UserAssessmentStateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserAssessmentStates to fetch.
+     */
+    orderBy?: UserAssessmentStateOrderByWithRelationInput | UserAssessmentStateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UserAssessmentStateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserAssessmentStates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserAssessmentStates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned UserAssessmentStates
+    **/
+    _count?: true | UserAssessmentStateCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: UserAssessmentStateAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: UserAssessmentStateSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UserAssessmentStateMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UserAssessmentStateMaxAggregateInputType
+  }
+
+  export type GetUserAssessmentStateAggregateType<T extends UserAssessmentStateAggregateArgs> = {
+        [P in keyof T & keyof AggregateUserAssessmentState]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUserAssessmentState[P]>
+      : GetScalarType<T[P], AggregateUserAssessmentState[P]>
+  }
+
+
+
+
+  export type UserAssessmentStateGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserAssessmentStateWhereInput
+    orderBy?: UserAssessmentStateOrderByWithAggregationInput | UserAssessmentStateOrderByWithAggregationInput[]
+    by: UserAssessmentStateScalarFieldEnum[] | UserAssessmentStateScalarFieldEnum
+    having?: UserAssessmentStateScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UserAssessmentStateCountAggregateInputType | true
+    _avg?: UserAssessmentStateAvgAggregateInputType
+    _sum?: UserAssessmentStateSumAggregateInputType
+    _min?: UserAssessmentStateMinAggregateInputType
+    _max?: UserAssessmentStateMaxAggregateInputType
+  }
+
+  export type UserAssessmentStateGroupByOutputType = {
+    id: string
+    userId: string
+    assessmentType: $Enums.AssessmentType
+    currentQuestionIndex: number
+    answers: JsonValue
+    createdAt: Date
+    updatedAt: Date
+    _count: UserAssessmentStateCountAggregateOutputType | null
+    _avg: UserAssessmentStateAvgAggregateOutputType | null
+    _sum: UserAssessmentStateSumAggregateOutputType | null
+    _min: UserAssessmentStateMinAggregateOutputType | null
+    _max: UserAssessmentStateMaxAggregateOutputType | null
+  }
+
+  type GetUserAssessmentStateGroupByPayload<T extends UserAssessmentStateGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UserAssessmentStateGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UserAssessmentStateGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UserAssessmentStateGroupByOutputType[P]>
+            : GetScalarType<T[P], UserAssessmentStateGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UserAssessmentStateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    assessmentType?: boolean
+    currentQuestionIndex?: boolean
+    answers?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["userAssessmentState"]>
+
+  export type UserAssessmentStateSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    assessmentType?: boolean
+    currentQuestionIndex?: boolean
+    answers?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["userAssessmentState"]>
+
+  export type UserAssessmentStateSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    assessmentType?: boolean
+    currentQuestionIndex?: boolean
+    answers?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+
+  export type $UserAssessmentStatePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "UserAssessmentState"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      assessmentType: $Enums.AssessmentType
+      currentQuestionIndex: number
+      answers: Prisma.JsonValue
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["userAssessmentState"]>
+    composites: {}
+  }
+
+  type UserAssessmentStateGetPayload<S extends boolean | null | undefined | UserAssessmentStateDefaultArgs> = $Result.GetResult<Prisma.$UserAssessmentStatePayload, S>
+
+  type UserAssessmentStateCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<UserAssessmentStateFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: UserAssessmentStateCountAggregateInputType | true
+    }
+
+  export interface UserAssessmentStateDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['UserAssessmentState'], meta: { name: 'UserAssessmentState' } }
+    /**
+     * Find zero or one UserAssessmentState that matches the filter.
+     * @param {UserAssessmentStateFindUniqueArgs} args - Arguments to find a UserAssessmentState
+     * @example
+     * // Get one UserAssessmentState
+     * const userAssessmentState = await prisma.userAssessmentState.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends UserAssessmentStateFindUniqueArgs>(args: SelectSubset<T, UserAssessmentStateFindUniqueArgs<ExtArgs>>): Prisma__UserAssessmentStateClient<$Result.GetResult<Prisma.$UserAssessmentStatePayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one UserAssessmentState that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {UserAssessmentStateFindUniqueOrThrowArgs} args - Arguments to find a UserAssessmentState
+     * @example
+     * // Get one UserAssessmentState
+     * const userAssessmentState = await prisma.userAssessmentState.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends UserAssessmentStateFindUniqueOrThrowArgs>(args: SelectSubset<T, UserAssessmentStateFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserAssessmentStateClient<$Result.GetResult<Prisma.$UserAssessmentStatePayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first UserAssessmentState that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserAssessmentStateFindFirstArgs} args - Arguments to find a UserAssessmentState
+     * @example
+     * // Get one UserAssessmentState
+     * const userAssessmentState = await prisma.userAssessmentState.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends UserAssessmentStateFindFirstArgs>(args?: SelectSubset<T, UserAssessmentStateFindFirstArgs<ExtArgs>>): Prisma__UserAssessmentStateClient<$Result.GetResult<Prisma.$UserAssessmentStatePayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first UserAssessmentState that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserAssessmentStateFindFirstOrThrowArgs} args - Arguments to find a UserAssessmentState
+     * @example
+     * // Get one UserAssessmentState
+     * const userAssessmentState = await prisma.userAssessmentState.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends UserAssessmentStateFindFirstOrThrowArgs>(args?: SelectSubset<T, UserAssessmentStateFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserAssessmentStateClient<$Result.GetResult<Prisma.$UserAssessmentStatePayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more UserAssessmentStates that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserAssessmentStateFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all UserAssessmentStates
+     * const userAssessmentStates = await prisma.userAssessmentState.findMany()
+     * 
+     * // Get first 10 UserAssessmentStates
+     * const userAssessmentStates = await prisma.userAssessmentState.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const userAssessmentStateWithIdOnly = await prisma.userAssessmentState.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends UserAssessmentStateFindManyArgs>(args?: SelectSubset<T, UserAssessmentStateFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserAssessmentStatePayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a UserAssessmentState.
+     * @param {UserAssessmentStateCreateArgs} args - Arguments to create a UserAssessmentState.
+     * @example
+     * // Create one UserAssessmentState
+     * const UserAssessmentState = await prisma.userAssessmentState.create({
+     *   data: {
+     *     // ... data to create a UserAssessmentState
+     *   }
+     * })
+     * 
+     */
+    create<T extends UserAssessmentStateCreateArgs>(args: SelectSubset<T, UserAssessmentStateCreateArgs<ExtArgs>>): Prisma__UserAssessmentStateClient<$Result.GetResult<Prisma.$UserAssessmentStatePayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many UserAssessmentStates.
+     * @param {UserAssessmentStateCreateManyArgs} args - Arguments to create many UserAssessmentStates.
+     * @example
+     * // Create many UserAssessmentStates
+     * const userAssessmentState = await prisma.userAssessmentState.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends UserAssessmentStateCreateManyArgs>(args?: SelectSubset<T, UserAssessmentStateCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many UserAssessmentStates and returns the data saved in the database.
+     * @param {UserAssessmentStateCreateManyAndReturnArgs} args - Arguments to create many UserAssessmentStates.
+     * @example
+     * // Create many UserAssessmentStates
+     * const userAssessmentState = await prisma.userAssessmentState.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many UserAssessmentStates and only return the `id`
+     * const userAssessmentStateWithIdOnly = await prisma.userAssessmentState.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends UserAssessmentStateCreateManyAndReturnArgs>(args?: SelectSubset<T, UserAssessmentStateCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserAssessmentStatePayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a UserAssessmentState.
+     * @param {UserAssessmentStateDeleteArgs} args - Arguments to delete one UserAssessmentState.
+     * @example
+     * // Delete one UserAssessmentState
+     * const UserAssessmentState = await prisma.userAssessmentState.delete({
+     *   where: {
+     *     // ... filter to delete one UserAssessmentState
+     *   }
+     * })
+     * 
+     */
+    delete<T extends UserAssessmentStateDeleteArgs>(args: SelectSubset<T, UserAssessmentStateDeleteArgs<ExtArgs>>): Prisma__UserAssessmentStateClient<$Result.GetResult<Prisma.$UserAssessmentStatePayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one UserAssessmentState.
+     * @param {UserAssessmentStateUpdateArgs} args - Arguments to update one UserAssessmentState.
+     * @example
+     * // Update one UserAssessmentState
+     * const userAssessmentState = await prisma.userAssessmentState.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends UserAssessmentStateUpdateArgs>(args: SelectSubset<T, UserAssessmentStateUpdateArgs<ExtArgs>>): Prisma__UserAssessmentStateClient<$Result.GetResult<Prisma.$UserAssessmentStatePayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more UserAssessmentStates.
+     * @param {UserAssessmentStateDeleteManyArgs} args - Arguments to filter UserAssessmentStates to delete.
+     * @example
+     * // Delete a few UserAssessmentStates
+     * const { count } = await prisma.userAssessmentState.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends UserAssessmentStateDeleteManyArgs>(args?: SelectSubset<T, UserAssessmentStateDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UserAssessmentStates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserAssessmentStateUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many UserAssessmentStates
+     * const userAssessmentState = await prisma.userAssessmentState.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends UserAssessmentStateUpdateManyArgs>(args: SelectSubset<T, UserAssessmentStateUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one UserAssessmentState.
+     * @param {UserAssessmentStateUpsertArgs} args - Arguments to update or create a UserAssessmentState.
+     * @example
+     * // Update or create a UserAssessmentState
+     * const userAssessmentState = await prisma.userAssessmentState.upsert({
+     *   create: {
+     *     // ... data to create a UserAssessmentState
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the UserAssessmentState we want to update
+     *   }
+     * })
+     */
+    upsert<T extends UserAssessmentStateUpsertArgs>(args: SelectSubset<T, UserAssessmentStateUpsertArgs<ExtArgs>>): Prisma__UserAssessmentStateClient<$Result.GetResult<Prisma.$UserAssessmentStatePayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of UserAssessmentStates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserAssessmentStateCountArgs} args - Arguments to filter UserAssessmentStates to count.
+     * @example
+     * // Count the number of UserAssessmentStates
+     * const count = await prisma.userAssessmentState.count({
+     *   where: {
+     *     // ... the filter for the UserAssessmentStates we want to count
+     *   }
+     * })
+    **/
+    count<T extends UserAssessmentStateCountArgs>(
+      args?: Subset<T, UserAssessmentStateCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UserAssessmentStateCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a UserAssessmentState.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserAssessmentStateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UserAssessmentStateAggregateArgs>(args: Subset<T, UserAssessmentStateAggregateArgs>): Prisma.PrismaPromise<GetUserAssessmentStateAggregateType<T>>
+
+    /**
+     * Group by UserAssessmentState.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserAssessmentStateGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UserAssessmentStateGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UserAssessmentStateGroupByArgs['orderBy'] }
+        : { orderBy?: UserAssessmentStateGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UserAssessmentStateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserAssessmentStateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the UserAssessmentState model
+   */
+  readonly fields: UserAssessmentStateFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for UserAssessmentState.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UserAssessmentStateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the UserAssessmentState model
+   */ 
+  interface UserAssessmentStateFieldRefs {
+    readonly id: FieldRef<"UserAssessmentState", 'String'>
+    readonly userId: FieldRef<"UserAssessmentState", 'String'>
+    readonly assessmentType: FieldRef<"UserAssessmentState", 'AssessmentType'>
+    readonly currentQuestionIndex: FieldRef<"UserAssessmentState", 'Int'>
+    readonly answers: FieldRef<"UserAssessmentState", 'Json'>
+    readonly createdAt: FieldRef<"UserAssessmentState", 'DateTime'>
+    readonly updatedAt: FieldRef<"UserAssessmentState", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * UserAssessmentState findUnique
+   */
+  export type UserAssessmentStateFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserAssessmentState
+     */
+    select?: UserAssessmentStateSelect<ExtArgs> | null
+    /**
+     * Filter, which UserAssessmentState to fetch.
+     */
+    where: UserAssessmentStateWhereUniqueInput
+  }
+
+  /**
+   * UserAssessmentState findUniqueOrThrow
+   */
+  export type UserAssessmentStateFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserAssessmentState
+     */
+    select?: UserAssessmentStateSelect<ExtArgs> | null
+    /**
+     * Filter, which UserAssessmentState to fetch.
+     */
+    where: UserAssessmentStateWhereUniqueInput
+  }
+
+  /**
+   * UserAssessmentState findFirst
+   */
+  export type UserAssessmentStateFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserAssessmentState
+     */
+    select?: UserAssessmentStateSelect<ExtArgs> | null
+    /**
+     * Filter, which UserAssessmentState to fetch.
+     */
+    where?: UserAssessmentStateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserAssessmentStates to fetch.
+     */
+    orderBy?: UserAssessmentStateOrderByWithRelationInput | UserAssessmentStateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserAssessmentStates.
+     */
+    cursor?: UserAssessmentStateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserAssessmentStates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserAssessmentStates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserAssessmentStates.
+     */
+    distinct?: UserAssessmentStateScalarFieldEnum | UserAssessmentStateScalarFieldEnum[]
+  }
+
+  /**
+   * UserAssessmentState findFirstOrThrow
+   */
+  export type UserAssessmentStateFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserAssessmentState
+     */
+    select?: UserAssessmentStateSelect<ExtArgs> | null
+    /**
+     * Filter, which UserAssessmentState to fetch.
+     */
+    where?: UserAssessmentStateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserAssessmentStates to fetch.
+     */
+    orderBy?: UserAssessmentStateOrderByWithRelationInput | UserAssessmentStateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserAssessmentStates.
+     */
+    cursor?: UserAssessmentStateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserAssessmentStates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserAssessmentStates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserAssessmentStates.
+     */
+    distinct?: UserAssessmentStateScalarFieldEnum | UserAssessmentStateScalarFieldEnum[]
+  }
+
+  /**
+   * UserAssessmentState findMany
+   */
+  export type UserAssessmentStateFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserAssessmentState
+     */
+    select?: UserAssessmentStateSelect<ExtArgs> | null
+    /**
+     * Filter, which UserAssessmentStates to fetch.
+     */
+    where?: UserAssessmentStateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserAssessmentStates to fetch.
+     */
+    orderBy?: UserAssessmentStateOrderByWithRelationInput | UserAssessmentStateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing UserAssessmentStates.
+     */
+    cursor?: UserAssessmentStateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserAssessmentStates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserAssessmentStates.
+     */
+    skip?: number
+    distinct?: UserAssessmentStateScalarFieldEnum | UserAssessmentStateScalarFieldEnum[]
+  }
+
+  /**
+   * UserAssessmentState create
+   */
+  export type UserAssessmentStateCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserAssessmentState
+     */
+    select?: UserAssessmentStateSelect<ExtArgs> | null
+    /**
+     * The data needed to create a UserAssessmentState.
+     */
+    data: XOR<UserAssessmentStateCreateInput, UserAssessmentStateUncheckedCreateInput>
+  }
+
+  /**
+   * UserAssessmentState createMany
+   */
+  export type UserAssessmentStateCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many UserAssessmentStates.
+     */
+    data: UserAssessmentStateCreateManyInput | UserAssessmentStateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * UserAssessmentState createManyAndReturn
+   */
+  export type UserAssessmentStateCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserAssessmentState
+     */
+    select?: UserAssessmentStateSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many UserAssessmentStates.
+     */
+    data: UserAssessmentStateCreateManyInput | UserAssessmentStateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * UserAssessmentState update
+   */
+  export type UserAssessmentStateUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserAssessmentState
+     */
+    select?: UserAssessmentStateSelect<ExtArgs> | null
+    /**
+     * The data needed to update a UserAssessmentState.
+     */
+    data: XOR<UserAssessmentStateUpdateInput, UserAssessmentStateUncheckedUpdateInput>
+    /**
+     * Choose, which UserAssessmentState to update.
+     */
+    where: UserAssessmentStateWhereUniqueInput
+  }
+
+  /**
+   * UserAssessmentState updateMany
+   */
+  export type UserAssessmentStateUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update UserAssessmentStates.
+     */
+    data: XOR<UserAssessmentStateUpdateManyMutationInput, UserAssessmentStateUncheckedUpdateManyInput>
+    /**
+     * Filter which UserAssessmentStates to update
+     */
+    where?: UserAssessmentStateWhereInput
+  }
+
+  /**
+   * UserAssessmentState upsert
+   */
+  export type UserAssessmentStateUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserAssessmentState
+     */
+    select?: UserAssessmentStateSelect<ExtArgs> | null
+    /**
+     * The filter to search for the UserAssessmentState to update in case it exists.
+     */
+    where: UserAssessmentStateWhereUniqueInput
+    /**
+     * In case the UserAssessmentState found by the `where` argument doesn't exist, create a new UserAssessmentState with this data.
+     */
+    create: XOR<UserAssessmentStateCreateInput, UserAssessmentStateUncheckedCreateInput>
+    /**
+     * In case the UserAssessmentState was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UserAssessmentStateUpdateInput, UserAssessmentStateUncheckedUpdateInput>
+  }
+
+  /**
+   * UserAssessmentState delete
+   */
+  export type UserAssessmentStateDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserAssessmentState
+     */
+    select?: UserAssessmentStateSelect<ExtArgs> | null
+    /**
+     * Filter which UserAssessmentState to delete.
+     */
+    where: UserAssessmentStateWhereUniqueInput
+  }
+
+  /**
+   * UserAssessmentState deleteMany
+   */
+  export type UserAssessmentStateDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserAssessmentStates to delete
+     */
+    where?: UserAssessmentStateWhereInput
+  }
+
+  /**
+   * UserAssessmentState without action
+   */
+  export type UserAssessmentStateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserAssessmentState
+     */
+    select?: UserAssessmentStateSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model GeneratedReportPdf
+   */
+
+  export type AggregateGeneratedReportPdf = {
+    _count: GeneratedReportPdfCountAggregateOutputType | null
+    _avg: GeneratedReportPdfAvgAggregateOutputType | null
+    _sum: GeneratedReportPdfSumAggregateOutputType | null
+    _min: GeneratedReportPdfMinAggregateOutputType | null
+    _max: GeneratedReportPdfMaxAggregateOutputType | null
+  }
+
+  export type GeneratedReportPdfAvgAggregateOutputType = {
+    fileSize: number | null
+  }
+
+  export type GeneratedReportPdfSumAggregateOutputType = {
+    fileSize: number | null
+  }
+
+  export type GeneratedReportPdfMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    tenantId: string | null
+    counsellorId: string | null
+    language: string | null
+    filePath: string | null
+    fileName: string | null
+    fileSize: number | null
+    status: string | null
+    generatedAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type GeneratedReportPdfMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    tenantId: string | null
+    counsellorId: string | null
+    language: string | null
+    filePath: string | null
+    fileName: string | null
+    fileSize: number | null
+    status: string | null
+    generatedAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type GeneratedReportPdfCountAggregateOutputType = {
+    id: number
+    userId: number
+    tenantId: number
+    counsellorId: number
+    language: number
+    filePath: number
+    fileName: number
+    fileSize: number
+    status: number
+    generatedAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type GeneratedReportPdfAvgAggregateInputType = {
+    fileSize?: true
+  }
+
+  export type GeneratedReportPdfSumAggregateInputType = {
+    fileSize?: true
+  }
+
+  export type GeneratedReportPdfMinAggregateInputType = {
+    id?: true
+    userId?: true
+    tenantId?: true
+    counsellorId?: true
+    language?: true
+    filePath?: true
+    fileName?: true
+    fileSize?: true
+    status?: true
+    generatedAt?: true
+    updatedAt?: true
+  }
+
+  export type GeneratedReportPdfMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    tenantId?: true
+    counsellorId?: true
+    language?: true
+    filePath?: true
+    fileName?: true
+    fileSize?: true
+    status?: true
+    generatedAt?: true
+    updatedAt?: true
+  }
+
+  export type GeneratedReportPdfCountAggregateInputType = {
+    id?: true
+    userId?: true
+    tenantId?: true
+    counsellorId?: true
+    language?: true
+    filePath?: true
+    fileName?: true
+    fileSize?: true
+    status?: true
+    generatedAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type GeneratedReportPdfAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GeneratedReportPdf to aggregate.
+     */
+    where?: GeneratedReportPdfWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GeneratedReportPdfs to fetch.
+     */
+    orderBy?: GeneratedReportPdfOrderByWithRelationInput | GeneratedReportPdfOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: GeneratedReportPdfWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GeneratedReportPdfs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GeneratedReportPdfs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned GeneratedReportPdfs
+    **/
+    _count?: true | GeneratedReportPdfCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: GeneratedReportPdfAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: GeneratedReportPdfSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: GeneratedReportPdfMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: GeneratedReportPdfMaxAggregateInputType
+  }
+
+  export type GetGeneratedReportPdfAggregateType<T extends GeneratedReportPdfAggregateArgs> = {
+        [P in keyof T & keyof AggregateGeneratedReportPdf]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateGeneratedReportPdf[P]>
+      : GetScalarType<T[P], AggregateGeneratedReportPdf[P]>
+  }
+
+
+
+
+  export type GeneratedReportPdfGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GeneratedReportPdfWhereInput
+    orderBy?: GeneratedReportPdfOrderByWithAggregationInput | GeneratedReportPdfOrderByWithAggregationInput[]
+    by: GeneratedReportPdfScalarFieldEnum[] | GeneratedReportPdfScalarFieldEnum
+    having?: GeneratedReportPdfScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: GeneratedReportPdfCountAggregateInputType | true
+    _avg?: GeneratedReportPdfAvgAggregateInputType
+    _sum?: GeneratedReportPdfSumAggregateInputType
+    _min?: GeneratedReportPdfMinAggregateInputType
+    _max?: GeneratedReportPdfMaxAggregateInputType
+  }
+
+  export type GeneratedReportPdfGroupByOutputType = {
+    id: string
+    userId: string
+    tenantId: string | null
+    counsellorId: string | null
+    language: string
+    filePath: string
+    fileName: string
+    fileSize: number
+    status: string
+    generatedAt: Date
+    updatedAt: Date
+    _count: GeneratedReportPdfCountAggregateOutputType | null
+    _avg: GeneratedReportPdfAvgAggregateOutputType | null
+    _sum: GeneratedReportPdfSumAggregateOutputType | null
+    _min: GeneratedReportPdfMinAggregateOutputType | null
+    _max: GeneratedReportPdfMaxAggregateOutputType | null
+  }
+
+  type GetGeneratedReportPdfGroupByPayload<T extends GeneratedReportPdfGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<GeneratedReportPdfGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof GeneratedReportPdfGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], GeneratedReportPdfGroupByOutputType[P]>
+            : GetScalarType<T[P], GeneratedReportPdfGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type GeneratedReportPdfSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    tenantId?: boolean
+    counsellorId?: boolean
+    language?: boolean
+    filePath?: boolean
+    fileName?: boolean
+    fileSize?: boolean
+    status?: boolean
+    generatedAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["generatedReportPdf"]>
+
+  export type GeneratedReportPdfSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    tenantId?: boolean
+    counsellorId?: boolean
+    language?: boolean
+    filePath?: boolean
+    fileName?: boolean
+    fileSize?: boolean
+    status?: boolean
+    generatedAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["generatedReportPdf"]>
+
+  export type GeneratedReportPdfSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    tenantId?: boolean
+    counsellorId?: boolean
+    language?: boolean
+    filePath?: boolean
+    fileName?: boolean
+    fileSize?: boolean
+    status?: boolean
+    generatedAt?: boolean
+    updatedAt?: boolean
+  }
+
+
+  export type $GeneratedReportPdfPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "GeneratedReportPdf"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      tenantId: string | null
+      counsellorId: string | null
+      language: string
+      filePath: string
+      fileName: string
+      fileSize: number
+      status: string
+      generatedAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["generatedReportPdf"]>
+    composites: {}
+  }
+
+  type GeneratedReportPdfGetPayload<S extends boolean | null | undefined | GeneratedReportPdfDefaultArgs> = $Result.GetResult<Prisma.$GeneratedReportPdfPayload, S>
+
+  type GeneratedReportPdfCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<GeneratedReportPdfFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: GeneratedReportPdfCountAggregateInputType | true
+    }
+
+  export interface GeneratedReportPdfDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['GeneratedReportPdf'], meta: { name: 'GeneratedReportPdf' } }
+    /**
+     * Find zero or one GeneratedReportPdf that matches the filter.
+     * @param {GeneratedReportPdfFindUniqueArgs} args - Arguments to find a GeneratedReportPdf
+     * @example
+     * // Get one GeneratedReportPdf
+     * const generatedReportPdf = await prisma.generatedReportPdf.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends GeneratedReportPdfFindUniqueArgs>(args: SelectSubset<T, GeneratedReportPdfFindUniqueArgs<ExtArgs>>): Prisma__GeneratedReportPdfClient<$Result.GetResult<Prisma.$GeneratedReportPdfPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one GeneratedReportPdf that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {GeneratedReportPdfFindUniqueOrThrowArgs} args - Arguments to find a GeneratedReportPdf
+     * @example
+     * // Get one GeneratedReportPdf
+     * const generatedReportPdf = await prisma.generatedReportPdf.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends GeneratedReportPdfFindUniqueOrThrowArgs>(args: SelectSubset<T, GeneratedReportPdfFindUniqueOrThrowArgs<ExtArgs>>): Prisma__GeneratedReportPdfClient<$Result.GetResult<Prisma.$GeneratedReportPdfPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first GeneratedReportPdf that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GeneratedReportPdfFindFirstArgs} args - Arguments to find a GeneratedReportPdf
+     * @example
+     * // Get one GeneratedReportPdf
+     * const generatedReportPdf = await prisma.generatedReportPdf.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends GeneratedReportPdfFindFirstArgs>(args?: SelectSubset<T, GeneratedReportPdfFindFirstArgs<ExtArgs>>): Prisma__GeneratedReportPdfClient<$Result.GetResult<Prisma.$GeneratedReportPdfPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first GeneratedReportPdf that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GeneratedReportPdfFindFirstOrThrowArgs} args - Arguments to find a GeneratedReportPdf
+     * @example
+     * // Get one GeneratedReportPdf
+     * const generatedReportPdf = await prisma.generatedReportPdf.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends GeneratedReportPdfFindFirstOrThrowArgs>(args?: SelectSubset<T, GeneratedReportPdfFindFirstOrThrowArgs<ExtArgs>>): Prisma__GeneratedReportPdfClient<$Result.GetResult<Prisma.$GeneratedReportPdfPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more GeneratedReportPdfs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GeneratedReportPdfFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all GeneratedReportPdfs
+     * const generatedReportPdfs = await prisma.generatedReportPdf.findMany()
+     * 
+     * // Get first 10 GeneratedReportPdfs
+     * const generatedReportPdfs = await prisma.generatedReportPdf.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const generatedReportPdfWithIdOnly = await prisma.generatedReportPdf.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends GeneratedReportPdfFindManyArgs>(args?: SelectSubset<T, GeneratedReportPdfFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GeneratedReportPdfPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a GeneratedReportPdf.
+     * @param {GeneratedReportPdfCreateArgs} args - Arguments to create a GeneratedReportPdf.
+     * @example
+     * // Create one GeneratedReportPdf
+     * const GeneratedReportPdf = await prisma.generatedReportPdf.create({
+     *   data: {
+     *     // ... data to create a GeneratedReportPdf
+     *   }
+     * })
+     * 
+     */
+    create<T extends GeneratedReportPdfCreateArgs>(args: SelectSubset<T, GeneratedReportPdfCreateArgs<ExtArgs>>): Prisma__GeneratedReportPdfClient<$Result.GetResult<Prisma.$GeneratedReportPdfPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many GeneratedReportPdfs.
+     * @param {GeneratedReportPdfCreateManyArgs} args - Arguments to create many GeneratedReportPdfs.
+     * @example
+     * // Create many GeneratedReportPdfs
+     * const generatedReportPdf = await prisma.generatedReportPdf.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends GeneratedReportPdfCreateManyArgs>(args?: SelectSubset<T, GeneratedReportPdfCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many GeneratedReportPdfs and returns the data saved in the database.
+     * @param {GeneratedReportPdfCreateManyAndReturnArgs} args - Arguments to create many GeneratedReportPdfs.
+     * @example
+     * // Create many GeneratedReportPdfs
+     * const generatedReportPdf = await prisma.generatedReportPdf.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many GeneratedReportPdfs and only return the `id`
+     * const generatedReportPdfWithIdOnly = await prisma.generatedReportPdf.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends GeneratedReportPdfCreateManyAndReturnArgs>(args?: SelectSubset<T, GeneratedReportPdfCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GeneratedReportPdfPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a GeneratedReportPdf.
+     * @param {GeneratedReportPdfDeleteArgs} args - Arguments to delete one GeneratedReportPdf.
+     * @example
+     * // Delete one GeneratedReportPdf
+     * const GeneratedReportPdf = await prisma.generatedReportPdf.delete({
+     *   where: {
+     *     // ... filter to delete one GeneratedReportPdf
+     *   }
+     * })
+     * 
+     */
+    delete<T extends GeneratedReportPdfDeleteArgs>(args: SelectSubset<T, GeneratedReportPdfDeleteArgs<ExtArgs>>): Prisma__GeneratedReportPdfClient<$Result.GetResult<Prisma.$GeneratedReportPdfPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one GeneratedReportPdf.
+     * @param {GeneratedReportPdfUpdateArgs} args - Arguments to update one GeneratedReportPdf.
+     * @example
+     * // Update one GeneratedReportPdf
+     * const generatedReportPdf = await prisma.generatedReportPdf.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends GeneratedReportPdfUpdateArgs>(args: SelectSubset<T, GeneratedReportPdfUpdateArgs<ExtArgs>>): Prisma__GeneratedReportPdfClient<$Result.GetResult<Prisma.$GeneratedReportPdfPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more GeneratedReportPdfs.
+     * @param {GeneratedReportPdfDeleteManyArgs} args - Arguments to filter GeneratedReportPdfs to delete.
+     * @example
+     * // Delete a few GeneratedReportPdfs
+     * const { count } = await prisma.generatedReportPdf.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends GeneratedReportPdfDeleteManyArgs>(args?: SelectSubset<T, GeneratedReportPdfDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more GeneratedReportPdfs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GeneratedReportPdfUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many GeneratedReportPdfs
+     * const generatedReportPdf = await prisma.generatedReportPdf.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends GeneratedReportPdfUpdateManyArgs>(args: SelectSubset<T, GeneratedReportPdfUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one GeneratedReportPdf.
+     * @param {GeneratedReportPdfUpsertArgs} args - Arguments to update or create a GeneratedReportPdf.
+     * @example
+     * // Update or create a GeneratedReportPdf
+     * const generatedReportPdf = await prisma.generatedReportPdf.upsert({
+     *   create: {
+     *     // ... data to create a GeneratedReportPdf
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the GeneratedReportPdf we want to update
+     *   }
+     * })
+     */
+    upsert<T extends GeneratedReportPdfUpsertArgs>(args: SelectSubset<T, GeneratedReportPdfUpsertArgs<ExtArgs>>): Prisma__GeneratedReportPdfClient<$Result.GetResult<Prisma.$GeneratedReportPdfPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of GeneratedReportPdfs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GeneratedReportPdfCountArgs} args - Arguments to filter GeneratedReportPdfs to count.
+     * @example
+     * // Count the number of GeneratedReportPdfs
+     * const count = await prisma.generatedReportPdf.count({
+     *   where: {
+     *     // ... the filter for the GeneratedReportPdfs we want to count
+     *   }
+     * })
+    **/
+    count<T extends GeneratedReportPdfCountArgs>(
+      args?: Subset<T, GeneratedReportPdfCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], GeneratedReportPdfCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a GeneratedReportPdf.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GeneratedReportPdfAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends GeneratedReportPdfAggregateArgs>(args: Subset<T, GeneratedReportPdfAggregateArgs>): Prisma.PrismaPromise<GetGeneratedReportPdfAggregateType<T>>
+
+    /**
+     * Group by GeneratedReportPdf.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GeneratedReportPdfGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends GeneratedReportPdfGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: GeneratedReportPdfGroupByArgs['orderBy'] }
+        : { orderBy?: GeneratedReportPdfGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, GeneratedReportPdfGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGeneratedReportPdfGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the GeneratedReportPdf model
+   */
+  readonly fields: GeneratedReportPdfFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for GeneratedReportPdf.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__GeneratedReportPdfClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the GeneratedReportPdf model
+   */ 
+  interface GeneratedReportPdfFieldRefs {
+    readonly id: FieldRef<"GeneratedReportPdf", 'String'>
+    readonly userId: FieldRef<"GeneratedReportPdf", 'String'>
+    readonly tenantId: FieldRef<"GeneratedReportPdf", 'String'>
+    readonly counsellorId: FieldRef<"GeneratedReportPdf", 'String'>
+    readonly language: FieldRef<"GeneratedReportPdf", 'String'>
+    readonly filePath: FieldRef<"GeneratedReportPdf", 'String'>
+    readonly fileName: FieldRef<"GeneratedReportPdf", 'String'>
+    readonly fileSize: FieldRef<"GeneratedReportPdf", 'Int'>
+    readonly status: FieldRef<"GeneratedReportPdf", 'String'>
+    readonly generatedAt: FieldRef<"GeneratedReportPdf", 'DateTime'>
+    readonly updatedAt: FieldRef<"GeneratedReportPdf", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * GeneratedReportPdf findUnique
+   */
+  export type GeneratedReportPdfFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedReportPdf
+     */
+    select?: GeneratedReportPdfSelect<ExtArgs> | null
+    /**
+     * Filter, which GeneratedReportPdf to fetch.
+     */
+    where: GeneratedReportPdfWhereUniqueInput
+  }
+
+  /**
+   * GeneratedReportPdf findUniqueOrThrow
+   */
+  export type GeneratedReportPdfFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedReportPdf
+     */
+    select?: GeneratedReportPdfSelect<ExtArgs> | null
+    /**
+     * Filter, which GeneratedReportPdf to fetch.
+     */
+    where: GeneratedReportPdfWhereUniqueInput
+  }
+
+  /**
+   * GeneratedReportPdf findFirst
+   */
+  export type GeneratedReportPdfFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedReportPdf
+     */
+    select?: GeneratedReportPdfSelect<ExtArgs> | null
+    /**
+     * Filter, which GeneratedReportPdf to fetch.
+     */
+    where?: GeneratedReportPdfWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GeneratedReportPdfs to fetch.
+     */
+    orderBy?: GeneratedReportPdfOrderByWithRelationInput | GeneratedReportPdfOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GeneratedReportPdfs.
+     */
+    cursor?: GeneratedReportPdfWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GeneratedReportPdfs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GeneratedReportPdfs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GeneratedReportPdfs.
+     */
+    distinct?: GeneratedReportPdfScalarFieldEnum | GeneratedReportPdfScalarFieldEnum[]
+  }
+
+  /**
+   * GeneratedReportPdf findFirstOrThrow
+   */
+  export type GeneratedReportPdfFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedReportPdf
+     */
+    select?: GeneratedReportPdfSelect<ExtArgs> | null
+    /**
+     * Filter, which GeneratedReportPdf to fetch.
+     */
+    where?: GeneratedReportPdfWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GeneratedReportPdfs to fetch.
+     */
+    orderBy?: GeneratedReportPdfOrderByWithRelationInput | GeneratedReportPdfOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GeneratedReportPdfs.
+     */
+    cursor?: GeneratedReportPdfWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GeneratedReportPdfs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GeneratedReportPdfs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GeneratedReportPdfs.
+     */
+    distinct?: GeneratedReportPdfScalarFieldEnum | GeneratedReportPdfScalarFieldEnum[]
+  }
+
+  /**
+   * GeneratedReportPdf findMany
+   */
+  export type GeneratedReportPdfFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedReportPdf
+     */
+    select?: GeneratedReportPdfSelect<ExtArgs> | null
+    /**
+     * Filter, which GeneratedReportPdfs to fetch.
+     */
+    where?: GeneratedReportPdfWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GeneratedReportPdfs to fetch.
+     */
+    orderBy?: GeneratedReportPdfOrderByWithRelationInput | GeneratedReportPdfOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing GeneratedReportPdfs.
+     */
+    cursor?: GeneratedReportPdfWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GeneratedReportPdfs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GeneratedReportPdfs.
+     */
+    skip?: number
+    distinct?: GeneratedReportPdfScalarFieldEnum | GeneratedReportPdfScalarFieldEnum[]
+  }
+
+  /**
+   * GeneratedReportPdf create
+   */
+  export type GeneratedReportPdfCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedReportPdf
+     */
+    select?: GeneratedReportPdfSelect<ExtArgs> | null
+    /**
+     * The data needed to create a GeneratedReportPdf.
+     */
+    data: XOR<GeneratedReportPdfCreateInput, GeneratedReportPdfUncheckedCreateInput>
+  }
+
+  /**
+   * GeneratedReportPdf createMany
+   */
+  export type GeneratedReportPdfCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many GeneratedReportPdfs.
+     */
+    data: GeneratedReportPdfCreateManyInput | GeneratedReportPdfCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * GeneratedReportPdf createManyAndReturn
+   */
+  export type GeneratedReportPdfCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedReportPdf
+     */
+    select?: GeneratedReportPdfSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many GeneratedReportPdfs.
+     */
+    data: GeneratedReportPdfCreateManyInput | GeneratedReportPdfCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * GeneratedReportPdf update
+   */
+  export type GeneratedReportPdfUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedReportPdf
+     */
+    select?: GeneratedReportPdfSelect<ExtArgs> | null
+    /**
+     * The data needed to update a GeneratedReportPdf.
+     */
+    data: XOR<GeneratedReportPdfUpdateInput, GeneratedReportPdfUncheckedUpdateInput>
+    /**
+     * Choose, which GeneratedReportPdf to update.
+     */
+    where: GeneratedReportPdfWhereUniqueInput
+  }
+
+  /**
+   * GeneratedReportPdf updateMany
+   */
+  export type GeneratedReportPdfUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update GeneratedReportPdfs.
+     */
+    data: XOR<GeneratedReportPdfUpdateManyMutationInput, GeneratedReportPdfUncheckedUpdateManyInput>
+    /**
+     * Filter which GeneratedReportPdfs to update
+     */
+    where?: GeneratedReportPdfWhereInput
+  }
+
+  /**
+   * GeneratedReportPdf upsert
+   */
+  export type GeneratedReportPdfUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedReportPdf
+     */
+    select?: GeneratedReportPdfSelect<ExtArgs> | null
+    /**
+     * The filter to search for the GeneratedReportPdf to update in case it exists.
+     */
+    where: GeneratedReportPdfWhereUniqueInput
+    /**
+     * In case the GeneratedReportPdf found by the `where` argument doesn't exist, create a new GeneratedReportPdf with this data.
+     */
+    create: XOR<GeneratedReportPdfCreateInput, GeneratedReportPdfUncheckedCreateInput>
+    /**
+     * In case the GeneratedReportPdf was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<GeneratedReportPdfUpdateInput, GeneratedReportPdfUncheckedUpdateInput>
+  }
+
+  /**
+   * GeneratedReportPdf delete
+   */
+  export type GeneratedReportPdfDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedReportPdf
+     */
+    select?: GeneratedReportPdfSelect<ExtArgs> | null
+    /**
+     * Filter which GeneratedReportPdf to delete.
+     */
+    where: GeneratedReportPdfWhereUniqueInput
+  }
+
+  /**
+   * GeneratedReportPdf deleteMany
+   */
+  export type GeneratedReportPdfDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GeneratedReportPdfs to delete
+     */
+    where?: GeneratedReportPdfWhereInput
+  }
+
+  /**
+   * GeneratedReportPdf without action
+   */
+  export type GeneratedReportPdfDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedReportPdf
+     */
+    select?: GeneratedReportPdfSelect<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -9268,12 +11356,49 @@ export namespace Prisma {
   export type UserAssessmentPreferenceScalarFieldEnum = (typeof UserAssessmentPreferenceScalarFieldEnum)[keyof typeof UserAssessmentPreferenceScalarFieldEnum]
 
 
+  export const UserAssessmentStateScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    assessmentType: 'assessmentType',
+    currentQuestionIndex: 'currentQuestionIndex',
+    answers: 'answers',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type UserAssessmentStateScalarFieldEnum = (typeof UserAssessmentStateScalarFieldEnum)[keyof typeof UserAssessmentStateScalarFieldEnum]
+
+
+  export const GeneratedReportPdfScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    tenantId: 'tenantId',
+    counsellorId: 'counsellorId',
+    language: 'language',
+    filePath: 'filePath',
+    fileName: 'fileName',
+    fileSize: 'fileSize',
+    status: 'status',
+    generatedAt: 'generatedAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type GeneratedReportPdfScalarFieldEnum = (typeof GeneratedReportPdfScalarFieldEnum)[keyof typeof GeneratedReportPdfScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const JsonNullValueInput: {
+    JsonNull: typeof JsonNull
+  };
+
+  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
   export const QueryMode: {
@@ -9290,6 +11415,15 @@ export namespace Prisma {
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
   /**
@@ -9357,6 +11491,13 @@ export namespace Prisma {
    * Reference to a field of type 'Boolean'
    */
   export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
     
 
 
@@ -9864,6 +12005,156 @@ export namespace Prisma {
     economicStatus?: StringWithAggregatesFilter<"UserAssessmentPreference"> | string
     createdAt?: DateTimeWithAggregatesFilter<"UserAssessmentPreference"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"UserAssessmentPreference"> | Date | string
+  }
+
+  export type UserAssessmentStateWhereInput = {
+    AND?: UserAssessmentStateWhereInput | UserAssessmentStateWhereInput[]
+    OR?: UserAssessmentStateWhereInput[]
+    NOT?: UserAssessmentStateWhereInput | UserAssessmentStateWhereInput[]
+    id?: StringFilter<"UserAssessmentState"> | string
+    userId?: UuidFilter<"UserAssessmentState"> | string
+    assessmentType?: EnumAssessmentTypeFilter<"UserAssessmentState"> | $Enums.AssessmentType
+    currentQuestionIndex?: IntFilter<"UserAssessmentState"> | number
+    answers?: JsonFilter<"UserAssessmentState">
+    createdAt?: DateTimeFilter<"UserAssessmentState"> | Date | string
+    updatedAt?: DateTimeFilter<"UserAssessmentState"> | Date | string
+  }
+
+  export type UserAssessmentStateOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    assessmentType?: SortOrder
+    currentQuestionIndex?: SortOrder
+    answers?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type UserAssessmentStateWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId_assessmentType?: UserAssessmentStateUserIdAssessmentTypeCompoundUniqueInput
+    AND?: UserAssessmentStateWhereInput | UserAssessmentStateWhereInput[]
+    OR?: UserAssessmentStateWhereInput[]
+    NOT?: UserAssessmentStateWhereInput | UserAssessmentStateWhereInput[]
+    userId?: UuidFilter<"UserAssessmentState"> | string
+    assessmentType?: EnumAssessmentTypeFilter<"UserAssessmentState"> | $Enums.AssessmentType
+    currentQuestionIndex?: IntFilter<"UserAssessmentState"> | number
+    answers?: JsonFilter<"UserAssessmentState">
+    createdAt?: DateTimeFilter<"UserAssessmentState"> | Date | string
+    updatedAt?: DateTimeFilter<"UserAssessmentState"> | Date | string
+  }, "id" | "userId_assessmentType">
+
+  export type UserAssessmentStateOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    assessmentType?: SortOrder
+    currentQuestionIndex?: SortOrder
+    answers?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: UserAssessmentStateCountOrderByAggregateInput
+    _avg?: UserAssessmentStateAvgOrderByAggregateInput
+    _max?: UserAssessmentStateMaxOrderByAggregateInput
+    _min?: UserAssessmentStateMinOrderByAggregateInput
+    _sum?: UserAssessmentStateSumOrderByAggregateInput
+  }
+
+  export type UserAssessmentStateScalarWhereWithAggregatesInput = {
+    AND?: UserAssessmentStateScalarWhereWithAggregatesInput | UserAssessmentStateScalarWhereWithAggregatesInput[]
+    OR?: UserAssessmentStateScalarWhereWithAggregatesInput[]
+    NOT?: UserAssessmentStateScalarWhereWithAggregatesInput | UserAssessmentStateScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"UserAssessmentState"> | string
+    userId?: UuidWithAggregatesFilter<"UserAssessmentState"> | string
+    assessmentType?: EnumAssessmentTypeWithAggregatesFilter<"UserAssessmentState"> | $Enums.AssessmentType
+    currentQuestionIndex?: IntWithAggregatesFilter<"UserAssessmentState"> | number
+    answers?: JsonWithAggregatesFilter<"UserAssessmentState">
+    createdAt?: DateTimeWithAggregatesFilter<"UserAssessmentState"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"UserAssessmentState"> | Date | string
+  }
+
+  export type GeneratedReportPdfWhereInput = {
+    AND?: GeneratedReportPdfWhereInput | GeneratedReportPdfWhereInput[]
+    OR?: GeneratedReportPdfWhereInput[]
+    NOT?: GeneratedReportPdfWhereInput | GeneratedReportPdfWhereInput[]
+    id?: StringFilter<"GeneratedReportPdf"> | string
+    userId?: UuidFilter<"GeneratedReportPdf"> | string
+    tenantId?: StringNullableFilter<"GeneratedReportPdf"> | string | null
+    counsellorId?: UuidNullableFilter<"GeneratedReportPdf"> | string | null
+    language?: StringFilter<"GeneratedReportPdf"> | string
+    filePath?: StringFilter<"GeneratedReportPdf"> | string
+    fileName?: StringFilter<"GeneratedReportPdf"> | string
+    fileSize?: IntFilter<"GeneratedReportPdf"> | number
+    status?: StringFilter<"GeneratedReportPdf"> | string
+    generatedAt?: DateTimeFilter<"GeneratedReportPdf"> | Date | string
+    updatedAt?: DateTimeFilter<"GeneratedReportPdf"> | Date | string
+  }
+
+  export type GeneratedReportPdfOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    tenantId?: SortOrderInput | SortOrder
+    counsellorId?: SortOrderInput | SortOrder
+    language?: SortOrder
+    filePath?: SortOrder
+    fileName?: SortOrder
+    fileSize?: SortOrder
+    status?: SortOrder
+    generatedAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type GeneratedReportPdfWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId_language?: GeneratedReportPdfUserIdLanguageCompoundUniqueInput
+    AND?: GeneratedReportPdfWhereInput | GeneratedReportPdfWhereInput[]
+    OR?: GeneratedReportPdfWhereInput[]
+    NOT?: GeneratedReportPdfWhereInput | GeneratedReportPdfWhereInput[]
+    userId?: UuidFilter<"GeneratedReportPdf"> | string
+    tenantId?: StringNullableFilter<"GeneratedReportPdf"> | string | null
+    counsellorId?: UuidNullableFilter<"GeneratedReportPdf"> | string | null
+    language?: StringFilter<"GeneratedReportPdf"> | string
+    filePath?: StringFilter<"GeneratedReportPdf"> | string
+    fileName?: StringFilter<"GeneratedReportPdf"> | string
+    fileSize?: IntFilter<"GeneratedReportPdf"> | number
+    status?: StringFilter<"GeneratedReportPdf"> | string
+    generatedAt?: DateTimeFilter<"GeneratedReportPdf"> | Date | string
+    updatedAt?: DateTimeFilter<"GeneratedReportPdf"> | Date | string
+  }, "id" | "userId_language">
+
+  export type GeneratedReportPdfOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    tenantId?: SortOrderInput | SortOrder
+    counsellorId?: SortOrderInput | SortOrder
+    language?: SortOrder
+    filePath?: SortOrder
+    fileName?: SortOrder
+    fileSize?: SortOrder
+    status?: SortOrder
+    generatedAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: GeneratedReportPdfCountOrderByAggregateInput
+    _avg?: GeneratedReportPdfAvgOrderByAggregateInput
+    _max?: GeneratedReportPdfMaxOrderByAggregateInput
+    _min?: GeneratedReportPdfMinOrderByAggregateInput
+    _sum?: GeneratedReportPdfSumOrderByAggregateInput
+  }
+
+  export type GeneratedReportPdfScalarWhereWithAggregatesInput = {
+    AND?: GeneratedReportPdfScalarWhereWithAggregatesInput | GeneratedReportPdfScalarWhereWithAggregatesInput[]
+    OR?: GeneratedReportPdfScalarWhereWithAggregatesInput[]
+    NOT?: GeneratedReportPdfScalarWhereWithAggregatesInput | GeneratedReportPdfScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"GeneratedReportPdf"> | string
+    userId?: UuidWithAggregatesFilter<"GeneratedReportPdf"> | string
+    tenantId?: StringNullableWithAggregatesFilter<"GeneratedReportPdf"> | string | null
+    counsellorId?: UuidNullableWithAggregatesFilter<"GeneratedReportPdf"> | string | null
+    language?: StringWithAggregatesFilter<"GeneratedReportPdf"> | string
+    filePath?: StringWithAggregatesFilter<"GeneratedReportPdf"> | string
+    fileName?: StringWithAggregatesFilter<"GeneratedReportPdf"> | string
+    fileSize?: IntWithAggregatesFilter<"GeneratedReportPdf"> | number
+    status?: StringWithAggregatesFilter<"GeneratedReportPdf"> | string
+    generatedAt?: DateTimeWithAggregatesFilter<"GeneratedReportPdf"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"GeneratedReportPdf"> | Date | string
   }
 
   export type AssessmentTraitCreateInput = {
@@ -10382,6 +12673,174 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type UserAssessmentStateCreateInput = {
+    id?: string
+    userId: string
+    assessmentType: $Enums.AssessmentType
+    currentQuestionIndex?: number
+    answers?: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type UserAssessmentStateUncheckedCreateInput = {
+    id?: string
+    userId: string
+    assessmentType: $Enums.AssessmentType
+    currentQuestionIndex?: number
+    answers?: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type UserAssessmentStateUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    assessmentType?: EnumAssessmentTypeFieldUpdateOperationsInput | $Enums.AssessmentType
+    currentQuestionIndex?: IntFieldUpdateOperationsInput | number
+    answers?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserAssessmentStateUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    assessmentType?: EnumAssessmentTypeFieldUpdateOperationsInput | $Enums.AssessmentType
+    currentQuestionIndex?: IntFieldUpdateOperationsInput | number
+    answers?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserAssessmentStateCreateManyInput = {
+    id?: string
+    userId: string
+    assessmentType: $Enums.AssessmentType
+    currentQuestionIndex?: number
+    answers?: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type UserAssessmentStateUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    assessmentType?: EnumAssessmentTypeFieldUpdateOperationsInput | $Enums.AssessmentType
+    currentQuestionIndex?: IntFieldUpdateOperationsInput | number
+    answers?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserAssessmentStateUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    assessmentType?: EnumAssessmentTypeFieldUpdateOperationsInput | $Enums.AssessmentType
+    currentQuestionIndex?: IntFieldUpdateOperationsInput | number
+    answers?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type GeneratedReportPdfCreateInput = {
+    id?: string
+    userId: string
+    tenantId?: string | null
+    counsellorId?: string | null
+    language?: string
+    filePath: string
+    fileName: string
+    fileSize?: number
+    status?: string
+    generatedAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type GeneratedReportPdfUncheckedCreateInput = {
+    id?: string
+    userId: string
+    tenantId?: string | null
+    counsellorId?: string | null
+    language?: string
+    filePath: string
+    fileName: string
+    fileSize?: number
+    status?: string
+    generatedAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type GeneratedReportPdfUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    tenantId?: NullableStringFieldUpdateOperationsInput | string | null
+    counsellorId?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    filePath?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    fileSize?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    generatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type GeneratedReportPdfUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    tenantId?: NullableStringFieldUpdateOperationsInput | string | null
+    counsellorId?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    filePath?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    fileSize?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    generatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type GeneratedReportPdfCreateManyInput = {
+    id?: string
+    userId: string
+    tenantId?: string | null
+    counsellorId?: string | null
+    language?: string
+    filePath: string
+    fileName: string
+    fileSize?: number
+    status?: string
+    generatedAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type GeneratedReportPdfUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    tenantId?: NullableStringFieldUpdateOperationsInput | string | null
+    counsellorId?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    filePath?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    fileSize?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    generatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type GeneratedReportPdfUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    tenantId?: NullableStringFieldUpdateOperationsInput | string | null
+    counsellorId?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    filePath?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    fileSize?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    generatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -10884,6 +13343,209 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
+  export type JsonFilter<$PrismaModel = never> = 
+    | PatchUndefined<
+        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type UserAssessmentStateUserIdAssessmentTypeCompoundUniqueInput = {
+    userId: string
+    assessmentType: $Enums.AssessmentType
+  }
+
+  export type UserAssessmentStateCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    assessmentType?: SortOrder
+    currentQuestionIndex?: SortOrder
+    answers?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type UserAssessmentStateAvgOrderByAggregateInput = {
+    currentQuestionIndex?: SortOrder
+  }
+
+  export type UserAssessmentStateMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    assessmentType?: SortOrder
+    currentQuestionIndex?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type UserAssessmentStateMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    assessmentType?: SortOrder
+    currentQuestionIndex?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type UserAssessmentStateSumOrderByAggregateInput = {
+    currentQuestionIndex?: SortOrder
+  }
+  export type JsonWithAggregatesFilter<$PrismaModel = never> = 
+    | PatchUndefined<
+        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedJsonFilter<$PrismaModel>
+    _max?: NestedJsonFilter<$PrismaModel>
+  }
+
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type UuidNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedUuidNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type GeneratedReportPdfUserIdLanguageCompoundUniqueInput = {
+    userId: string
+    language: string
+  }
+
+  export type GeneratedReportPdfCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    tenantId?: SortOrder
+    counsellorId?: SortOrder
+    language?: SortOrder
+    filePath?: SortOrder
+    fileName?: SortOrder
+    fileSize?: SortOrder
+    status?: SortOrder
+    generatedAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type GeneratedReportPdfAvgOrderByAggregateInput = {
+    fileSize?: SortOrder
+  }
+
+  export type GeneratedReportPdfMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    tenantId?: SortOrder
+    counsellorId?: SortOrder
+    language?: SortOrder
+    filePath?: SortOrder
+    fileName?: SortOrder
+    fileSize?: SortOrder
+    status?: SortOrder
+    generatedAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type GeneratedReportPdfMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    tenantId?: SortOrder
+    counsellorId?: SortOrder
+    language?: SortOrder
+    filePath?: SortOrder
+    fileName?: SortOrder
+    fileSize?: SortOrder
+    status?: SortOrder
+    generatedAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type GeneratedReportPdfSumOrderByAggregateInput = {
+    fileSize?: SortOrder
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type UuidNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedUuidNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
 
   export type QuestionCreateNestedManyWithoutTraitInput = {
     create?: XOR<QuestionCreateWithoutTraitInput, QuestionUncheckedCreateWithoutTraitInput> | QuestionCreateWithoutTraitInput[] | QuestionUncheckedCreateWithoutTraitInput[]
@@ -11145,6 +13807,10 @@ export namespace Prisma {
     set?: $Enums.AssessmentType | null
   }
 
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -11347,6 +14013,84 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedEnumAssessmentTypeNullableFilter<$PrismaModel>
     _max?: NestedEnumAssessmentTypeNullableFilter<$PrismaModel>
+  }
+  export type NestedJsonFilter<$PrismaModel = never> = 
+    | PatchUndefined<
+        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedUuidNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedUuidNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedUuidNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedUuidNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type QuestionCreateWithoutTraitInput = {
@@ -11985,6 +14729,14 @@ export namespace Prisma {
      * @deprecated Use UserAssessmentPreferenceDefaultArgs instead
      */
     export type UserAssessmentPreferenceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserAssessmentPreferenceDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use UserAssessmentStateDefaultArgs instead
+     */
+    export type UserAssessmentStateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserAssessmentStateDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use GeneratedReportPdfDefaultArgs instead
+     */
+    export type GeneratedReportPdfArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = GeneratedReportPdfDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

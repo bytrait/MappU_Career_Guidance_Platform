@@ -117,6 +117,51 @@ const bulkAssessmentStatus = async (req, res, next) => {
   }
 };
 
+const getState = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const { assessmentType } = req.query;
+    if (!assessmentType) {
+      return res.status(400).json({ success: false, message: "assessmentType query parameter is required" });
+    }
+    const state = await progressService.getAssessmentState(userId, assessmentType);
+    res.status(200).json({ success: true, data: state });
+  } catch (err) {
+    logger.error(`[UserAssessmentProgressController] Error getting assessment state: ${err.message}`);
+    next(err);
+  }
+};
+
+const saveState = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const { assessmentType, currentQuestionIndex, answers } = req.body;
+    if (!assessmentType) {
+      return res.status(400).json({ success: false, message: "assessmentType is required" });
+    }
+    const state = await progressService.saveAssessmentState(userId, {
+      assessmentType,
+      currentQuestionIndex: typeof currentQuestionIndex === "number" ? currentQuestionIndex : 0,
+      answers: answers || {},
+    });
+    res.status(200).json({ success: true, data: state });
+  } catch (err) {
+    logger.error(`[UserAssessmentProgressController] Error saving assessment state: ${err.message}`);
+    next(err);
+  }
+};
+
+const clearState = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const { assessmentType } = req.query;
+    await progressService.clearAssessmentState(userId, assessmentType);
+    res.status(200).json({ success: true, message: "Assessment state cleared successfully" });
+  } catch (err) {
+    logger.error(`[UserAssessmentProgressController] Error clearing assessment state: ${err.message}`);
+    next(err);
+  }
+};
 
 module.exports = {
   getProgress,
@@ -126,4 +171,7 @@ module.exports = {
   getUserDetailsByIdController,
   getStudentBasicDetailsForCounsellor,
   bulkAssessmentStatus,
+  getState,
+  saveState,
+  clearState,
 };

@@ -91,6 +91,69 @@ async function getBulkAssessmentStatus(userIds) {
   });
 };
 
+async function getAssessmentState(userId, assessmentType) {
+  try {
+    logger.debug(`[UserAssessmentProgressService] Fetching state for userId=${userId}, type=${assessmentType}`);
+    const state = await prisma.userAssessmentState.findUnique({
+      where: {
+        userId_assessmentType: {
+          userId,
+          assessmentType,
+        },
+      },
+    });
+    return state || { currentQuestionIndex: 0, answers: {} };
+  } catch (err) {
+    logger.error(`[UserAssessmentProgressService] Failed to fetch assessment state: ${err.message}`, { stack: err.stack });
+    throw err;
+  }
+}
+
+async function saveAssessmentState(userId, { assessmentType, currentQuestionIndex = 0, answers = {} }) {
+  try {
+    logger.debug(`[UserAssessmentProgressService] Saving state for userId=${userId}, type=${assessmentType}, index=${currentQuestionIndex}`);
+    return await prisma.userAssessmentState.upsert({
+      where: {
+        userId_assessmentType: {
+          userId,
+          assessmentType,
+        },
+      },
+      create: {
+        userId,
+        assessmentType,
+        currentQuestionIndex,
+        answers,
+      },
+      update: {
+        currentQuestionIndex,
+        answers,
+      },
+    });
+  } catch (err) {
+    logger.error(`[UserAssessmentProgressService] Failed to save assessment state: ${err.message}`, { stack: err.stack });
+    throw err;
+  }
+}
+
+async function clearAssessmentState(userId, assessmentType) {
+  try {
+    logger.debug(`[UserAssessmentProgressService] Clearing state for userId=${userId}, type=${assessmentType}`);
+    if (assessmentType) {
+      await prisma.userAssessmentState.deleteMany({
+        where: { userId, assessmentType },
+      });
+    } else {
+      await prisma.userAssessmentState.deleteMany({
+        where: { userId },
+      });
+    }
+    return { success: true };
+  } catch (err) {
+    logger.error(`[UserAssessmentProgressService] Failed to clear assessment state: ${err.message}`, { stack: err.stack });
+    throw err;
+  }
+}
 
 module.exports = {
   getProgressByUserId,
@@ -98,4 +161,7 @@ module.exports = {
   updateProgress,
   markProgressComplete,
   getBulkAssessmentStatus,
+  getAssessmentState,
+  saveAssessmentState,
+  clearAssessmentState,
 };

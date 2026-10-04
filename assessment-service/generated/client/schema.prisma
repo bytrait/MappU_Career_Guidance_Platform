@@ -114,3 +114,34 @@ model UserAssessmentPreference {
 
   @@unique([userId]) // ensure one preference per user
 }
+
+model UserAssessmentState {
+  id                   String         @id @default(uuid())
+  userId               String         @db.Uuid
+  assessmentType       AssessmentType
+  currentQuestionIndex Int            @default(0)
+  answers              Json           @default("{}")
+  createdAt            DateTime       @default(now())
+  updatedAt            DateTime       @updatedAt
+
+  @@unique([userId, assessmentType])
+  @@index([userId, assessmentType])
+}
+
+model GeneratedReportPdf {
+  id           String   @id @default(uuid())
+  userId       String   @db.Uuid
+  tenantId     String?
+  counsellorId String?  @db.Uuid
+  language     String   @default("en")
+  filePath     String
+  fileName     String
+  fileSize     Int      @default(0)
+  status       String   @default("COMPLETED")
+  generatedAt  DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@unique([userId, language])
+  @@index([userId])
+  @@index([tenantId])
+}
