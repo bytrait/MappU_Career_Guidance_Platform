@@ -113,7 +113,9 @@ const getStudentReportPdf = async (req, res, next) => {
       "Content-Type": "application/pdf",
       "Content-Disposition": `${disposition}; filename="${record.fileName}"`,
       "Content-Length": record.fileSize,
-      "Cache-Control": "public, max-age=3600",
+      "Cache-Control": "no-cache, no-store, must-revalidate",
+      "Pragma": "no-cache",
+      "Expires": "0",
     });
 
     const readStream = fs.createReadStream(record.absolutePath);
